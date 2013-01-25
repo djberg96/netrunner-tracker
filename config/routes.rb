@@ -1,4 +1,7 @@
 NetrunnerTracker::Application.routes.draw do
+  resources :runners
+
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  faction: MyString
+  identity: MyString
+  name: MyString
+
+two:
+  faction: MyString
+  identity: MyString
+  name: MyString
