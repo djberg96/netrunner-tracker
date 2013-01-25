@@ -14,4 +14,8 @@ class Runner < ActiveRecord::Base
 
   validates :name,
     :presence => true
+
+  validates_uniqueness_of :faction,
+    :scope   => :identity,
+    :message => "faction + identity must be unique"
 end
