@@ -1,0 +1,25 @@
+<%= form_for(@corporation) do |f| %>
+  <% if @corporation.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@corporation.errors.count, "error") %> prohibited this corporation from being saved:</h2>
+
+      <ul>
+      <% @corporation.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :faction %><br />
+    <%= f.text_field :faction %>
+  </div>
+  <div class="field">
+    <%= f.label :identity %><br />
+    <%= f.text_field :identity %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
