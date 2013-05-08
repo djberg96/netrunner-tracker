@@ -1,6 +1,7 @@
 # Seed data.
 
 leagues = League.create([
+  {:name => 'None'},
   {:name => 'Dark Matter Sundays', :comments => 'Dark Matter Games, Colorado'},
   {:name => 'OCTGN',               :comments => 'Online meetup group'}
 ])
