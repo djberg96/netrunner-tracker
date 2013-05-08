@@ -1,4 +1,7 @@
 NetrunnerTracker::Application.routes.draw do
+  resources :leagues
+
+
   resources :corporations
 
 

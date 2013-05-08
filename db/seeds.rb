@@ -1,5 +1,10 @@
 # Seed data.
 
+leagues = League.create([
+  {:name => 'Dark Matter Sundays', :comments => 'Dark Matter Games, Colorado'},
+  {:name => 'OCTGN',               :comments => 'Online meetup group'}
+])
+
 runners = Runner.create([
   {:faction => 'Criminal',  :identity => 'Cyborg',  :name => 'Gabriel Santiago'},
   {:faction => 'Shaper',    :identity => 'Natural', :name => "Kate 'Mac' McCaffrey"},

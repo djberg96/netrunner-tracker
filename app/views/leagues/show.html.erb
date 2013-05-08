@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @league.name %>
+</p>
+
+<p>
+  <b>Comments:</b>
+  <%= @league.comments %>
+</p>
+
+
+<%= link_to 'Edit', edit_league_path(@league) %> |
+<%= link_to 'Back', leagues_path %>
