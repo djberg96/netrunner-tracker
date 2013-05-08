@@ -5,6 +5,10 @@ leagues = League.create([
   {:name => 'OCTGN',               :comments => 'Online meetup group'}
 ])
 
+users = User.create([
+  {:userid => 'madjack', :email => 'foo@bar.com', :league_id => 1, :first_name => 'Joe', :last_name => 'Smith'},
+])
+
 runners = Runner.create([
   {:faction => 'Criminal',  :identity => 'Cyborg',  :name => 'Gabriel Santiago'},
   {:faction => 'Shaper',    :identity => 'Natural', :name => "Kate 'Mac' McCaffrey"},
