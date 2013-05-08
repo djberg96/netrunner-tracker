@@ -3,6 +3,7 @@
 <table>
   <tr>
     <th>Faction</th>
+    <th>Slogan</th>
     <th>Identity</th>
     <th></th>
     <th></th>
@@ -12,6 +13,7 @@
 <% @corporations.each do |corporation| %>
   <tr>
     <td><%= corporation.faction %></td>
+    <td><%= corporation.slogan %></td>
     <td><%= corporation.identity %></td>
     <td><%= link_to 'Show', corporation %></td>
     <td><%= link_to 'Edit', edit_corporation_path(corporation) %></td>

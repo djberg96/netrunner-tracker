@@ -7,8 +7,8 @@ runners = Runner.create([
 ])
 
 corporations = Corporation.create([
-  {:faction => 'Haas-Bioroid',       :identity => 'Megacorp'},
-  {:faction => 'Weyland Consortium', :identity => 'Megacorp'},
-  {:faction => 'Jinteki',            :identity => 'Megacorp'},
-  {:faction => 'NBN',                :identity => 'Megacorp'},
+  {:faction => 'Haas-Bioroid',       :slogan => 'Engineering the Future',  :identity => 'Megacorp'},
+  {:faction => 'Weyland Consortium', :slogan => 'Building a Better World', :identity => 'Megacorp'},
+  {:faction => 'Jinteki',            :slogan => 'Replicating Perfection',  :identity => 'Megacorp'},
+  {:faction => 'NBN',                :slogan => 'Making News',             :identity => 'Megacorp'},
 ])
