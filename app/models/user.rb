@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
   attr_accessible :email, :first_name, :last_name, :league_id, :userid
-  attr_accessible :password, :password_confirmation
+  attr_accessible :password, :password_confirmation, :admin
 
   belongs_to :league
 

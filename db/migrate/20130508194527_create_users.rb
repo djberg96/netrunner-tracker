@@ -7,6 +7,7 @@ class CreateUsers < ActiveRecord::Migration
       t.integer :league_id
       t.string :first_name
       t.string :last_name
+      t.boolean :admin, :default => false
 
       t.timestamps
     end
