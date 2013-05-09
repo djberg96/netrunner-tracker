@@ -1,0 +1,45 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Runner user:</b>
+  <%= @game.runner_user_id %>
+</p>
+
+<p>
+  <b>Corp user:</b>
+  <%= @game.corp_user_id %>
+</p>
+
+<p>
+  <b>Runner:</b>
+  <%= @game.runner_id %>
+</p>
+
+<p>
+  <b>Corp:</b>
+  <%= @game.corp_id %>
+</p>
+
+<p>
+  <b>Runner score:</b>
+  <%= @game.runner_score %>
+</p>
+
+<p>
+  <b>Corp score:</b>
+  <%= @game.corp_score %>
+</p>
+
+<p>
+  <b>Date:</b>
+  <%= @game.date %>
+</p>
+
+<p>
+  <b>Comment:</b>
+  <%= @game.comment %>
+</p>
+
+
+<%= link_to 'Edit', edit_game_path(@game) %> |
+<%= link_to 'Back', games_path %>

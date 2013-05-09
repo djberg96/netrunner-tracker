@@ -1,6 +1,8 @@
 class Corporation < ActiveRecord::Base
   attr_accessible :faction, :identity, :slogan
 
+  has_many :games
+
   validates :faction,
     :presence => true
 

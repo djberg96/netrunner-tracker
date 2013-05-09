@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  runner_user_id: 1
+  corp_user_id: 1
+  runner_id: 1
+  corp_id: 1
+  runner_score: 1
+  corp_score: 1
+  date: 2013-05-09
+  comment: MyText
+
+two:
+  runner_user_id: 1
+  corp_user_id: 1
+  runner_id: 1
+  corp_id: 1
+  runner_score: 1
+  corp_score: 1
+  date: 2013-05-09
+  comment: MyText

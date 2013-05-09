@@ -1,0 +1,49 @@
+<%= form_for(@game) do |f| %>
+  <% if @game.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@game.errors.count, "error") %> prohibited this game from being saved:</h2>
+
+      <ul>
+      <% @game.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :runner_user_id %><br />
+    <%= f.collection_select(:runner_user_id, User.all, :id, :userid) %>
+  </div>
+  <div class="field">
+    <%= f.label :corp_user_id %><br />
+    <%= f.collection_select(:corp_user_id, User.all, :id, :userid) %>
+  </div>
+  <div class="field">
+    <%= f.label :runner_id %><br />
+    <%= f.collection_select(:runner_id, Runner.all, :id, :name) %>
+  </div>
+  <div class="field">
+    <%= f.label :corp_id %><br />
+    <%= f.collection_select(:corp_id, Corporation.all, :id, :faction) %>
+  </div>
+  <div class="field">
+    <%= f.label :runner_score %><br />
+    <%= f.select(:runner_score, 0..9) %>
+  </div>
+  <div class="field">
+    <%= f.label :corp_score %><br />
+    <%= f.select(:corp_score, 0..9) %>
+  </div>
+  <div class="field">
+    <%= f.label :date %><br />
+    <%= f.date_select :date %>
+  </div>
+  <div class="field">
+    <%= f.label :comment %><br />
+    <%= f.text_area :comment, :rows => 5 %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

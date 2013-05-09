@@ -1,6 +1,8 @@
 class Runner < ActiveRecord::Base
   attr_accessible :faction, :identity, :name
 
+  has_many :games
+
   validates :faction,
     :presence  => true,
     :format    => {:with => /\A[a-zA-Z]+\z/, :message => "only letters allowed"},
