@@ -19,4 +19,28 @@ class User < ActiveRecord::Base
   def games
     games_as_runner + games_as_corporation
   end
+
+  def total_games
+    games.count
+  end
+
+  def wins_as_runner
+    games_as_runner.where("runner_score > corporation_score")
+  end
+
+  def wins_as_corporation
+    games_as_corporation.where("corporation_score > runner_score")
+  end
+
+  def total_wins_as_runner
+    wins_as_runner.count
+  end
+
+  def total_wins_as_corporation
+    wins_as_corporation.count
+  end
+
+  def total_wins
+    total_wins_as_runner + total_wins_as_corporation
+  end
 end
