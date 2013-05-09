@@ -3,12 +3,19 @@
 leagues = League.create([
   {:name => 'None',                :comments => 'Not part of a league'},
   {:name => 'Dark Matter Sundays', :comments => 'Dark Matter Games, Colorado'},
-  {:name => 'OCTGN',               :comments => 'Online meetup group'}
+  {:name => 'OCTGN',               :comments => 'Online meetup group'},
+  {:name => 'Test',                :comments => 'Test group'}
 ])
 
 users = User.create([
-  {:userid => 'madjack', :email => 'foo@bar.com',    :league_id => 2, :first_name => 'Joe', :last_name => 'Smith'},
-  {:userid => 'circus',  :email => 'circus@bar.com', :league_id => 3, :first_name => 'Jon', :last_name => 'Jones'},
+  {
+    :userid => 'djberg96', :email => 'djberg96@gmail.com', :league_id => 1,
+    :first_name => 'Daniel', :last_name => 'Berger', :password => 'asdfasdf', :admin => true
+  },
+  {
+    :userid => 'test', :email => 'test@bar.com', :league_id => 3,
+    :first_name => 'Test', :last_name => 'Jones', :password => 'asdfasdf'
+  },
 ])
 
 runners = Runner.create([
