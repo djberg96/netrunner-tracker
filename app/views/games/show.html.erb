@@ -7,17 +7,17 @@
 
 <p>
   <b>Corp user:</b>
-  <%= @game.corp_user_id %>
+  <%= @game.corporation_user_id %>
 </p>
 
 <p>
   <b>Runner:</b>
-  <%= @game.runner_id %>
+  <%= @game.runner.name %>
 </p>
 
 <p>
   <b>Corp:</b>
-  <%= @game.corp_id %>
+  <%= @game.corporation.faction %>
 </p>
 
 <p>
@@ -27,7 +27,7 @@
 
 <p>
   <b>Corp score:</b>
-  <%= @game.corp_score %>
+  <%= @game.corporation_score %>
 </p>
 
 <p>

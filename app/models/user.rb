@@ -4,6 +4,9 @@ class User < ActiveRecord::Base
 
   belongs_to :league
 
+  has_many :games_as_runner, :class_name => 'Game', :foreign_key => :runner_user_id
+  has_many :games_as_corporation, :class_name => 'Game', :foreign_key => :corporation_user_id
+
   has_secure_password
 
   validates :password,
@@ -12,4 +15,8 @@ class User < ActiveRecord::Base
       :minimum  => 6,
       :maximum  => 32
     }
+
+  def games
+    games_as_runner + games_as_corporation
+  end
 end
