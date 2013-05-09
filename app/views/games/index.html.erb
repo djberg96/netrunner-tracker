@@ -2,10 +2,10 @@
 
 <table>
   <tr>
-    <th>Runner user</th>
-    <th>Corp user</th>
     <th>Runner</th>
+    <th>Faction</th>
     <th>Corp</th>
+    <th>Faction</th>
     <th>Runner score</th>
     <th>Corp score</th>
     <th>Date</th>
@@ -17,12 +17,12 @@
 
 <% @games.each do |game| %>
   <tr>
-    <td><%= game.runner_user_id %></td>
-    <td><%= game.corp_user_id %></td>
+    <td><%= game.runner_user.userid %></td>
     <td><%= game.runner.name %></td>
-    <td><%= game.corp.faction %></td>
+    <td><%= game.corporation_user.userid %></td>
+    <td><%= game.corporation.faction %></td>
     <td><%= game.runner_score %></td>
-    <td><%= game.corp_score %></td>
+    <td><%= game.corporation_score %></td>
     <td><%= game.date %></td>
     <td><%= game.comment %></td>
     <td><%= link_to 'Show', game %></td>
