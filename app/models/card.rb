@@ -25,4 +25,8 @@ class Card < ActiveRecord::Base
     'Program',
     'Resource',
   ]
+
+  validates :title,
+    :presence   => true,
+    :uniqueness => true
 end
