@@ -1,4 +1,7 @@
 NetrunnerTracker::Application.routes.draw do
+  resources :cards
+
+
   resources :games
 
 
