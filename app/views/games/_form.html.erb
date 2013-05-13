@@ -12,6 +12,10 @@
   <% end %>
 
   <div class="field">
+    <%= f.label :league_id %><br />
+    <%= f.collection_select(:league_id, League.all, :id, :name, {:include_blank => true}) %>
+  </div>
+  <div class="field">
     <%= f.label :runner_user_id %><br />
     <%= f.collection_select(:runner_user_id, User.all, :id, :userid) %>
   </div>

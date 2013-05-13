@@ -35,7 +35,6 @@ cards = Card.create([
 ])
 
 leagues = League.create([
-  {:name => 'None',                :comments => 'Not part of a league'},
   {:name => 'Dark Matter Sundays', :comments => 'Dark Matter Games, Colorado'},
   {:name => 'OCTGN',               :comments => 'Online meetup group'},
   {:name => 'Test',                :comments => 'Test group'}
@@ -43,11 +42,11 @@ leagues = League.create([
 
 users = User.create([
   {
-    :userid => 'djberg96', :email => 'djberg96@gmail.com', :league_id => 1,
+    :userid => 'djberg96', :email => 'djberg96@gmail.com',
     :first_name => 'Daniel', :last_name => 'Berger', :password => 'asdfasdf', :admin => true
   },
   {
-    :userid => 'test', :email => 'test@bar.com', :league_id => 3,
+    :userid => 'test', :email => 'test@bar.com',
     :first_name => 'Test', :last_name => 'Jones', :password => 'asdfasdf'
   },
 ])

@@ -36,10 +36,6 @@
       <%= f.label :password_confirmation %><br />
       <%= f.password_field :password_confirmation, :size => 40 %>
     </div>
-    <div class="field">
-      <%= f.label :league %><br />
-      <%= f.collection_select(:league_id, League.all, :id, :name) %>
-    </div>
     <div class="actions">
       <%= f.submit %>
     </div>

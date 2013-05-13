@@ -30,6 +30,7 @@ ActiveRecord::Schema.define(:version => 20130512151942) do
   end
 
   create_table "games", :force => true do |t|
+    t.integer  "league_id"
     t.integer  "runner_user_id"
     t.integer  "corporation_user_id"
     t.integer  "runner_id"
@@ -61,7 +62,6 @@ ActiveRecord::Schema.define(:version => 20130512151942) do
     t.string   "userid"
     t.string   "email"
     t.string   "password_digest"
-    t.integer  "league_id"
     t.string   "first_name"
     t.string   "last_name"
     t.boolean  "admin",           :default => false

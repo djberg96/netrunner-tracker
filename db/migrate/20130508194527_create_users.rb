@@ -4,7 +4,6 @@ class CreateUsers < ActiveRecord::Migration
       t.string :userid
       t.string :email
       t.string :password_digest
-      t.integer :league_id
       t.string :first_name
       t.string :last_name
       t.boolean :admin, :default => false
