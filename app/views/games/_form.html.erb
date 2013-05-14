@@ -11,44 +11,76 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :league_id %><br />
-    <%= f.collection_select(:league_id, League.all, :id, :name, {:include_blank => true}) %>
-  </div>
-  <div class="field">
-    <%= f.label :runner_user_id, 'Runner Player' %><br />
-    <%= f.collection_select(:runner_user_id, User.all, :id, :userid) %>
-  </div>
-  <div class="field">
-    <%= f.label :corporation_user_id, 'Corporation Player' %><br />
-    <%= f.collection_select(:corporation_user_id, User.all, :id, :userid) %>
-  </div>
-  <div class="field">
-    <%= f.label :runner_id %><br />
-    <%= f.collection_select(:runner_id, @runners, :id, :faction_and_name) %>
-  </div>
-  <div class="field">
-    <%= f.label :corporation_id %><br />
-    <%= f.collection_select(:corporation_id, @corporations, :id, :faction_and_slogan) %>
-  </div>
-  <div class="field">
-    <%= f.label :scores do %>
-      <%= f.label :runner_score %><br />
-      <%= f.select(:runner_score, 0..9) %>
-  </div>
-  <div class="field">
-      <%= f.label :corporation_score %><br />
-      <%= f.select(:corporation_score, 0..9) %>
-    <% end %>
-  </div>
-  <div class="field">
-    <%= f.label :date %><br />
-    <%= f.date_select :date %>
-  </div>
-  <div class="field">
-    <%= f.label :comment %><br />
-    <%= f.text_area :comment, :rows => 5 %>
-  </div>
+  <table cellpadding=5>
+  <tr>
+    <td>
+      <div class="field">
+        <%= f.label :league_id %><br />
+        <%= f.collection_select(:league_id, League.all, :id, :name, {:include_blank => true}) %>
+      </div>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <div class="field">
+        <%= f.label :runner_user_id, 'Runner Player' %><br />
+        <%= f.collection_select(:runner_user_id, User.all, :id, :userid) %>
+      </div>
+    </td>
+    <td>
+      <div class="field">
+        <%= f.label :runner_id, 'Runner Faction' %><br />
+        <%= f.collection_select(:runner_id, @runners, :id, :faction_and_name) %>
+      </div>
+    </td>
+    <td>
+      <div class="field">
+        <%= f.label :scores do %>
+          <%= f.label :runner_score %><br />
+          <%= f.select(:runner_score, 0..9) %>
+        <% end %>
+      </div>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <div class="field">
+        <%= f.label :corporation_user_id, 'Corp Player' %><br />
+        <%= f.collection_select(:corporation_user_id, User.all, :id, :userid) %>
+      </div>
+    </td>
+    <td>
+      <div class="field">
+        <%= f.label :corporation_id, 'Corp Faction' %><br />
+        <%= f.collection_select(:corporation_id, @corporations, :id, :faction_and_slogan) %>
+      </div>
+    </td>
+    <td>
+      <div class="field">
+        <%= f.label :scores do %>
+          <%= f.label :corporation_score %><br />
+          <%= f.select(:corporation_score, 0..9) %>
+        <% end %>
+      </div>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <div class="field">
+        <%= f.label :date %><br />
+        <%= f.date_select :date %>
+      </div>
+    </td>
+  </tr>
+  <tr>
+    <td colspan=2>
+      <div class="field">
+        <%= f.label :comment %><br />
+        <%= f.text_area :comment, :rows => 5 %>
+      </div>
+    </td>
+  </table>
+
   <div class="actions">
     <%= f.submit %>
   </div>
