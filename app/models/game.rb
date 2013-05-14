@@ -14,7 +14,11 @@ class Game < ActiveRecord::Base
   # TODO: Doesn't seem to get highlighted in view, not sure why.
   validate do |game|
     if runner_score < 7 && corporation_score < 7
-      game.errors.add(:scores, "At least one player must score 7 or more points")
+      game.errors.add(:scores, "-> At least one player must score 7 or more points")
+    end
+
+    if runner_score >= 7 && corporation_score >= 7
+      game.errors.add(:scores, "-> Both players may not have 7 or more points")
     end
   end
 
