@@ -20,4 +20,10 @@ class Runner < ActiveRecord::Base
   validates_uniqueness_of :faction,
     :scope   => :name,
     :message => "faction + name must be unique"
+
+  ## Handy methods
+
+  def faction_and_name
+    faction + ' - ' + name
+  end
 end

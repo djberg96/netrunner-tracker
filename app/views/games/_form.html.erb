@@ -25,7 +25,7 @@
   </div>
   <div class="field">
     <%= f.label :runner_id %><br />
-    <%= f.collection_select(:runner_id, Runner.all, :id, :name) %>
+    <%= f.collection_select(:runner_id, @runners, :id, :faction_and_name) %>
   </div>
   <div class="field">
     <%= f.label :corporation_id %><br />
