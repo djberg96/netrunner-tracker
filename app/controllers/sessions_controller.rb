@@ -1,4 +1,6 @@
 class SessionsController < ApplicationController
+  skip_before_filter :authorize
+
   # TODO: Bug in routes? Shouldn't have to do this.
   def new
     if request.post?

@@ -10,6 +10,7 @@ NetrunnerTracker::Application.routes.draw do
     get    'login'  => :new
     post   'login'  => :create
     delete 'logout' => :destroy
+    get    'logout' => :destroy
   end
 
   resources :cards
