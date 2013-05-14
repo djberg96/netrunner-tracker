@@ -2,7 +2,7 @@ class CorporationsController < ApplicationController
   # GET /corporations
   # GET /corporations.json
   def index
-    @corporations = Corporation.all
+    @corporations = Corporation.order('faction')
 
     respond_to do |format|
       format.html # index.html.erb
