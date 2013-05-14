@@ -1,45 +1,49 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <b>Runner user:</b>
-  <%= @game.runner_user.userid %>
-</p>
-
-<p>
-  <b>Corp user:</b>
-  <%= @game.corporation_user.userid %>
-</p>
-
-<p>
-  <b>Runner:</b>
-  <%= @game.runner.name %>
-</p>
-
-<p>
-  <b>Corp:</b>
-  <%= @game.corporation.faction %>
-</p>
-
-<p>
-  <b>Runner score:</b>
-  <%= @game.runner_score %>
-</p>
-
-<p>
-  <b>Corp score:</b>
-  <%= @game.corporation_score %>
-</p>
-
-<p>
   <b>Date:</b>
   <%= @game.date %>
 </p>
 
 <p>
+  <b>WINNER: </b><%= @game.player_winner %> / <%= @game.faction_winner %>
+</p>
+
+<table border=1 cellpadding=5>
+  <tr>
+    <td>
+      <b>Runner:</b> <%= @game.runner_user.userid %>
+    </td>
+    <td>
+      <b>Corporation:</b> <%= @game.corporation_user.userid %>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <b>Faction:</b> <%= @game.runner.faction %>
+    </td>
+    <td>
+      <b>Faction:</b> <%= @game.corporation.faction %>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <b>Score:</b> <%= @game.runner_score %>
+    </td>
+    <td>
+      <b>Score:</b> <%= @game.corporation_score %>
+    </td>
+  </tr>
+</table>
+
+<% unless @game.comment.blank? %>
+<p>
   <b>Comment:</b>
   <%= @game.comment %>
 </p>
-
+<% else %>
+<p></p>
+<% end %>
 
 <%= link_to 'Edit', edit_game_path(@game) %> |
 <%= link_to 'Back', games_path %>
