@@ -19,6 +19,12 @@
         <%= f.collection_select(:league_id, League.all, :id, :name, {:include_blank => true}) %>
       </div>
     </td>
+    <td>
+      <div class="field">
+        <%= f.label :date %><br />
+        <%= f.date_select :date %>
+      </div>
+    </td>
   </tr>
   <tr>
     <td>
@@ -61,14 +67,6 @@
           <%= f.label :corporation_score %><br />
           <%= f.select(:corporation_score, 0..9) %>
         <% end %>
-      </div>
-    </td>
-  </tr>
-  <tr>
-    <td>
-      <div class="field">
-        <%= f.label :date %><br />
-        <%= f.date_select :date %>
       </div>
     </td>
   </tr>
