@@ -1,13 +1,14 @@
 NetrunnerTracker::Application.routes.draw do
   get "sessions/new"
-
   get "sessions/create"
-
   get "sessions/destroy"
 
+  # TODO: Why do I have to specify this?
+  post "sessions/new"
+
   controller :sessions do
-    get 'login' => :new
-    post 'login' => :create
+    get    'login'  => :new
+    post   'login'  => :create
     delete 'logout' => :destroy
   end
 
