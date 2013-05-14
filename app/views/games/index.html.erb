@@ -17,7 +17,7 @@
 
 <% @games.each do |game| %>
   <tr>
-    <td><%= game.runner_user.userid %></td>
+    <td><%= link_to(game.runner_user.userid, user_path(game.runner_user.id)) %></td>
     <td><%= game.runner.name %></td>
     <td><%= game.corporation_user.userid %></td>
     <td><%= game.corporation.faction %></td>
