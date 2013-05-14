@@ -12,16 +12,21 @@ class Corporation < ActiveRecord::Base
 
   validates :faction,
     :presence  => true,
-    :inclusion => {
-      :in => FACTIONS,
-      :message => 'must be ' + FACTIONS.join(', ')
-    }
+    :inclusion => {:in => FACTIONS}
 
   validates :identity,
-    :presence => true
+    :presence => true,
+    :length   => {
+      :minimum => 2,
+      :maximum => 32
+    }
 
   validates :slogan,
-    :presence => true
+    :presence => true,
+    :length   => {
+      :minimum => 2,
+      :maximum => 32
+    }
 
   validates_uniqueness_of :faction,
     :scope   => :slogan,
