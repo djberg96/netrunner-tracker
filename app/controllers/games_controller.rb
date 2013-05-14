@@ -49,6 +49,8 @@ class GamesController < ApplicationController
   # POST /games.json
   def create
     @game = Game.new(params[:game])
+    @corporations = Corporation.order(:faction, :slogan)
+    @runners = Runner.order(:faction, :name)
 
     respond_to do |format|
       if @game.save
