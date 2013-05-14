@@ -2,7 +2,12 @@
 
 <% if @user %>
   <h2>- <%= @user.userid %></h2>
+  <p><%= link_to 'List all games', games_path %></p>
 <% end %>
+
+<p>
+  <%= link_to 'Show all players', users_path %>
+</p>
 
 <table>
   <tr>
