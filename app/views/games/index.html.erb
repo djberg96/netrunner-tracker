@@ -1,5 +1,9 @@
 <h1>All Netrunner Games</h1>
 
+<% if @user %>
+  <h2>- <%= @user.userid %></h2>
+<% end %>
+
 <table>
   <tr>
     <th>Runner</th>
@@ -19,7 +23,7 @@
   <tr>
     <td><%= link_to(game.runner_user.userid, user_path(game.runner_user.id)) %></td>
     <td><%= game.runner.faction %></td>
-    <td><%= game.corporation_user.userid %></td>
+    <td><%= link_to(game.corporation_user.userid, user_path(game.corporation_user.id)) %></td>
     <td><%= game.corporation.faction %></td>
     <td><%= game.runner_score %></td>
     <td><%= game.corporation_score %></td>

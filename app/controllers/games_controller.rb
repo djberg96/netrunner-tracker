@@ -3,8 +3,8 @@ class GamesController < ApplicationController
   # GET /games.json
   def index
     if params[:user_id]
-      id = params[:user_id]
-      @games = Game.where("runner_user_id = #{id} or corporation_user_id = #{id}")
+      @user = User.find(params[:user_id])
+      @games = Game.where("runner_user_id = #{@user.id} or corporation_user_id = #{@user.id}")
     else
       @games = Game.all
     end
