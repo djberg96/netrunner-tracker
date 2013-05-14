@@ -13,7 +13,7 @@
 
   <div class="field">
     <%= f.label :faction %><br />
-    <%= f.collection_select(:faction, Corporation.order('faction'), :faction, :faction) %>
+    <%= f.select(:faction, Corporation::FACTIONS.sort) %>
   </div>
   <div class="field">
     <%= f.label :slogan %><br />

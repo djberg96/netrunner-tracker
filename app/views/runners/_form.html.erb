@@ -13,7 +13,7 @@
 
   <div class="field">
     <%= f.label :faction %><br />
-    <%= f.text_field :faction %>
+    <%= f.select(:faction, Runner::FACTIONS.sort) %>
   </div>
   <div class="field">
     <%= f.label :identity %><br />
