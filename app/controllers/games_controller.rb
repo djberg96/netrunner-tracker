@@ -31,6 +31,9 @@ class GamesController < ApplicationController
   def new
     @game = Game.new
 
+    @corporations = Corporation.order(:faction, :slogan)
+    @runners = Runner.order(:faction, :name)
+
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @game }

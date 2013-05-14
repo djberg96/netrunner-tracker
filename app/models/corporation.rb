@@ -31,4 +31,10 @@ class Corporation < ActiveRecord::Base
   validates_uniqueness_of :faction,
     :scope   => :slogan,
     :message => 'faction + slogan must be unique'
+
+  ## Handy methods
+
+  def faction_and_slogan
+    faction + ' - ' + slogan
+  end
 end
