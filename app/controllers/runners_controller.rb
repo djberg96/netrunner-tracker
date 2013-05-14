@@ -2,7 +2,7 @@ class RunnersController < ApplicationController
   # GET /runners
   # GET /runners.json
   def index
-    @runners = Runner.all
+    @runners = Runner.order(:faction, :identity, :name)
 
     respond_to do |format|
       format.html # index.html.erb
