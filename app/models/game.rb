@@ -9,6 +9,37 @@ class Game < ActiveRecord::Base
   belongs_to :corporation
   belongs_to :league
 
+  validate :runner_and_corporation_are_not_same_player
+
+  # TODO: Doesn't seem to get highlighted in view, not sure why.
+  validate do |game|
+    if runner_score < 7 && corporation_score < 7
+      game.errors.add(:scores, "At least one player must score 7 or more points")
+    end
+  end
+
+  validates :runner_score,
+    :numericality => {
+      :greater_than_or_equal_to => 0,
+      :less_than_or_equal_to    => 9
+    }
+
+  validates :corporation_score,
+    :numericality => {
+      :greater_than_or_equal_to => 0,
+      :less_than_or_equal_to    => 9
+    }
+
+  ## Custom validations
+
+  def runner_and_corporation_are_not_same_player
+    if runner_user_id == corporation_user_id
+      errors.add(:corporation_user_id, "cannot be same player as runner")
+    end
+  end
+
+  ## Handy methods
+
   def faction_winner
     if runner_score > corporation_score
       runner.faction

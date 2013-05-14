@@ -16,11 +16,11 @@
     <%= f.collection_select(:league_id, League.all, :id, :name, {:include_blank => true}) %>
   </div>
   <div class="field">
-    <%= f.label :runner_user_id %><br />
+    <%= f.label :runner_user_id, 'Runner Player' %><br />
     <%= f.collection_select(:runner_user_id, User.all, :id, :userid) %>
   </div>
   <div class="field">
-    <%= f.label :corporation_user_id %><br />
+    <%= f.label :corporation_user_id, 'Corporation Player' %><br />
     <%= f.collection_select(:corporation_user_id, User.all, :id, :userid) %>
   </div>
   <div class="field">
@@ -32,12 +32,14 @@
     <%= f.collection_select(:corporation_id, Corporation.all, :id, :faction) %>
   </div>
   <div class="field">
-    <%= f.label :runner_score %><br />
-    <%= f.select(:runner_score, 0..9) %>
+    <%= f.label :scores do %>
+      <%= f.label :runner_score %><br />
+      <%= f.select(:runner_score, 0..9) %>
   </div>
   <div class="field">
-    <%= f.label :corporation_score %><br />
-    <%= f.select(:corporation_score, 0..9) %>
+      <%= f.label :corporation_score %><br />
+      <%= f.select(:corporation_score, 0..9) %>
+    <% end %>
   </div>
   <div class="field">
     <%= f.label :date %><br />
