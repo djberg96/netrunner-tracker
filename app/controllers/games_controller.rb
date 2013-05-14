@@ -2,7 +2,12 @@ class GamesController < ApplicationController
   # GET /games
   # GET /games.json
   def index
-    @games = Game.all
+    if params[:user_id]
+      id = params[:user_id]
+      @games = Game.where("runner_user_id = #{id} or corporation_user_id = #{id}")
+    else
+      @games = Game.all
+    end
 
     respond_to do |format|
       format.html # index.html.erb
