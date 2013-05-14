@@ -4,14 +4,16 @@
   <% end %>
 </div>
 
+<h2>Netrunner Tracker</h2>
+
 <%= form_tag do %>
   <fieldset>
     <legend>Please sign in</legend>
-    <div>
+    <div id='email_login_field'>
       <%= label_tag :email, 'Email:' %>
       <%= text_field_tag :email, params[:email] %>
     </div>
-    <div>
+    <div id='password_login_field'>
       <%= label_tag :password, 'Password:' %>
       <%= password_field_tag :password, params[:password] %>
     </div>
