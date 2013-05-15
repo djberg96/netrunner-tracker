@@ -43,6 +43,8 @@ class GamesController < ApplicationController
   # GET /games/1/edit
   def edit
     @game = Game.find(params[:id])
+    @corporations = Corporation.order(:faction, :slogan)
+    @runners = Runner.order(:faction, :name)
   end
 
   # POST /games
@@ -67,6 +69,8 @@ class GamesController < ApplicationController
   # PUT /games/1.json
   def update
     @game = Game.find(params[:id])
+    @corporations = Corporation.order(:faction, :slogan)
+    @runners = Runner.order(:faction, :name)
 
     respond_to do |format|
       if @game.update_attributes(params[:game])
