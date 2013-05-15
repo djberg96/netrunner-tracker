@@ -36,4 +36,6 @@
 
 <br />
 
-<%= link_to 'New Player', new_user_path %>
+<% if current_user.admin? %>
+  <%= link_to 'New Player', new_user_path %>
+<% end %>
