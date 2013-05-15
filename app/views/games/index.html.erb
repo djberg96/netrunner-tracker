@@ -18,10 +18,10 @@
     <th>Runner score</th>
     <th>Corp score</th>
     <th>Date</th>
-    <th>Comment</th>
-    <th></th>
-    <th></th>
-    <th></th>
+    <th>
+    <% if current_user.admin? %>
+      <th></th>
+    <% end %>
   </tr>
 
 <% @games.each do |game| %>
@@ -33,14 +33,22 @@
     <td><%= game.runner_score %></td>
     <td><%= game.corporation_score %></td>
     <td><%= game.date %></td>
-    <td><%= game.comment %></td>
     <td><%= link_to 'Show', game %></td>
-    <td><%= link_to 'Edit', edit_game_path(game) %></td>
-    <td><%= link_to 'Destroy', game, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <% if current_user.admin? ||
+      current_user == game.runner_user ||
+      current_user == game.corporation_user
+    %>
+      <td><%= link_to 'Edit', edit_game_path(game) %></td>
+    <% end %>
+
+    <% if current_user.admin? %>
+      <td><%= link_to 'Destroy', game, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <% end %>
   </tr>
 <% end %>
 </table>
 
-<br />
-
-<%= link_to 'New Game', new_game_path %>
+<% if current_user.admin? %>
+  <br />
+  <%= link_to 'New Game', new_game_path %>
+<% end %>
