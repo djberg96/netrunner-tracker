@@ -15,9 +15,10 @@
     <td><%= runner.faction %></td>
     <td><%= runner.identity %></td>
     <td><%= runner.name %></td>
-    <td><%= link_to 'Show', runner %></td>
-    <td><%= link_to 'Edit', edit_runner_path(runner) %></td>
-    <td><%= link_to 'Destroy', runner, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <% if current_user.admin? %>
+      <td><%= link_to 'Edit', edit_runner_path(runner) %></td>
+      <td><%= link_to 'Destroy', runner, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <% end %>
   </tr>
 <% end %>
 </table>
@@ -26,6 +27,7 @@
 <p><%= link_to 'Players', users_path %></p>
 <p><%= link_to 'Games', games_path %></p>
 
-<br />
-
-<%= link_to 'New Runner', new_runner_path %>
+<% if current_user.admin? %>
+  <br />
+  <%= link_to 'New Runner', new_runner_path %>
+<% end %>

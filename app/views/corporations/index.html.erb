@@ -1,6 +1,6 @@
 <h1>Corporations</h1>
 
-<table>
+<table cellpadding=3 cellspacing=3>
   <tr>
     <th>Faction</th>
     <th>Slogan</th>
@@ -15,9 +15,10 @@
     <td><%= corporation.faction %></td>
     <td><%= corporation.slogan %></td>
     <td><%= corporation.identity %></td>
-    <td><%= link_to 'Show', corporation %></td>
-    <td><%= link_to 'Edit', edit_corporation_path(corporation) %></td>
-    <td><%= link_to 'Destroy', corporation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <% if current_user.admin? %>
+      <td><%= link_to 'Edit', edit_corporation_path(corporation) %></td>
+      <td><%= link_to 'Destroy', corporation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <% end %>
   </tr>
 <% end %>
 </table>
@@ -26,6 +27,7 @@
 <p><%= link_to 'Players', users_path %></p>
 <p><%= link_to 'Games', games_path %></p>
 
-<br />
-
-<%= link_to 'New Corporation', new_corporation_path %>
+<% if current_user.admin? %>
+  <br />
+  <%= link_to 'New Corporation', new_corporation_path %>
+<% end %>
