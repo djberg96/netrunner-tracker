@@ -7,7 +7,7 @@
     <%= csrf_meta_tags %>
   </head>
   <body>
-    <% unless params[:controller] == 'sessions' %>
+    <% unless ['sessions', 'registration'].include?(params[:controller]) %>
       <%= link_to 'Logout', :logout %>
     <% end %>
     <%= yield %>

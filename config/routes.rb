@@ -1,4 +1,5 @@
 NetrunnerTracker::Application.routes.draw do
+  get "registration/new"
   get "sessions/new"
   get "sessions/create"
   get "sessions/destroy"
@@ -11,6 +12,11 @@ NetrunnerTracker::Application.routes.draw do
     post   'login'  => :create
     delete 'logout' => :destroy
     get    'logout' => :destroy
+  end
+
+  controller :registration do
+    get  'register' => :new
+    post 'register' => :create
   end
 
   resources :cards
