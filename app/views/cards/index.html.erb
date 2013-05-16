@@ -1,5 +1,7 @@
 <h1>Listing cards</h1>
 
+<p><%= paginate(@cards) %></p>
+
 <table>
   <tr>
     <th>Title</th>
@@ -28,3 +30,4 @@
   <br />
   <%= link_to 'New Card', new_card_path %>
 <% end %>
+
