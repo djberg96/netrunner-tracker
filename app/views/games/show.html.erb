@@ -3,6 +3,10 @@
 <p>
   <b>Date:</b>
   <%= @game.date %>
+  <% if @game.league %>
+    <b>League:</b>
+    <%= @game.league.name %>
+  <% end %>
 </p>
 
 <p>
@@ -20,10 +24,10 @@
   </tr>
   <tr>
     <td>
-      <b>Faction:</b> <%= @game.runner.faction %>
+      <b>Faction:</b> <%= @game.runner.faction + ' - ' + @game.runner.name %>
     </td>
     <td>
-      <b>Faction:</b> <%= @game.corporation.faction %>
+      <b>Faction:</b> <%= @game.corporation.faction + ' - ' + @game.corporation.slogan %>
     </td>
   </tr>
   <tr>
@@ -45,5 +49,8 @@
 <p></p>
 <% end %>
 
-<%= link_to 'Edit', edit_game_path(@game) %> |
+<% if [@game.runner_user, @game.corporation_user].include?(current_user) || current_user.admin? %>
+  <%= link_to 'Edit', edit_game_path(@game) %>
+<% end %>
+
 <%= link_to 'Back', games_path %>
