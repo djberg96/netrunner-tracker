@@ -1,11 +1,29 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+anarch1:
+  faction: Anarch
+  identity: G-mod
+  name: Noise
 
-one:
-  faction: MyString
-  identity: MyString
-  name: MyString
+anarch2:
+  faction: Anarch
+  identity: Natural
+  name: Whizzard
 
-two:
-  faction: MyString
-  identity: MyString
-  name: MyString
+shaper1:
+  faction: Shaper
+  identity: G-mod
+  name: Chaos Theory
+
+shaper2:
+  faction: Shaper
+  identity: Natural
+  name: Kate \"Mac\" McCaffrey
+
+criminal1:
+  faction: Criminal
+  identity: Natural
+  name: Andromeda
+
+criminal2:
+  faction: Criminal
+  identity: Cyborg
+  name: Gabriel Santiago
