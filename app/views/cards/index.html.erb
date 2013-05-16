@@ -24,6 +24,7 @@
 <% end %>
 </table>
 
-<br />
-
-<%= link_to 'New Card', new_card_path %>
+<% if current_user.admin? %>
+  <br />
+  <%= link_to 'New Card', new_card_path %>
+<% end %>
