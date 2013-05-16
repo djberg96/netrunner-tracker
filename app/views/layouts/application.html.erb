@@ -8,7 +8,9 @@
   </head>
   <body>
     <% unless ['sessions', 'registration'].include?(params[:controller]) %>
-      <%= link_to 'Logout', :logout %>
+      <div id='logout'>
+        <%= link_to 'Logout', :logout %>
+      </div>
     <% end %>
     <%= yield %>
   </body>

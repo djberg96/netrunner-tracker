@@ -10,6 +10,7 @@
 
 <table>
   <tr>
+    <th>League</th>
     <th>Runner</th>
     <th>Faction</th>
     <th>Corp</th>
@@ -25,6 +26,11 @@
 
 <% @games.each do |game| %>
   <tr>
+    <% if game.league %>
+      <td><%= link_to(game.league.name, league_path(game.league.id)) %></td>
+    <% else %>
+      <td></td>
+    <% end %>
     <td><%= link_to(game.runner_user.userid, user_path(game.runner_user.id)) %></td>
     <td><%= game.runner.faction %></td>
     <td><%= link_to(game.corporation_user.userid, user_path(game.corporation_user.id)) %></td>
