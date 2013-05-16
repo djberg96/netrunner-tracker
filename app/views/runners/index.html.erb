@@ -1,33 +1,48 @@
-<h1>Runners</h1>
+<div class="block">
+  <div class="secondary-navigation">
+    <ul class="wat-cf">
+      <li class="first active"><%= link_to "#{t("web-app-theme.list", :default => "List")}", runners_path  %></li>
+      <li><%= link_to "#{t("web-app-theme.new", :default => "New")}", new_runner_path %></li>
+    </ul>
+  </div>          
+  <div class="content">          
+    <h2 class="title"><%= t("web-app-theme.all", :default => "All")  %> Runners</h2>
+    <div class="inner">
+      <table class="table">
+        <tr>             
+          <th class="first">ID</th>
+                    <th>
+            <%= t("activerecord.attributes.runner.faction", :default => t("activerecord.labels.faction", :default => "Faction")) %>
+          </th>
+                    <th><%= t("web-app-theme.created_at", :default => "Created at")  %></th>
+          <th class="last">&nbsp;</th>
+        </tr>
+        <% @runners.each do |runner| -%>
+        <tr class="<%= cycle("odd", "even") %>">
+          <td>
+            <%= runner.id %>
+          </td>
+                    <td>
+            <%= link_to runner.faction, runner_path(runner) %>
+          </td>
+                    <td>
+            <%= runner.created_at %>
+          </td>
+          <td class="last">
+            <%= link_to "#{t("web-app-theme.show", :default => "Show")}", runner_path(runner) %> |
+            <%= link_to "#{t("web-app-theme.edit", :default => "Edit")}", edit_runner_path(runner) %> |
+            <%= link_to "#{t("web-app-theme.delete", :default => "Delete")}", runner_path(runner), :method => :delete, :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}" %>
+          </td>
+        </tr>          
+        <% end -%>
+      </table>
+      <div class="actions-bar wat-cf">
+        <div class="actions">
+        </div>
+        
+      </div>
+    </div>
+  </div>
+</div>
 
-<table>
-  <tr>
-    <th>Faction</th>
-    <th>Identity</th>
-    <th>Name</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @runners.each do |runner| %>
-  <tr>
-    <td><%= runner.faction %></td>
-    <td><%= runner.identity %></td>
-    <td><%= runner.name %></td>
-    <% if current_user.admin? %>
-      <td><%= link_to 'Edit', edit_runner_path(runner) %></td>
-      <td><%= link_to 'Destroy', runner, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-    <% end %>
-  </tr>
-<% end %>
-</table>
-
-<p><%= link_to 'Corporations', corporations_path %></p>
-<p><%= link_to 'Players', users_path %></p>
-<p><%= link_to 'Games', games_path %></p>
-
-<% if current_user.admin? %>
-  <br />
-  <%= link_to 'New Runner', new_runner_path %>
-<% end %>
+<% content_for :sidebar, render(:partial => 'sidebar') -%>

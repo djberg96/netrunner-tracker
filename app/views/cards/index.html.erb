@@ -1,33 +1,50 @@
-<h1>Listing cards</h1>
+<div class="block">
+  <div class="secondary-navigation">
+    <ul class="wat-cf">
+      <li class="first active"><%= link_to "#{t("web-app-theme.list", :default => "List")}", cards_path  %></li>
+      <li><%= link_to "#{t("web-app-theme.new", :default => "New")}", new_card_path %></li>
+    </ul>
+  </div>          
+  <div class="content">          
+    <h2 class="title"><%= t("web-app-theme.all", :default => "All")  %> Cards</h2>
+    <div class="inner">
+      <table class="table">
+        <tr>             
+          <th class="first">ID</th>
+                    <th>
+            <%= t("activerecord.attributes.card.title", :default => t("activerecord.labels.title", :default => "Title")) %>
+          </th>
+                    <th><%= t("web-app-theme.created_at", :default => "Created at")  %></th>
+          <th class="last">&nbsp;</th>
+        </tr>
+        <% @cards.each do |card| -%>
+        <tr class="<%= cycle("odd", "even") %>">
+          <td>
+            <%= card.id %>
+          </td>
+                    <td>
+            <%= link_to card.title, card_path(card) %>
+          </td>
+                    <td>
+            <%= card.created_at %>
+          </td>
+          <td class="last">
+            <%= link_to "#{t("web-app-theme.show", :default => "Show")}", card_path(card) %> |
+            <%= link_to "#{t("web-app-theme.edit", :default => "Edit")}", edit_card_path(card) %> |
+            <%= link_to "#{t("web-app-theme.delete", :default => "Delete")}", card_path(card), :method => :delete, :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}" %>
+          </td>
+        </tr>          
+        <% end -%>
+      </table>
+      <div class="actions-bar wat-cf">
+        <div class="actions">
+        </div>
+        
+        <%= paginate @cards  %>
+        
+      </div>
+    </div>
+  </div>
+</div>
 
-<p><%= paginate(@cards) %></p>
-
-<table>
-  <tr>
-    <th>Title</th>
-    <th>Type</th>
-    <th>Faction</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @cards.each do |card| %>
-  <tr>
-    <td><%= card.title %></td>
-    <td><%= card.kind %></td>
-    <td><%= card.faction %></td>
-    <td><%= link_to 'Show', card %></td>
-    <% if current_user.admin? %>
-      <td><%= link_to 'Edit', edit_card_path(card) %></td>
-      <td><%= link_to 'Destroy', card, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-    <% end %>
-  </tr>
-<% end %>
-</table>
-
-<% if current_user.admin? %>
-  <br />
-  <%= link_to 'New Card', new_card_path %>
-<% end %>
-
+<% content_for :sidebar, render(:partial => 'sidebar') -%>

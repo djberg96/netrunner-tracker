@@ -1,20 +1,34 @@
-<p id="notice"><%= notice %></p>
+<div class="block">
+  <div class="secondary-navigation">
+    <ul class="wat-cf">
+      <li class="first"><%= link_to "#{t("web-app-theme.list", :default => "List")}", cards_path  %></li>
+      <li><%= link_to "#{t("web-app-theme.new", :default => "New")}", new_card_path %></li>
+      <li class="active"><%= link_to "#{t("web-app-theme.show", :default => "Show")}", card_path %></li>
+    </ul>
+  </div>          
+  <div class="content">
+    <div class="inner">
+      
+        <p>
+          <b><%= t("activerecord.attributes.card.title", :default => t("activerecord.labels.title", :default => "Title")) %>:</b>
+          <%= @card.title %>
+        </p>
 
-<p>
-  <b>Title:</b>
-  <%= @card.title %>
-</p>
+        <p>
+          <b><%= t("activerecord.attributes.card.kind", :default => t("activerecord.labels.kind", :default => "Kind")) %>:</b>
+          <%= @card.kind %>
+        </p>
 
-<p>
-  <b>Type:</b>
-  <%= @card.kind %>
-</p>
+        <p>
+          <b><%= t("activerecord.attributes.card.faction", :default => t("activerecord.labels.faction", :default => "Faction")) %>:</b>
+          <%= @card.faction %>
+        </p>
+      <div class="wat-cf">
+        <%= link_to image_tag("web-app-theme/icons/application_edit.png", :alt => "#{t("web-app-theme.edit", :default=> "Edit")}") + " " + t("web-app-theme.edit", :default=> "Edit"), edit_card_path(@card), :class => "button" %> 
+        <%= link_to image_tag("web-app-theme/icons/cross.png", :alt => "#{t("web-app-theme.delete", :default=> "Delete")}") + " " + t("web-app-theme.delete", :default => "Delete"), card_path(@card), :method => "delete", :class => "button", :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}" %>
+      </div>      
+    </div>
+  </div>
+</div>
 
-<p>
-  <b>Faction:</b>
-  <%= @card.faction %>
-</p>
-
-
-<%= link_to 'Edit', edit_card_path(@card) %> |
-<%= link_to 'Back', cards_path %>
+<% content_for :sidebar, render(:partial => 'sidebar') -%>

@@ -1,33 +1,43 @@
-<h1>Corporations</h1>
+<div class="block">
+  <div class="secondary-navigation">
+    <ul class="wat-cf">
+      <li class="first active"><%= link_to "#{t("web-app-theme.list", :default => "List")}", corporations_path  %></li>
+      <li><%= link_to "#{t("web-app-theme.new", :default => "New")}", new_corporation_path %></li>
+    </ul>
+  </div>          
+  <div class="content">          
+    <h2 class="title"><%= t("web-app-theme.all", :default => "All")  %> Corporations</h2>
+    <div class="inner">
+      <table class="table">
+        <tr>             
+          <th><%= t("activerecord.attributes.corporation.faction", :default => t("activerecord.labels.faction", :default => "Faction")) %> </th>
+          <th><%= t("activerecord.attributes.corporation.slogan", :default => t("activerecord.labels.slogan", :default => "Slogan")) %> </th>
+          <th><%= t("activerecord.attributes.corporation.identity", :default => t("activerecord.labels.identity", :default => "Identity")) %> </th>
+          <th class="last">&nbsp;</th>
+        </tr>
+        <% @corporations.each do |corporation| -%>
+        <tr class="<%= cycle("odd", "even") %>">
+          <td> <%= link_to corporation.faction, corporation_path(corporation) %> </td>
+          <td> <%= corporation.slogan %> </td>
+          <td> <%= corporation.identity %> </td>
+          <td class="last">
+            <%= link_to "#{t("web-app-theme.show", :default => "Show")}", corporation_path(corporation) %>
+            <% if current_user.admin? %>
+              | 
+              <%= link_to "#{t("web-app-theme.edit", :default => "Edit")}", edit_corporation_path(corporation) %> |
+              <%= link_to "#{t("web-app-theme.delete", :default => "Delete")}", corporation_path(corporation), :method => :delete, :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}" %>
+            <% end %>
+          </td>
+        </tr>          
+        <% end -%>
+      </table>
+      <div class="actions-bar wat-cf">
+        <div class="actions">
+        </div>
+        
+      </div>
+    </div>
+  </div>
+</div>
 
-<table cellpadding=3 cellspacing=3>
-  <tr>
-    <th>Faction</th>
-    <th>Slogan</th>
-    <th>Identity</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @corporations.each do |corporation| %>
-  <tr>
-    <td><%= corporation.faction %></td>
-    <td><%= corporation.slogan %></td>
-    <td><%= corporation.identity %></td>
-    <% if current_user.admin? %>
-      <td><%= link_to 'Edit', edit_corporation_path(corporation) %></td>
-      <td><%= link_to 'Destroy', corporation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-    <% end %>
-  </tr>
-<% end %>
-</table>
-
-<p><%= link_to 'Runners', runners_path %></p>
-<p><%= link_to 'Players', users_path %></p>
-<p><%= link_to 'Games', games_path %></p>
-
-<% if current_user.admin? %>
-  <br />
-  <%= link_to 'New Corporation', new_corporation_path %>
-<% end %>
+<% content_for :sidebar, render(:partial => 'sidebar') -%>

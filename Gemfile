@@ -13,6 +13,8 @@ group :production do
   gem 'pg'
 end
 
+gem 'web-app-theme'
+
 gem 'kaminari'
 
 # Gems used only for assets and not required
