@@ -1,17 +1,7 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
-
-one:
-  userid: MyString
-  email: MyString
-  password_digest: MyString
-  league_id: 1
-  first_name: MyString
-  last_name: MyString
-
-two:
-  userid: MyString
-  email: MyString
-  password_digest: MyString
-  league_id: 1
-  first_name: MyString
-  last_name: MyString
+dannyboy:
+  userid: dannyboy
+  email: djberg96@gmail.com
+  password_digest: <%= BCrypt::Password.create('asdfasdf') %>
+  first_name: Daniel
+  last_name: Berger
+  admin: true
