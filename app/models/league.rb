@@ -4,5 +4,10 @@ class League < ActiveRecord::Base
 
   validates :name,
     :presence   => true,
-    :uniqueness => true
+    :uniqueness => true,
+    :length => {
+      :minimum => 2,
+      :maximum => 32
+    }
+
 end
