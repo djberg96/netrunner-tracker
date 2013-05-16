@@ -27,8 +27,10 @@
     <td><%= user.total_losses %></td>
     <td><%= link_to 'Details', user %></td>
     <td\>
-    <% if current_user.admin? %>
+    <% if current_user.admin? || current_user.userid == user.userid %>
       <td><%= link_to 'Edit', edit_user_path(user) %></td>
+    <% end %>
+    <% if current_user.admin? %>
       <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
     <% end %>
   </tr>
