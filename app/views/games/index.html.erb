@@ -5,9 +5,8 @@
   <p><%= link_to 'List all games', games_path %></p>
 <% end %>
 
-<p>
-  <%= link_to 'Show all players', users_path %>
-</p>
+<p><%= link_to 'Show all players', users_path %> </p>
+<p><%= paginate(@games) %> </p>
 
 <table>
   <tr>

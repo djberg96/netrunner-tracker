@@ -6,8 +6,10 @@ class GamesController < ApplicationController
       @user = User.find(params[:user_id])
       @games = Game.where("runner_user_id = #{@user.id} or corporation_user_id = #{@user.id}")
     else
-      @games = Game.all
+      @games = Game.order(:date)
     end
+
+    @games = @games.page(params[:page]).per(15)
 
     respond_to do |format|
       format.html # index.html.erb
