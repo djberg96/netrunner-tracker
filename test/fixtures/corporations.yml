@@ -1,9 +1,29 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+jinteki1:
+  faction: Jinteki
+  slogan: Replicating Perfection
+  identity: Megacorp
 
-one:
-  faction: MyString
-  identity: MyString
+jinteki2:
+  faction: Jinteki
+  slogan: Personal Evolution
+  identity: Megacorp
 
-two:
-  faction: MyString
-  identity: MyString
+hb1:
+  faction: Haas-Bioroid
+  slogan: Engineering the Future
+  identity: Megacorp
+
+hb2:
+  faction: Haas-Bioroid
+  slogan: Stronger Together
+  identity: Megacorp
+
+nbn1:
+  faction: NBN
+  slogan: Making News
+  identity: Megacorp
+
+weyland1:
+  faction: Weyland Consortium
+  slogan: Building a Better World
+  identity: Megacorp
