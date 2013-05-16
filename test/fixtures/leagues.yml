@@ -1,9 +1,3 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
-
-one:
-  name: MyString
-  comments: MyText
-
-two:
-  name: MyString
-  comments: MyText
+dark_matter:
+  name: Dark Matter Sunday
+  comments: Sunday afternoons at Dark Matter Games in Lakewood, CO.
