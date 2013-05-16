@@ -14,12 +14,13 @@
     <td><%= league.name %></td>
     <td><%= league.comments %></td>
     <td><%= link_to 'Show', league %></td>
-    <td><%= link_to 'Edit', edit_league_path(league) %></td>
-    <td><%= link_to 'Destroy', league, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <% if current_user.admin? %>
+      <td><%= link_to 'Edit', edit_league_path(league) %></td>
+      <td><%= link_to 'Destroy', league, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <% end %>
   </tr>
 <% end %>
 </table>
 
 <br />
-
 <%= link_to 'New League', new_league_path %>
