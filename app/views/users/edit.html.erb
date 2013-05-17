@@ -2,8 +2,12 @@
   <div class="secondary-navigation">
     <ul class="wat-cf">
       <li class="first"><%= link_to "#{t("web-app-theme.list", :default => "List")}", users_path  %></li>
-      <li><%= link_to "#{t("web-app-theme.new", :default => "New")}", new_user_path %></li>
-      <li class="active"><%= link_to "#{t("web-app-theme.edit", :default => "Edit")}", edit_user_path %></li>
+      <% if current_user.admin? %>
+        <li><%= link_to "#{t("web-app-theme.new", :default => "New")}", new_user_path %></li>
+      <% end %>
+      <% if current_user.admin? || current_user == @user %>
+        <li class="active"><%= link_to "#{t("web-app-theme.edit", :default => "Edit")}", edit_user_path %></li>
+      <% end %>
     </ul>
   </div>          
   <div class="content">            
