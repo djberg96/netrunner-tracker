@@ -309,9 +309,11 @@ hr {
 
 .table tr.even:hover {
   background: BurlyWood;
+  cursor: pointer;
 }
 .table tr.odd:hover {
   background: BurlyWood;
+  cursor: pointer;
 }
 
 .form label.label {
