@@ -1,8 +1,15 @@
 <div class="block notice">
-  <h3>Games</h3>
   <div class="content">
-    <p>The Games list shows all of the games that have been played.</p>
-    <p>You can see greater detail for a game by clicking on it.</p>
+    <% case params[:action] %>
+    <% when 'index' %>
+      <h3>Games</h3>
+      <p>The Games list shows all of the games that have been played.</p>
+      <p>You can see greater detail for a game by clicking on it.</p>
+    <% when 'show' %>
+      <h3>Winner: <%= @game.player_winner %></h3>
+      <p>Here you see details for the selected game.</p>
+      <p>Games that end due to special circumstances, such as flatlining, should be noted in the comments.
+    <% end %>
     <% if @games %>
       Total Games: <%= @games.count %><br/>
       Runner Wins: <%= @games.runner_wins.count %><br/>
