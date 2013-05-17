@@ -28,6 +28,14 @@ class User < ActiveRecord::Base
       :maximum  => 32
     }
 
+  validates :first_name,
+    :allow_blank => true,
+    :length => { :maximum => 32 }
+
+  validates :last_name,
+    :allow_blank => true,
+    :length => { :maximum => 32 }
+
   def games
     games_as_runner + games_as_corporation
   end
