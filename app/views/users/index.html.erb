@@ -17,31 +17,16 @@
           <th><%= t("web-app-theme.name", :default => "Name")  %></th>
           <th><%= t("web-app-theme.wins", :default => "Wins")  %></th>
           <th><%= t("web-app-theme.losses", :default => "Losses")  %></th>
-          <th class="last">&nbsp;</th>
         </tr>
         <% @users.each do |user| -%>
-        <tr class="<%= cycle("odd", "even") %>">
+        <tr class="<%= cycle("odd", "even") %>" onclick="window.location.href='<%= user_path(user) %>'">
           <td> <%= link_to user.userid, user_path(user) %> </td>
           <td> <%= user.first_name.to_s + ' ' + user.last_name.to_s %> </td>
           <td> <%= user.total_wins %> </td>
           <td> <%= user.total_losses %> </td>
-          <td class="last">
-            <%= link_to "#{t("web-app-theme.show", :default => "Show")}", user_path(user) %>
-          <% if current_user.admin? || current_user == user %>
-            | <%= link_to "#{t("web-app-theme.edit", :default => "Edit")}", edit_user_path(user) %>
-          <% end %>
-          <% if current_user.admin? %>
-            | <%= link_to "#{t("web-app-theme.delete", :default => "Delete")}", user_path(user), :method => :delete, :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}" %>
-          <% end %>
-          </td>
         </tr>          
         <% end -%>
       </table>
-      <div class="actions-bar wat-cf">
-        <div class="actions">
-        </div>
-        
-      </div>
     </div>
   </div>
 </div>
