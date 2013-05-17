@@ -1,56 +1,48 @@
 
   <div class="group">
-    <%= f.label :league_id, t("activerecord.attributes.game.league_id", :default => "League"), :class => :label %>
-    <%= f.number_field :league_id, :class => 'number_field' %>
-    <span class="description">Ex: a simple text</span>
+    <%= f.label :league_id, t("activerecord.attributes.game.league", :default => "League"), :class => :label %>
+    <%= f.collection_select(:league_id, League.all, :id, :name, {:include_blank => true}) %>
+    <span class="description">Optional</span>
   </div>
 
   <div class="group">
     <%= f.label :runner_user_id, t("activerecord.attributes.game.runner_user_id", :default => "Runner user"), :class => :label %>
-    <%= f.number_field :runner_user_id, :class => 'number_field' %>
-    <span class="description">Ex: a simple text</span>
+    <%= f.collection_select(:runner_user_id, User.all, :id, :userid) %>
   </div>
 
   <div class="group">
     <%= f.label :corporation_user_id, t("activerecord.attributes.game.corporation_user_id", :default => "Corporation user"), :class => :label %>
-    <%= f.number_field :corporation_user_id, :class => 'number_field' %>
-    <span class="description">Ex: a simple text</span>
+    <%= f.collection_select(:corporation_user_id, User.all, :id, :userid) %>
   </div>
 
   <div class="group">
-    <%= f.label :runner_id, t("activerecord.attributes.game.runner_id", :default => "Runner"), :class => :label %>
-    <%= f.number_field :runner_id, :class => 'number_field' %>
-    <span class="description">Ex: a simple text</span>
+    <%= f.label :runner_id, t("activerecord.attributes.game.runner", :default => "Runner"), :class => :label %>
+    <%= f.collection_select(:runner_id, @runners, :id, :faction_and_name) %>
   </div>
 
   <div class="group">
-    <%= f.label :corporation_id, t("activerecord.attributes.game.corporation_id", :default => "Corporation"), :class => :label %>
-    <%= f.number_field :corporation_id, :class => 'number_field' %>
-    <span class="description">Ex: a simple text</span>
+    <%= f.label :corporation_id, t("activerecord.attributes.game.corporation", :default => "Corporation"), :class => :label %>
+    <%= f.collection_select(:corporation_id, @corporations, :id, :faction_and_slogan) %>
   </div>
 
   <div class="group">
-    <%= f.label :runner_score, t("activerecord.attributes.game.runner_score", :default => "Runner score"), :class => :label %>
-    <%= f.number_field :runner_score, :class => 'number_field' %>
-    <span class="description">Ex: a simple text</span>
-  </div>
+    <%= f.label :scores do %>
+      <%= f.label :runner_score, t("activerecord.attributes.game.runner_score", :default => "Runner score"), :class => :label %>
+      <%= f.select(:runner_score, 0..9) %>
 
-  <div class="group">
-    <%= f.label :corporation_score, t("activerecord.attributes.game.corporation_score", :default => "Corporation score"), :class => :label %>
-    <%= f.number_field :corporation_score, :class => 'number_field' %>
-    <span class="description">Ex: a simple text</span>
+      <%= f.label :corporation_score, t("activerecord.attributes.game.corporation_score", :default => "Corporation score"), :class => :label %>
+      <%= f.select(:corporation_score, 0..9) %>
+    <% end %>
   </div>
 
   <div class="group">
     <%= f.label :date, t("activerecord.attributes.game.date", :default => "Date"), :class => :label %>
     <%= f.date_select :date, :class => 'date_select' %>
-    <span class="description">Ex: a simple text</span>
   </div>
 
   <div class="group">
     <%= f.label :comment, t("activerecord.attributes.game.comment", :default => "Comment"), :class => :label %>
-    <%= f.text_area :comment, :class => 'text_area' %>
-    <span class="description">Ex: a simple text</span>
+    <%= f.text_area :comment, :class => 'text_area', :rows => 5 %>
   </div>
         
 <div class="group navform wat-cf">
