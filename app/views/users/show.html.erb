@@ -33,7 +33,7 @@
         </tr>
         <tr>
           <td><b><%= t("activerecord.attributes.user.admin", :default => t("activerecord.labels.admin", :default => "Admin")) %>:</b></td>
-          <td><%= @user.admin %></td>
+          <td><%= @user.admin? ? 'Yes' : 'No' %></td>
           <td><b>Wins as Corporation</b></td>
           <td><%= @user.total_wins_as_corporation %></td>
         </tr>
