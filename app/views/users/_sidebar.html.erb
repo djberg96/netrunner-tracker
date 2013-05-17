@@ -1,8 +1,14 @@
 <div class="block notice">
-  <h3>Players</h3>
   <div class="content">
-    <p>A list of players and their game statistics. Click on the userid to view details about that player.</p>
-    <p>You may view any profile, but may only edit your own.</p>
+    <% case params[:action] %>
+    <% when 'index' %>
+      <h3>Players</h3>
+      <p>A list of players and their game statistics. Click on the userid to view details about that player.</p>
+      <p>You may view any profile, but may only edit your own.</p>
+    <% when 'show' %>
+      <h3>Player: <%= @user.userid %></h3>
+      <p>Details for the selected player, including wins and losses.</p>
+    <% end %>
   </div>
 </div>
 <div class="block">
