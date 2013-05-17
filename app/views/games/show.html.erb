@@ -8,51 +8,45 @@
   </div>          
   <div class="content">
     <div class="inner">
-      
-        <p>
-          <b><%= t("activerecord.attributes.game.league_id", :default => t("activerecord.labels.league_id", :default => "League")) %>:</b>
-          <%= @game.league.name if @game.league %>
-        </p>
+      <table class="table"> 
+        <tr>
+          <td><b><%= t("activerecord.attributes.game.league_id", :default => t("activerecord.labels.league_id", :default => "League")) %>:</b></td>
+          <td><%= @game.league.name if @game.league %></td>
+          <td><b><%= t("activerecord.attributes.game.date", :default => t("activerecord.labels.date", :default => "Date")) %>:</b></td>
+          <td><%= @game.date %></td>
+        </tr>
 
-        <p>
-          <b><%= t("activerecord.attributes.game.runner_user", :default => t("activerecord.labels.runner_user", :default => "Runner Player")) %>:</b>
-          <%= @game.runner_user.userid %>
-        </p>
+        <tr>
+          <td><b><%= t("activerecord.attributes.game.runner_user", :default => t("activerecord.labels.runner_user", :default => "Runner")) %>:</b></td>
+          <td><%= @game.runner_user.userid %></td>
+          <td><b><%= t("activerecord.attributes.game.corporation_user", :default => t("activerecord.labels.corporation_user", :default => "Corporation")) %>:</b></td>
+          <td><%= @game.corporation_user.userid %></td>
+        </tr>
 
-        <p>
-          <b><%= t("activerecord.attributes.game.corporation_user", :default => t("activerecord.labels.corporation_user", :default => "Corporation player")) %>:</b>
-          <%= @game.corporation_user.userid %>
-        </p>
+        <tr>
+          <td><b><%= t("activerecord.attributes.game.runner.faction", :default => t("activerecord.labels.runner", :default => "Faction")) %>:</b></td>
+          <td><%= @game.runner.faction + ' - ' + @game.runner.name %></td>
+          <td><b><%= t("activerecord.attributes.game.corporation_id", :default => t("activerecord.labels.corporation_id", :default => "Faction")) %>:</b></td>
+          <td><%= @game.corporation.faction + ' - ' + @game.corporation.slogan %></td>
+        </tr>
 
-        <p>
-          <b><%= t("activerecord.attributes.game.runner.faction", :default => t("activerecord.labels.runner", :default => "Runner")) %>:</b>
-          <%= @game.runner.faction + ' - ' + @game.runner.name %>
-        </p>
+        <tr>
+          <td><b><%= t("activerecord.attributes.game.runner_score", :default => t("activerecord.labels.runner_score", :default => "Score")) %>:</b></td>
+          <td><%= @game.runner_score %></td>
+          <td><b><%= t("activerecord.attributes.game.corporation_score", :default => t("activerecord.labels.corporation_score", :default => "Score")) %>:</b></td>
+          <td><%= @game.corporation_score %></td>
+        </tr>
 
-        <p>
-          <b><%= t("activerecord.attributes.game.corporation_id", :default => t("activerecord.labels.corporation_id", :default => "Corporation")) %>:</b>
-          <%= @game.corporation.faction + ' - ' + @game.corporation.slogan %>
-        </p>
+        <tr>
+        </tr>
 
-        <p>
-          <b><%= t("activerecord.attributes.game.runner_score", :default => t("activerecord.labels.runner_score", :default => "Runner score")) %>:</b>
-          <%= @game.runner_score %>
-        </p>
 
-        <p>
-          <b><%= t("activerecord.attributes.game.corporation_score", :default => t("activerecord.labels.corporation_score", :default => "Corporation score")) %>:</b>
-          <%= @game.corporation_score %>
-        </p>
+        <tr>
+          <td><b><%= t("activerecord.attributes.game.comment", :default => t("activerecord.labels.comment", :default => "Comment")) %>:</b></td>
+          <td><%= @game.comment %></td>
+        </tr>
+      </table>
 
-        <p>
-          <b><%= t("activerecord.attributes.game.date", :default => t("activerecord.labels.date", :default => "Date")) %>:</b>
-          <%= @game.date %>
-        </p>
-
-        <p>
-          <b><%= t("activerecord.attributes.game.comment", :default => t("activerecord.labels.comment", :default => "Comment")) %>:</b>
-          <%= @game.comment %>
-        </p>
       <div class="wat-cf">
         <% if current_user.admin? || current_user == @game.runner_user || current_user == @game.corporation_user %>
           <%= link_to image_tag("web-app-theme/icons/application_edit.png", :alt => "#{t("web-app-theme.edit", :default=> "Edit")}") + " " + t("web-app-theme.edit", :default=> "Edit"), edit_game_path(@game), :class => "button" %> 
