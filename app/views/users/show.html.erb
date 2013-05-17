@@ -8,31 +8,37 @@
   </div>          
   <div class="content">
     <div class="inner">
-      
-        <p>
-          <b><%= t("activerecord.attributes.user.userid", :default => t("activerecord.labels.userid", :default => "Userid")) %>:</b>
-          <%= @user.userid %>
-        </p>
-
-        <p>
-          <b><%= t("activerecord.attributes.user.email", :default => t("activerecord.labels.email", :default => "Email")) %>:</b>
-          <%= @user.email %>
-        </p>
-
-        <p>
-          <b><%= t("activerecord.attributes.user.first_name", :default => t("activerecord.labels.first_name", :default => "First name")) %>:</b>
-          <%= @user.first_name %>
-        </p>
-
-        <p>
-          <b><%= t("activerecord.attributes.user.last_name", :default => t("activerecord.labels.last_name", :default => "Last name")) %>:</b>
-          <%= @user.last_name %>
-        </p>
-
-        <p>
-          <b><%= t("activerecord.attributes.user.admin", :default => t("activerecord.labels.admin", :default => "Admin")) %>:</b>
-          <%= @user.admin %>
-        </p>
+      <table class="table">  
+        <tr>
+          <td><b><%= t("activerecord.attributes.user.userid", :default => t("activerecord.labels.userid", :default => "Userid")) %>:</b></td>
+          <td><%= @user.userid %></td>
+          <td><b>Games</b></td>
+          <td><%= @user.total_games %></td>
+        <tr>
+          <td><b><%= t("activerecord.attributes.user.email", :default => t("activerecord.labels.email", :default => "Email")) %>:</b></td>
+          <td><%= @user.email %></td>
+          <td><b>Wins</b></td>
+          <td><%= @user.total_wins %></td>
+        </tr>
+        <tr>
+          <td><b><%= t("activerecord.attributes.user.first_name", :default => t("activerecord.labels.first_name", :default => "First name")) %>:</b></td>
+          <td><%= @user.first_name %></td>
+          <td><b>Losses</b></td>
+          <td><%= @user.total_losses %></td>
+        </tr>
+        <tr>
+          <td><b><%= t("activerecord.attributes.user.last_name", :default => t("activerecord.labels.last_name", :default => "Last name")) %>:</b></td>
+          <td><%= @user.last_name %></td>
+          <td><b>Wins as Runner</b></td>
+          <td><%= @user.total_wins_as_runner %></td>
+        </tr>
+        <tr>
+          <td><b><%= t("activerecord.attributes.user.admin", :default => t("activerecord.labels.admin", :default => "Admin")) %>:</b></td>
+          <td><%= @user.admin %></td>
+          <td><b>Wins as Corporation</b></td>
+          <td><%= @user.total_wins_as_corporation %></td>
+        </tr>
+      </table>
       <div class="wat-cf">
         <% if current_user.admin? || current_user == @user %>
           <%= link_to image_tag("web-app-theme/icons/application_edit.png", :alt => "#{t("web-app-theme.edit", :default=> "Edit")}") + " " + t("web-app-theme.edit", :default=> "Edit"), edit_user_path(@user), :class => "button" %>
