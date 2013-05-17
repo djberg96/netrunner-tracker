@@ -5,6 +5,9 @@ class GamesController < ApplicationController
     if params[:user_id]
       @user = User.find(params[:user_id])
       @games = Game.where("runner_user_id = #{@user.id} or corporation_user_id = #{@user.id}")
+    elsif params[:league_id]
+      @league = League.find(params[:league_id])
+      @games = Game.where("league_id = #{@league.id}")
     else
       @games = Game.order(:date)
     end
