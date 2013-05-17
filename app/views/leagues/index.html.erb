@@ -15,7 +15,7 @@
           <th><%= t("activerecord.attributes.league.created_at", :default => t("activerecord.labels.created_at", :default => "Created")) %></th>
         </tr>
         <% @leagues.each do |league| -%>
-        <tr class="<%= cycle("odd", "even") %>">
+        <tr class="<%= cycle("odd", "even") %>" onclick="window.location.href='<%= league_path(league) %>'">
           <td><%= league.name %> </td>
           <td><%= league.comments %> </td>
           <td><%= league.created_at %></td>
