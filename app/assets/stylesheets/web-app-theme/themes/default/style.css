@@ -307,6 +307,13 @@ hr {
   background: #f8f8f8;
 }
 
+.table tr.even:hover {
+  background: BurlyWood;
+}
+.table tr.odd:hover {
+  background: BurlyWood;
+}
+
 .form label.label {
   font-family: "MuseoSans500", helvetica, arial, sans-serif;
   font-weight: normal;

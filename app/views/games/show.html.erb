@@ -1,56 +1,64 @@
-<p id="notice"><%= notice %></p>
+<div class="block">
+  <div class="secondary-navigation">
+    <ul class="wat-cf">
+      <li class="first"><%= link_to "#{t("web-app-theme.list", :default => "List")}", games_path  %></li>
+      <li><%= link_to "#{t("web-app-theme.new", :default => "New")}", new_game_path %></li>
+      <li class="active"><%= link_to "#{t("web-app-theme.show", :default => "Show")}", game_path %></li>
+    </ul>
+  </div>          
+  <div class="content">
+    <div class="inner">
+      
+        <p>
+          <b><%= t("activerecord.attributes.game.league_id", :default => t("activerecord.labels.league_id", :default => "League")) %>:</b>
+          <%= @game.league_id %>
+        </p>
 
-<p>
-  <b>Date:</b>
-  <%= @game.date %>
-  <% if @game.league %>
-    <b>League:</b>
-    <%= @game.league.name %>
-  <% end %>
-</p>
+        <p>
+          <b><%= t("activerecord.attributes.game.runner_user_id", :default => t("activerecord.labels.runner_user_id", :default => "Runner user")) %>:</b>
+          <%= @game.runner_user_id %>
+        </p>
 
-<p>
-  <b>WINNER: </b><%= @game.player_winner %> / <%= @game.faction_winner %>
-</p>
+        <p>
+          <b><%= t("activerecord.attributes.game.corporation_user_id", :default => t("activerecord.labels.corporation_user_id", :default => "Corporation user")) %>:</b>
+          <%= @game.corporation_user_id %>
+        </p>
 
-<table border=1 cellpadding=5>
-  <tr>
-    <td>
-      <b>Runner:</b> <%= @game.runner_user.userid %>
-    </td>
-    <td>
-      <b>Corporation:</b> <%= @game.corporation_user.userid %>
-    </td>
-  </tr>
-  <tr>
-    <td>
-      <b>Faction:</b> <%= @game.runner.faction + ' - ' + @game.runner.name %>
-    </td>
-    <td>
-      <b>Faction:</b> <%= @game.corporation.faction + ' - ' + @game.corporation.slogan %>
-    </td>
-  </tr>
-  <tr>
-    <td>
-      <b>Score:</b> <%= @game.runner_score %>
-    </td>
-    <td>
-      <b>Score:</b> <%= @game.corporation_score %>
-    </td>
-  </tr>
-</table>
+        <p>
+          <b><%= t("activerecord.attributes.game.runner_id", :default => t("activerecord.labels.runner_id", :default => "Runner")) %>:</b>
+          <%= @game.runner_id %>
+        </p>
 
-<% unless @game.comment.blank? %>
-<p>
-  <b>Comment:</b>
-  <%= @game.comment %>
-</p>
-<% else %>
-<p></p>
-<% end %>
+        <p>
+          <b><%= t("activerecord.attributes.game.corporation_id", :default => t("activerecord.labels.corporation_id", :default => "Corporation")) %>:</b>
+          <%= @game.corporation_id %>
+        </p>
 
-<% if [@game.runner_user, @game.corporation_user].include?(current_user) || current_user.admin? %>
-  <%= link_to 'Edit', edit_game_path(@game) %>
-<% end %>
+        <p>
+          <b><%= t("activerecord.attributes.game.runner_score", :default => t("activerecord.labels.runner_score", :default => "Runner score")) %>:</b>
+          <%= @game.runner_score %>
+        </p>
 
-<%= link_to 'Back', games_path %>
+        <p>
+          <b><%= t("activerecord.attributes.game.corporation_score", :default => t("activerecord.labels.corporation_score", :default => "Corporation score")) %>:</b>
+          <%= @game.corporation_score %>
+        </p>
+
+        <p>
+          <b><%= t("activerecord.attributes.game.date", :default => t("activerecord.labels.date", :default => "Date")) %>:</b>
+          <%= @game.date %>
+        </p>
+
+        <p>
+          <b><%= t("activerecord.attributes.game.comment", :default => t("activerecord.labels.comment", :default => "Comment")) %>:</b>
+          <%= @game.comment %>
+        </p>
+      <div class="wat-cf">
+        <%= link_to image_tag("web-app-theme/icons/application_edit.png", :alt => "#{t("web-app-theme.edit", :default=> "Edit")}") + " " + t("web-app-theme.edit", :default=> "Edit"), edit_game_path(@game), :class => "button" %> 
+        <%= link_to image_tag("web-app-theme/icons/cross.png", :alt => "#{t("web-app-theme.delete", :default=> "Delete")}") + " " + t("web-app-theme.delete", :default => "Delete"), game_path(@game), :method => "delete", :class => "button", :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}" %>
+      </div>      
+    </div>
+  </div>
+</div>
+
+<% content_for :sidebar, render(:partial => 'sidebar') -%>

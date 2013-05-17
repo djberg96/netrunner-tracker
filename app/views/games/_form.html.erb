@@ -1,85 +1,62 @@
-<%= form_for(@game) do |f| %>
-  <% if @game.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@game.errors.count, "error") %> prohibited this game from being saved:</h2>
 
-      <ul>
-      <% @game.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <table cellpadding=5>
-  <tr>
-    <td>
-      <div class="field">
-        <%= f.label :league_id %><br />
-        <%= f.collection_select(:league_id, League.all, :id, :name, {:include_blank => true}) %>
-      </div>
-    </td>
-    <td>
-      <div class="field">
-        <%= f.label :date %><br />
-        <%= f.date_select :date %>
-      </div>
-    </td>
-  </tr>
-  <tr>
-    <td>
-      <div class="field">
-        <%= f.label :runner_user_id, 'Runner Player' %><br />
-        <%= f.collection_select(:runner_user_id, User.all, :id, :userid) %>
-      </div>
-    </td>
-    <td>
-      <div class="field">
-        <%= f.label :runner_id, 'Runner Faction' %><br />
-        <%= f.collection_select(:runner_id, @runners, :id, :faction_and_name) %>
-      </div>
-    </td>
-    <td>
-      <div class="field">
-        <%= f.label :scores do %>
-          <%= f.label :runner_score %><br />
-          <%= f.select(:runner_score, 0..9) %>
-        <% end %>
-      </div>
-    </td>
-  </tr>
-  <tr>
-    <td>
-      <div class="field">
-        <%= f.label :corporation_user_id, 'Corp Player' %><br />
-        <%= f.collection_select(:corporation_user_id, User.all, :id, :userid) %>
-      </div>
-    </td>
-    <td>
-      <div class="field">
-        <%= f.label :corporation_id, 'Corp Faction' %><br />
-        <%= f.collection_select(:corporation_id, @corporations, :id, :faction_and_slogan) %>
-      </div>
-    </td>
-    <td>
-      <div class="field">
-        <%= f.label :scores do %>
-          <%= f.label :corporation_score %><br />
-          <%= f.select(:corporation_score, 0..9) %>
-        <% end %>
-      </div>
-    </td>
-  </tr>
-  <tr>
-    <td colspan=2>
-      <div class="field">
-        <%= f.label :comment %><br />
-        <%= f.text_area :comment, :rows => 5 %>
-      </div>
-    </td>
-  </table>
-
-  <div class="actions">
-    <%= f.submit %>
+  <div class="group">
+    <%= f.label :league_id, t("activerecord.attributes.game.league_id", :default => "League"), :class => :label %>
+    <%= f.number_field :league_id, :class => 'number_field' %>
+    <span class="description">Ex: a simple text</span>
   </div>
-<% end %>
+
+  <div class="group">
+    <%= f.label :runner_user_id, t("activerecord.attributes.game.runner_user_id", :default => "Runner user"), :class => :label %>
+    <%= f.number_field :runner_user_id, :class => 'number_field' %>
+    <span class="description">Ex: a simple text</span>
+  </div>
+
+  <div class="group">
+    <%= f.label :corporation_user_id, t("activerecord.attributes.game.corporation_user_id", :default => "Corporation user"), :class => :label %>
+    <%= f.number_field :corporation_user_id, :class => 'number_field' %>
+    <span class="description">Ex: a simple text</span>
+  </div>
+
+  <div class="group">
+    <%= f.label :runner_id, t("activerecord.attributes.game.runner_id", :default => "Runner"), :class => :label %>
+    <%= f.number_field :runner_id, :class => 'number_field' %>
+    <span class="description">Ex: a simple text</span>
+  </div>
+
+  <div class="group">
+    <%= f.label :corporation_id, t("activerecord.attributes.game.corporation_id", :default => "Corporation"), :class => :label %>
+    <%= f.number_field :corporation_id, :class => 'number_field' %>
+    <span class="description">Ex: a simple text</span>
+  </div>
+
+  <div class="group">
+    <%= f.label :runner_score, t("activerecord.attributes.game.runner_score", :default => "Runner score"), :class => :label %>
+    <%= f.number_field :runner_score, :class => 'number_field' %>
+    <span class="description">Ex: a simple text</span>
+  </div>
+
+  <div class="group">
+    <%= f.label :corporation_score, t("activerecord.attributes.game.corporation_score", :default => "Corporation score"), :class => :label %>
+    <%= f.number_field :corporation_score, :class => 'number_field' %>
+    <span class="description">Ex: a simple text</span>
+  </div>
+
+  <div class="group">
+    <%= f.label :date, t("activerecord.attributes.game.date", :default => "Date"), :class => :label %>
+    <%= f.date_select :date, :class => 'date_select' %>
+    <span class="description">Ex: a simple text</span>
+  </div>
+
+  <div class="group">
+    <%= f.label :comment, t("activerecord.attributes.game.comment", :default => "Comment"), :class => :label %>
+    <%= f.text_area :comment, :class => 'text_area' %>
+    <span class="description">Ex: a simple text</span>
+  </div>
+        
+<div class="group navform wat-cf">
+  <button class="button" type="submit">
+    <%= image_tag("web-app-theme/icons/tick.png", :alt => "#{t("web-app-theme.save", :default => "Save")}") %> <%= t("web-app-theme.save", :default => "Save") %>
+  </button>
+  <span class="text_button_padding"><%= t("web-app-theme.or", :default => "or") %></span>
+	<%= link_to t("web-app-theme.cancel", :default => "Cancel"), games_path, :class => "text_button_padding link_button" %>
+</div>

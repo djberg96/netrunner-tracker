@@ -1,59 +1,35 @@
-<h1>All Netrunner Games</h1>
+<div class="block">
+  <div class="secondary-navigation">
+    <ul class="wat-cf">
+      <li class="first active"><%= link_to "#{t("web-app-theme.list", :default => "List")}", games_path  %></li>
+      <li><%= link_to "#{t("web-app-theme.new", :default => "New")}", new_game_path %></li>
+    </ul>
+  </div>          
+  <div class="content">          
+    <h2 class="title"><%= t("web-app-theme.all", :default => "All")  %> Games</h2>
+    <div class="inner">
+      <table class="table">
+        <tr>             
+          <th><%= t("activerecord.attributes.game.league.name", :default => t("activerecord.labels.league", :default => "League")) %> </th>
+          <th><%= t("activerecord.attributes.game.runner_user", :default => t("activerecord.labels.league", :default => "Runner")) %> </th>
+          <th><%= t("activerecord.attributes.game.runner_score", :default => t("activerecord.labels.league", :default => "Score")) %> </th>
+          <th><%= t("activerecord.attributes.game.corporation_user", :default => t("activerecord.labels.league", :default => "Corp")) %> </th>
+          <th><%= t("activerecord.attributes.game.corporation_score", :default => t("activerecord.labels.league", :default => "Score")) %> </th>
+          <th><%= t("activerecord.attributes.game.date", :default => t("activerecord.labels.league", :default => "Date")) %> </th>
+        </tr>
+        <% @games.each do |game| -%>
+          <tr class="<%= cycle("odd", "even") %>" onclick="window.location.href = '<%= game_path(game) %>'">
+          <td><%= game.league.name if game.league %></td>
+          <td><%= link_to game.runner_user.userid %></td>
+          <td><%= game.runner_score %></td>
+          <td><%= link_to game.corporation_user.userid %></td>
+          <td><%= game.corporation_score %></td>
+          <td><%= game.date.strftime("%d-%b-%Y") %></td>
+        </tr>          
+        <% end -%>
+      </table>
+    </div>
+  </div>
+</div>
 
-<% if @user %>
-  <h2>- <%= @user.userid %></h2>
-  <p><%= link_to 'List all games', games_path %></p>
-<% end %>
-
-<p><%= link_to 'Players', users_path %> </p>
-<p><%= paginate(@games) %> </p>
-
-<table>
-  <tr>
-    <th>League</th>
-    <th>Runner</th>
-    <th>Faction</th>
-    <th>Corp</th>
-    <th>Faction</th>
-    <th>Runner score</th>
-    <th>Corp score</th>
-    <th>Date</th>
-    <th>
-    <% if current_user.admin? %>
-      <th></th>
-    <% end %>
-  </tr>
-
-<% @games.each do |game| %>
-  <tr>
-    <% if game.league %>
-      <td><%= link_to(game.league.name, league_path(game.league.id)) %></td>
-    <% else %>
-      <td></td>
-    <% end %>
-    <td><%= link_to(game.runner_user.userid, user_path(game.runner_user.id)) %></td>
-    <td><%= game.runner.faction %></td>
-    <td><%= link_to(game.corporation_user.userid, user_path(game.corporation_user.id)) %></td>
-    <td><%= game.corporation.faction %></td>
-    <td><%= game.runner_score %></td>
-    <td><%= game.corporation_score %></td>
-    <td><%= game.date %></td>
-    <td><%= link_to 'Show', game %></td>
-    <% if current_user.admin? ||
-      current_user == game.runner_user ||
-      current_user == game.corporation_user
-    %>
-      <td><%= link_to 'Edit', edit_game_path(game) %></td>
-    <% end %>
-
-    <% if current_user.admin? %>
-      <td><%= link_to 'Destroy', game, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-    <% end %>
-  </tr>
-<% end %>
-</table>
-
-<% if current_user.admin? %>
-  <br />
-  <%= link_to 'New Game', new_game_path %>
-<% end %>
+<% content_for :sidebar, render(:partial => 'sidebar') -%>
