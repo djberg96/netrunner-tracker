@@ -20,7 +20,7 @@
         </tr>
         <% @users.each do |user| -%>
         <tr class="<%= cycle("odd", "even") %>" onclick="window.location.href='<%= user_path(user) %>'">
-          <td> <%= link_to user.userid, user_path(user) %> </td>
+          <td> <%= user.userid %> </td>
           <td> <%= user.first_name.to_s + ' ' + user.last_name.to_s %> </td>
           <td> <%= user.total_wins %> </td>
           <td> <%= user.total_losses %> </td>
