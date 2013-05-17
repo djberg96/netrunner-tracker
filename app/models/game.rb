@@ -59,4 +59,7 @@ class Game < ActiveRecord::Base
       corporation_user.userid
     end
   end
+
+  scope :runner_wins, where('runner_score > corporation_score')
+  scope :corporation_wins, where('runner_score < corporation_score')
 end

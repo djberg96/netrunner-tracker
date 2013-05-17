@@ -1,13 +1,17 @@
 <div class="block notice">
-  <h3>Simple Block</h3>
+  <h3>Games</h3>
   <div class="content">
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+    <p>The Games list shows all of the games that have been played.</p>
+    <p>You can see greater detail for a game by clicking on it.</p>
+    Total Games: <%= @games.count %><br/>
+    Runner Wins: <%= @games.runner_wins.count %><br/>
+    Corporation Wins: <%= @games.corporation_wins.count %><br/>
   </div>
 </div>
 <div class="block">
   <h3>Links</h3>
   <ul class="navigation">
-    <li><a href="#">Link 1</a></li>
-    <li><a href="#">Link 2</a></li>
+    <li><%= link_to 'Players', users_path %></li>
+    <li><%= link_to 'Leagues', leagues_path %></li>
   </ul>
 </div>
