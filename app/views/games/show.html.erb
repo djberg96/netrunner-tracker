@@ -11,27 +11,27 @@
       
         <p>
           <b><%= t("activerecord.attributes.game.league_id", :default => t("activerecord.labels.league_id", :default => "League")) %>:</b>
-          <%= @game.league_id %>
+          <%= @game.league.name if @game.league %>
         </p>
 
         <p>
-          <b><%= t("activerecord.attributes.game.runner_user_id", :default => t("activerecord.labels.runner_user_id", :default => "Runner user")) %>:</b>
-          <%= @game.runner_user_id %>
+          <b><%= t("activerecord.attributes.game.runner_user", :default => t("activerecord.labels.runner_user", :default => "Runner Player")) %>:</b>
+          <%= @game.runner_user.userid %>
         </p>
 
         <p>
-          <b><%= t("activerecord.attributes.game.corporation_user_id", :default => t("activerecord.labels.corporation_user_id", :default => "Corporation user")) %>:</b>
-          <%= @game.corporation_user_id %>
+          <b><%= t("activerecord.attributes.game.corporation_user", :default => t("activerecord.labels.corporation_user", :default => "Corporation player")) %>:</b>
+          <%= @game.corporation_user.userid %>
         </p>
 
         <p>
-          <b><%= t("activerecord.attributes.game.runner_id", :default => t("activerecord.labels.runner_id", :default => "Runner")) %>:</b>
-          <%= @game.runner_id %>
+          <b><%= t("activerecord.attributes.game.runner.faction", :default => t("activerecord.labels.runner", :default => "Runner")) %>:</b>
+          <%= @game.runner.faction + ' - ' + @game.runner.name %>
         </p>
 
         <p>
           <b><%= t("activerecord.attributes.game.corporation_id", :default => t("activerecord.labels.corporation_id", :default => "Corporation")) %>:</b>
-          <%= @game.corporation_id %>
+          <%= @game.corporation.faction + ' - ' + @game.corporation.slogan %>
         </p>
 
         <p>
@@ -54,8 +54,12 @@
           <%= @game.comment %>
         </p>
       <div class="wat-cf">
-        <%= link_to image_tag("web-app-theme/icons/application_edit.png", :alt => "#{t("web-app-theme.edit", :default=> "Edit")}") + " " + t("web-app-theme.edit", :default=> "Edit"), edit_game_path(@game), :class => "button" %> 
-        <%= link_to image_tag("web-app-theme/icons/cross.png", :alt => "#{t("web-app-theme.delete", :default=> "Delete")}") + " " + t("web-app-theme.delete", :default => "Delete"), game_path(@game), :method => "delete", :class => "button", :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}" %>
+        <% if current_user.admin? || current_user == @game.runner_user || current_user == @game.corporation_user %>
+          <%= link_to image_tag("web-app-theme/icons/application_edit.png", :alt => "#{t("web-app-theme.edit", :default=> "Edit")}") + " " + t("web-app-theme.edit", :default=> "Edit"), edit_game_path(@game), :class => "button" %> 
+        <% end %>
+        <% if current_user.admin? %>
+          <%= link_to image_tag("web-app-theme/icons/cross.png", :alt => "#{t("web-app-theme.delete", :default=> "Delete")}") + " " + t("web-app-theme.delete", :default => "Delete"), game_path(@game), :method => "delete", :class => "button", :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}" %>
+        <% end %>
       </div>      
     </div>
   </div>
