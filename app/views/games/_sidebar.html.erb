@@ -3,9 +3,11 @@
   <div class="content">
     <p>The Games list shows all of the games that have been played.</p>
     <p>You can see greater detail for a game by clicking on it.</p>
-    Total Games: <%= @games.count %><br/>
-    Runner Wins: <%= @games.runner_wins.count %><br/>
-    Corporation Wins: <%= @games.corporation_wins.count %><br/>
+    <% if @games %>
+      Total Games: <%= @games.count %><br/>
+      Runner Wins: <%= @games.runner_wins.count %><br/>
+      Corporation Wins: <%= @games.corporation_wins.count %><br/>
+    <% end %>
   </div>
 </div>
 <div class="block">
