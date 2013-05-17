@@ -9,10 +9,10 @@ class GamesController < ApplicationController
       @league = League.find(params[:league_id])
       @games = Game.where("league_id = #{@league.id}")
     else
-      @games = Game.order(:date)
+      @games = Game
     end
 
-    @games = @games.page(params[:page]).per(15)
+    @games = @games.order('date desc').page(params[:page]).per(15)
 
     respond_to do |format|
       format.html # index.html.erb
