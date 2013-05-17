@@ -1,44 +1,47 @@
-<h1>Players</h1>
+<div class="block">
+  <div class="secondary-navigation">
+    <ul class="wat-cf">
+      <li class="first active"><%= link_to "#{t("web-app-theme.list", :default => "List")}", users_path  %></li>
+      <li><%= link_to "#{t("web-app-theme.new", :default => "New")}", new_user_path %></li>
+    </ul>
+  </div>          
+  <div class="content">          
+    <h2 class="title"><%= t("web-app-theme.all", :default => "All")  %> Users</h2>
+    <div class="inner">
+      <table class="table">
+        <tr>             
+          <th> <%= t("activerecord.attributes.user.userid", :default => t("activerecord.labels.userid", :default => "Userid")) %>
+          </th>
+          <th><%= t("web-app-theme.name", :default => "Name")  %></th>
+          <th><%= t("web-app-theme.wins", :default => "Wins")  %></th>
+          <th><%= t("web-app-theme.losses", :default => "Losses")  %></th>
+          <th class="last">&nbsp;</th>
+        </tr>
+        <% @users.each do |user| -%>
+        <tr class="<%= cycle("odd", "even") %>">
+          <td> <%= link_to user.userid, user_path(user) %> </td>
+          <td> <%= user.first_name.to_s + ' ' + user.last_name.to_s %> </td>
+          <td> <%= user.total_wins %> </td>
+          <td> <%= user.total_losses %> </td>
+          <td class="last">
+            <%= link_to "#{t("web-app-theme.show", :default => "Show")}", user_path(user) %>
+          <% if current_user.admin? || current_user == user %>
+            | <%= link_to "#{t("web-app-theme.edit", :default => "Edit")}", edit_user_path(user) %>
+          <% end %>
+          <% if current_user.admin? %>
+            | <%= link_to "#{t("web-app-theme.delete", :default => "Delete")}", user_path(user), :method => :delete, :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}" %>
+          <% end %>
+          </td>
+        </tr>          
+        <% end -%>
+      </table>
+      <div class="actions-bar wat-cf">
+        <div class="actions">
+        </div>
+        
+      </div>
+    </div>
+  </div>
+</div>
 
-<p><%= link_to 'Games', games_path %></p>
-
-<p><%= paginate(@users) %></p>
-
-<table>
-  <tr>
-    <th>Userid</th>
-    <th>Email</th>
-    <th>First name</th>
-    <th>Last name</th>
-    <th>Wins</th>
-    <th>Losses</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @users.each do |user| %>
-  <tr>
-    <td><%= link_to(user.userid, user_path(user.id)) %></td>
-    <td><%= user.email %></td>
-    <td><%= user.first_name %></td>
-    <td><%= user.last_name %></td>
-    <td><%= user.total_wins %></td>
-    <td><%= user.total_losses %></td>
-    <td><%= link_to 'Details', user %></td>
-    <td\>
-    <% if current_user.admin? || current_user.userid == user.userid %>
-      <td><%= link_to 'Edit', edit_user_path(user) %></td>
-    <% end %>
-    <% if current_user.admin? %>
-      <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-    <% end %>
-  </tr>
-<% end %>
-</table>
-
-<br />
-
-<% if current_user.admin? %>
-  <%= link_to 'New Player', new_user_path %>
-<% end %>
+<% content_for :sidebar, render(:partial => 'sidebar') -%>

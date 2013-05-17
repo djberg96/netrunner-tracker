@@ -1,65 +1,49 @@
-<p id="notice"><%= notice %></p>
+<div class="block">
+  <div class="secondary-navigation">
+    <ul class="wat-cf">
+      <li class="first"><%= link_to "#{t("web-app-theme.list", :default => "List")}", users_path  %></li>
+      <li><%= link_to "#{t("web-app-theme.new", :default => "New")}", new_user_path %></li>
+      <li class="active"><%= link_to "#{t("web-app-theme.show", :default => "Show")}", user_path %></li>
+    </ul>
+  </div>          
+  <div class="content">
+    <div class="inner">
+      
+        <p>
+          <b><%= t("activerecord.attributes.user.userid", :default => t("activerecord.labels.userid", :default => "Userid")) %>:</b>
+          <%= @user.userid %>
+        </p>
 
-<h2>User Information: <%= @user.userid %></h2>
-<p\>
+        <p>
+          <b><%= t("activerecord.attributes.user.email", :default => t("activerecord.labels.email", :default => "Email")) %>:</b>
+          <%= @user.email %>
+        </p>
 
-<table border=1 cellpadding=5>
-  <tr>
-    <td>
-      <b>Userid:</b>
-      <%= @user.userid %>
-    </td>
-    <td>
-      <b>Games:</b>
-      <%= @user.total_games %>
-    </td>
-  </tr>
-  <tr>
-    <td><b>Rank: </b>TBD</td>
-    <td>
-      <b>Wins:</b>
-      <%= @user.total_wins %>
-    </td>
-  </tr>
-  <tr>
-    <td>
-      <b>Email:</b>
-      <%= @user.email %>
-    </td>
-    <td>
-      <b>Losses:</b>
-      <%= @user.total_losses %>
-    </td>
-  </tr>
-    <td>
-      <b>First name:</b>
-      <%= @user.first_name %>
-    </td>
-    <td>
-      <b>Wins as Runner:</b>
-      <%= @user.total_wins_as_runner %>
-    </td>
-  </tr>
-  <tr>
-    <td>
-      <b>Last name:</b>
-      <%= @user.last_name %>
-    </td>
-    <td>
-      <b>Wins as Corporation:</b>
-      <%= @user.total_wins_as_corporation %>
-    </td>
-  </tr>
-</table>
+        <p>
+          <b><%= t("activerecord.attributes.user.password_digest", :default => t("activerecord.labels.password_digest", :default => "Password digest")) %>:</b>
+          <%= @user.password_digest %>
+        </p>
 
-<p>
-  <%= link_to "All games of #{@user.userid}", user_games_path(@user) %>
-</p>
+        <p>
+          <b><%= t("activerecord.attributes.user.first_name", :default => t("activerecord.labels.first_name", :default => "First name")) %>:</b>
+          <%= @user.first_name %>
+        </p>
 
-<p>
-<% if current_user == @user || current_user.admin? %>
-  <%= link_to 'Edit', edit_user_path(@user) %> |
-<% end %>
+        <p>
+          <b><%= t("activerecord.attributes.user.last_name", :default => t("activerecord.labels.last_name", :default => "Last name")) %>:</b>
+          <%= @user.last_name %>
+        </p>
 
-<%= link_to 'Back', users_path %>
-</p>
+        <p>
+          <b><%= t("activerecord.attributes.user.admin", :default => t("activerecord.labels.admin", :default => "Admin")) %>:</b>
+          <%= @user.admin %>
+        </p>
+      <div class="wat-cf">
+        <%= link_to image_tag("web-app-theme/icons/application_edit.png", :alt => "#{t("web-app-theme.edit", :default=> "Edit")}") + " " + t("web-app-theme.edit", :default=> "Edit"), edit_user_path(@user), :class => "button" %> 
+        <%= link_to image_tag("web-app-theme/icons/cross.png", :alt => "#{t("web-app-theme.delete", :default=> "Delete")}") + " " + t("web-app-theme.delete", :default => "Delete"), user_path(@user), :method => "delete", :class => "button", :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}" %>
+      </div>      
+    </div>
+  </div>
+</div>
+
+<% content_for :sidebar, render(:partial => 'sidebar') -%>
