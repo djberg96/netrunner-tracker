@@ -2,9 +2,23 @@
   <div class="content">
     <% case params[:action] %>
     <% when 'index' %>
-      <h3>Games</h3>
-      <p>The Games list shows all of the games that have been played.</p>
-      <p>You can see greater detail for a game by clicking on it.</p>
+      <h3>Games
+      <% if @user %>
+        of <%= @user.userid %>
+      <% end %>
+      <% if @league %>
+        of <%= @league.name %>
+      <% end %>
+      </h3>
+      <p>The Games list shows all of the games that have been played
+      <% if @user %>
+        by <%= @user.userid %>
+      <% end %>
+      <% if @league %>
+        in the league '<%= @league.name %>'
+      <% end %>
+      </p>
+      <p>You can see greater detail for a game by clicking on it</p>
     <% when 'show' %>
       <h3>Winner: <%= @game.player_winner %></h3>
       <p>Here you see details for the selected game.</p>
