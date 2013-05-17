@@ -12,7 +12,7 @@ class GamesController < ApplicationController
       @games = Game
     end
 
-    @games = @games.order('date desc').page(params[:page]).per(15)
+    @games = @games.order('date desc').page(params[:page])
 
     respond_to do |format|
       format.html # index.html.erb
