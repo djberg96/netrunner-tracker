@@ -23,6 +23,12 @@
     <span class="description">Limit 32 characters</span>
   </div>
 
+  <div class="group">
+    <%= f.label :password, t("activerecord.attributes.user.password", :default => "Password"), :class => :label %>
+    <%= f.password_field :password, :class => 'password_field' %>
+    <span class="description">6-32 characters</span>
+  </div>
+
   <% if current_user.admin? %>
   <div class="group">
     <%= f.label :admin, t("activerecord.attributes.user.admin", :default => "Admin"), :class => :label %>
