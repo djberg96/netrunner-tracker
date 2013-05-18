@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.json
   def index
-    @users = User.order(:userid).page(params[:page]).per(15)
+    @users = User.order(:userid).page(params[:page])
 
     respond_to do |format|
       format.html # index.html.erb
@@ -13,7 +13,13 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
-    @user = User.find(params[:id])
+    @user = User.find_by_id(params[:id])
+
+    unless @user
+      flash[:alert] = "Player not found."
+      redirect_to users_path
+      return
+    end
 
     respond_to do |format|
       format.html # show.html.erb
@@ -35,6 +41,19 @@ class UsersController < ApplicationController
   # GET /users/1/edit
   def edit
     @user = User.find(params[:id])
+    @current = User.find(session[:user_id])
+
+    unless @user
+      flash[:alert] = "Player not found."
+      redirect_to users_path
+      return
+    end
+
+    unless @current.admin? || @current == @user
+      flash[:alert] = "You do not have permission to edit this player!"
+      redirect_to user_path(@user)
+      return
+    end
   end
 
   # POST /users
@@ -73,6 +92,14 @@ class UsersController < ApplicationController
   # DELETE /users/1.json
   def destroy
     @user = User.find(params[:id])
+    @current = User.find(session[:user_id])
+
+    unless @current.admin?
+      flash[:alert] = "You do not have permission to delete this player!"
+      redirect_to user_path(@user)
+      return
+    end
+
     @user.destroy
 
     respond_to do |format|
