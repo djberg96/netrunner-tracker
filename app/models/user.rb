@@ -36,6 +36,12 @@ class User < ActiveRecord::Base
     :allow_blank => true,
     :length => { :maximum => 32 }
 
+  ## Pagination
+
+  paginates_per 10
+
+  ## Handy Methods
+
   def games
     games_as_runner + games_as_corporation
   end
