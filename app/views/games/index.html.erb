@@ -38,7 +38,10 @@
         </tr>          
         <% end -%>
       </table>
-      <p><%= paginate(@games) %></p>
+      <p>
+        <%= link_to_previous_page @games, 'Previous' %>
+        <%= link_to_next_page @games, 'Next' %>
+      </p>
     </div>
   </div>
 </div>
