@@ -34,6 +34,10 @@ class Game < ActiveRecord::Base
       :less_than_or_equal_to    => 9
     }
 
+  ## Pagination
+
+  paginates_per 10
+
   ## Custom validations
 
   def runner_and_corporation_are_not_same_player
