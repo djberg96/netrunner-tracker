@@ -15,9 +15,9 @@
   <h3>Links</h3>
   <ul class="navigation">
     <li><%= link_to 'Games', games_path %></li>
-    <li><%= link_to 'Leagues', leagues_path %></li>
     <% if params[:action] == 'show' %>
       <li><%= link_to "Games of #{@user.userid}", user_games_path(@user) %></li>
     <% end %>
+    <li><%= link_to 'Leagues', leagues_path %></li>
   </ul>
 </div>
