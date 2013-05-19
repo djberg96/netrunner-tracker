@@ -40,7 +40,7 @@ class UsersController < ApplicationController
 
   # GET /users/1/edit
   def edit
-    @user = User.find(params[:id])
+    @user = User.find_by_id(params[:id])
     @current = User.find(session[:user_id])
 
     unless @user

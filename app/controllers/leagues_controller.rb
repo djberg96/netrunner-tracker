@@ -13,7 +13,13 @@ class LeaguesController < ApplicationController
   # GET /leagues/1
   # GET /leagues/1.json
   def show
-    @league = League.find(params[:id])
+    @league = League.find_by_id(params[:id])
+
+    unless @league
+      flash[:alert] = "League not found."
+      redirect_to leagues_path
+      return
+    end
 
     respond_to do |format|
       format.html # show.html.erb
@@ -34,7 +40,20 @@ class LeaguesController < ApplicationController
 
   # GET /leagues/1/edit
   def edit
-    @league = League.find(params[:id])
+    @league = League.find_by_id(params[:id])
+    @current = User.find(session[:user_id])
+
+    unless @league
+      flash[:alert] = "League not found."
+      redirect_to leagues_path
+      return
+    end
+
+    unless @current.admin? || @league.created_by == @current
+      flash[:alert] = "You do not have permission to edit this league!"
+      redirect_to league_path(@league)
+      return
+    end
   end
 
   # POST /leagues
