@@ -27,7 +27,10 @@
         </tr>          
         <% end -%>
       </table>
-      <p><%= paginate(@users) %></p>
+      <p>
+        <%= link_to_previous_page @users, 'Previous' %>
+        <%= link_to_next_page @users, 'Next' %>
+      </p>
     </div>
   </div>
 </div>
