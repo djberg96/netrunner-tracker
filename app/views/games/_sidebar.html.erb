@@ -25,9 +25,11 @@
       <p>Games that end due to special circumstances, such as flatlining, should be noted in the comments.
     <% end %>
     <% if @games %>
+      <p>
       Total Games: <%= @games.count %><br/>
       Runner Wins: <%= @games.runner_wins.count %><br/>
       Corporation Wins: <%= @games.corporation_wins.count %><br/>
+      </p>
     <% end %>
   </div>
 </div>
