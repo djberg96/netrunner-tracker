@@ -16,7 +16,7 @@ class LeaguesController < ApplicationController
     @league = League.find_by_id(params[:id])
 
     unless @league
-      flash[:alert] = "League not found."
+      flash[:error] = "League not found."
       redirect_to leagues_path
       return
     end
@@ -44,13 +44,13 @@ class LeaguesController < ApplicationController
     @current = User.find(session[:user_id])
 
     unless @league
-      flash[:alert] = "League not found."
+      flash[:error] = "League not found."
       redirect_to leagues_path
       return
     end
 
     unless @current.admin? || @league.created_by == @current
-      flash[:alert] = "You do not have permission to edit this league!"
+      flash[:error] = "You do not have permission to edit this league!"
       redirect_to league_path(@league)
       return
     end

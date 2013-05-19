@@ -16,7 +16,7 @@ class UsersController < ApplicationController
     @user = User.find_by_id(params[:id])
 
     unless @user
-      flash[:alert] = "Player not found."
+      flash[:error] = "Player not found."
       redirect_to users_path
       return
     end
@@ -44,13 +44,13 @@ class UsersController < ApplicationController
     @current = User.find(session[:user_id])
 
     unless @user
-      flash[:alert] = "Player not found."
+      flash[:error] = "Player not found."
       redirect_to users_path
       return
     end
 
     unless @current.admin? || @current == @user
-      flash[:alert] = "You do not have permission to edit this player!"
+      flash[:error] = "You do not have permission to edit this player!"
       redirect_to user_path(@user)
       return
     end
@@ -95,7 +95,7 @@ class UsersController < ApplicationController
     @current = User.find(session[:user_id])
 
     unless @current.admin?
-      flash[:alert] = "You do not have permission to delete this player!"
+      flash[:error] = "You do not have permission to delete this player!"
       redirect_to user_path(@user)
       return
     end

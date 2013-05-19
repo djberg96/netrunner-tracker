@@ -23,7 +23,13 @@ class GamesController < ApplicationController
   # GET /games/1
   # GET /games/1.json
   def show
-    @game = Game.find(params[:id])
+    @game = Game.find_by_id(params[:id])
+
+    unless @game
+      flash[:error] = "Game not found."
+      redirect_to games_path
+      return
+    end
 
     respond_to do |format|
       format.html # show.html.erb
@@ -47,7 +53,21 @@ class GamesController < ApplicationController
 
   # GET /games/1/edit
   def edit
-    @game = Game.find(params[:id])
+    @game = Game.find_by_id(params[:id])
+    @current = User.find(session[:user_id])
+
+    unless @game
+      flash[:error] = "Game not found."
+      redirect_to games_path
+      return
+    end
+
+    unless @current.admin? || @current == @game.runner_user || @current == @game.corporation_user
+      flash[:error] = "You do not have permission to edit this game!"
+      redirect_to game_path(@game)
+      return
+    end
+
     @corporations = Corporation.order(:faction, :slogan)
     @runners = Runner.order(:faction, :name)
   end
