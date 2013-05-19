@@ -11,14 +11,17 @@ class Game < ActiveRecord::Base
 
   validate :runner_and_corporation_are_not_same_player
 
-  # TODO: Doesn't seem to get highlighted in view, not sure why.
+  # TODO: I want to use a custom label (like "scores"), but I can't get it to
+  # work with web-app-theme.
   validate do |game|
     if runner_score < 7 && corporation_score < 7
-      game.errors.add(:scores, "-> At least one player must score 7 or more points")
+      msg = "At least one player must score 7 or more points"
+      errors.add(:runner_score, msg)
     end
 
     if runner_score >= 7 && corporation_score >= 7
-      game.errors.add(:scores, "-> Both players may not have 7 or more points")
+      msg = "Both players may not have 7 or more points"
+      errors.add(:runner_score, msg)
     end
   end
 
