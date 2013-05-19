@@ -2,7 +2,7 @@ class LeaguesController < ApplicationController
   # GET /leagues
   # GET /leagues.json
   def index
-    @leagues = League.all
+    @leagues = League.order("lower(name)").page(params[:page])
 
     respond_to do |format|
       format.html # index.html.erb

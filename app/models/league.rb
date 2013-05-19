@@ -13,4 +13,7 @@ class League < ActiveRecord::Base
       :maximum => 32
     }
 
+  ## Pagination
+
+  paginates_per 10
 end
