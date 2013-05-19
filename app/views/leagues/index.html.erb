@@ -13,12 +13,14 @@
           <th><%= t("activerecord.attributes.league.name", :default => t("activerecord.labels.name", :default => "Name")) %></th>
           <th><%= t("activerecord.attributes.league.comments", :default => t("activerecord.labels.comments", :default => "Comments")) %></th>
           <th><%= t("activerecord.attributes.league.created_at", :default => t("activerecord.labels.created_at", :default => "Created")) %></th>
+          <th><%= t("activerecord.attributes.league.created_by", :default => t("activerecord.labels.created_by", :default => "Created By")) %></th>
         </tr>
         <% @leagues.each do |league| -%>
         <tr class="<%= cycle("odd", "even") %>" onclick="window.location.href='<%= league_path(league) %>'">
           <td><%= league.name %> </td>
           <td><%= league.comments %> </td>
-          <td><%= league.created_at %></td>
+          <td><%= league.created_at.strftime('%d-%b-%Y') %></td>
+          <td><%= league.created_by.userid %></td>
         </tr>          
         <% end -%>
       </table>

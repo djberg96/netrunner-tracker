@@ -18,6 +18,12 @@
           <b><%= t("activerecord.attributes.league.comments", :default => t("activerecord.labels.comments", :default => "Comments")) %>:</b>
           <%= @league.comments %>
         </p>
+
+        <p>
+          <b><%= t("activerecord.attributes.league.created_by", :default => t("activerecord.labels.created_by", :default => "Created By")) %>:</b>
+          <%= @league.created_by.userid %>
+        </p>
+
       <div class="wat-cf">
         <%= link_to image_tag("web-app-theme/icons/application_edit.png", :alt => "#{t("web-app-theme.edit", :default=> "Edit")}") + " " + t("web-app-theme.edit", :default=> "Edit"), edit_league_path(@league), :class => "button" %> 
         <% if current_user.admin? %>

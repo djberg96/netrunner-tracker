@@ -41,6 +41,7 @@ class LeaguesController < ApplicationController
   # POST /leagues.json
   def create
     @league = League.new(params[:league])
+    @league.created_by = User.find(session[:user_id]).id
 
     respond_to do |format|
       if @league.save
