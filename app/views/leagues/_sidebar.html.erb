@@ -1,14 +1,16 @@
 <div class="block notice">
   <h3>Leagues</h3>
   <div class="content">
-    <% if params[:action] == 'index' %>
+    <% case params[:action] %>
+    <% when 'index' %>
       <p>A list of all leagues currently registered.</p>
       <p>You may optionally associate a game with a league.</p>
-    <% end %>
-
-    <% if params[:action] == 'show' %>
+    <% when 'show' %>
       <p>League details.</p>
       <p>Only an admin can edit or delete a league.</p>
+    <% when 'new' %>
+      <p>Create a new League.</p>
+      <p>You may create a maximum of <%= User::LEAGUES_CREATE_MAXIMUM %> leagues.</p>
     <% end %>
   </div>
 </div>
