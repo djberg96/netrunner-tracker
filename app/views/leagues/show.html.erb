@@ -24,6 +24,11 @@
           <%= @league.created_by.userid %>
         </p>
 
+        <p>
+          <b><%= t("activerecord.attributes.league.users", :default => t("activerecord.labels.users", :default => "Players")) %>:</b>
+          <%= @league.users.map(&:userid).join(", ") %>
+        </p>
+
       <div class="wat-cf">
         <% if current_user.admin? || current_user == @league.created_by %>
           <%= link_to image_tag("web-app-theme/icons/application_edit.png", :alt => "#{t("web-app-theme.edit", :default=> "Edit")}") + " " + t("web-app-theme.edit", :default=> "Edit"), edit_league_path(@league), :class => "button" %> 
