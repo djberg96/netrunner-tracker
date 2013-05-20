@@ -25,6 +25,13 @@ class CorporationsController < ApplicationController
   # GET /corporations/new.json
   def new
     @corporation = Corporation.new
+    @current = User.find_by_id(session[:user_id])
+
+    unless @current.admin?
+      flash[:error] = "You do not have permission to create a corporation!"
+      redirect_to corporations_path
+      return
+    end
 
     respond_to do |format|
       format.html # new.html.erb
@@ -35,12 +42,26 @@ class CorporationsController < ApplicationController
   # GET /corporations/1/edit
   def edit
     @corporation = Corporation.find(params[:id])
+    @current = User.find_by_id(session[:user_id])
+
+    unless @current.admin?
+      flash[:error] = "You do not have permission to edit a corporation!"
+      redirect_to corporations_path
+      return
+    end
   end
 
   # POST /corporations
   # POST /corporations.json
   def create
     @corporation = Corporation.new(params[:corporation])
+    @current = User.find_by_id(session[:user_id])
+
+    unless @current.admin?
+      flash[:error] = "You do not have permission to create a corporation!"
+      redirect_to corporations_path
+      return
+    end
 
     respond_to do |format|
       if @corporation.save
@@ -57,6 +78,13 @@ class CorporationsController < ApplicationController
   # PUT /corporations/1.json
   def update
     @corporation = Corporation.find(params[:id])
+    @current = User.find_by_id(session[:user_id])
+
+    unless @current.admin?
+      flash[:error] = "You do not have permission to edit a corporation!"
+      redirect_to corporations_path
+      return
+    end
 
     respond_to do |format|
       if @corporation.update_attributes(params[:corporation])
@@ -73,6 +101,14 @@ class CorporationsController < ApplicationController
   # DELETE /corporations/1.json
   def destroy
     @corporation = Corporation.find(params[:id])
+    @current = User.find_by_id(session[:user_id])
+
+    unless @current.admin?
+      flash[:error] = "You do not have permission to delete a corporation!"
+      redirect_to corporations_path
+      return
+    end
+
     @corporation.destroy
 
     respond_to do |format|
