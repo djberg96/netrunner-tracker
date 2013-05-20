@@ -25,6 +25,13 @@ class RunnersController < ApplicationController
   # GET /runners/new.json
   def new
     @runner = Runner.new
+    @current = User.find_by_id(session[:user_id])
+
+    unless @current.admin?
+      flash[:error] = "You do not have permission to create a runner!"
+      redirect_to runners_path
+      return
+    end
 
     respond_to do |format|
       format.html # new.html.erb
@@ -35,12 +42,26 @@ class RunnersController < ApplicationController
   # GET /runners/1/edit
   def edit
     @runner = Runner.find(params[:id])
+    @current = User.find_by_id(session[:user_id])
+
+    unless @current.admin?
+      flash[:error] = "You do not have permission to edit a runner!"
+      redirect_to runner_path(@runner)
+      return
+    end
   end
 
   # POST /runners
   # POST /runners.json
   def create
     @runner = Runner.new(params[:runner])
+    @current = User.find_by_id(session[:user_id])
+
+    unless @current.admin?
+      flash[:error] = "You do not have permission to create a runner!"
+      redirect_to runner_path(@runner)
+      return
+    end
 
     respond_to do |format|
       if @runner.save
@@ -73,6 +94,15 @@ class RunnersController < ApplicationController
   # DELETE /runners/1.json
   def destroy
     @runner = Runner.find(params[:id])
+
+    @current = User.find_by_id(session[:user_id])
+
+    unless @current.admin?
+      flash[:error] = "You do not have permission to delete a runner!"
+      redirect_to runners_path
+      return
+    end
+
     @runner.destroy
 
     respond_to do |format|
