@@ -51,6 +51,10 @@ class Game < ActiveRecord::Base
 
   ## Handy methods
 
+  def players
+    [runner_user.userid, corporation_user.userid]
+  end
+
   def faction_winner
     if runner_score > corporation_score
       runner.faction
