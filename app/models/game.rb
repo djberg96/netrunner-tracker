@@ -24,6 +24,26 @@ class Game < ActiveRecord::Base
       msg = "Both players may not have 7 or more points"
       errors.add(:runner_score, msg)
     end
+
+    if runner_score >= 7 && flatlined?
+      msg = "Runner cannot flatline and have more than 6 points."
+      errors.add(:runner_score, msg)
+    end
+
+    if corporation_score >= 7 && draw_death?
+      msg = "Corporation cannot suffer draw death and have more than 6 points."
+      errors.add(:corporation_score, msg)
+    end
+
+    if flatlined? && draw_death?
+      msg = "Game cannot end in both flatlining and draw death"
+      errors.add(:flatlined, msg)
+    end
+
+    if (flatlined? && unfinished?) || (draw_death? && unfinished?)
+      msg = "Runner was flatlined or Corp suffered draw death. Game is not unfinished."
+      errors.add(:unfinished, msg)
+    end
   end
 
   validates :runner_score,
