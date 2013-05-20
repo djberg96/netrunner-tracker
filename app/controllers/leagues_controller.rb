@@ -31,6 +31,11 @@ class LeaguesController < ApplicationController
   # GET /leagues/new.json
   def new
     @league = League.new
+    @user   = User.find(session[:user_id])
+
+    if @user.leagues_created.count >= 3
+      flash.now[:warning] = "You have already created your maximum alloted number of leagues"
+    end
 
     respond_to do |format|
       format.html # new.html.erb
