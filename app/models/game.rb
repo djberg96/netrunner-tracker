@@ -57,9 +57,13 @@ class Game < ActiveRecord::Base
   end
 
   def faction_winner
-    if runner_score > corporation_score || draw_death?
+    if flatlined?
+      corporation.faction
+    elsif draw_death?
       runner.faction
-    elsif corporation_score > runner_score || flatlined?
+    elsif runner_score > corporation_score
+      runner.faction
+    elsif corporation_score > runner_score
       corporation.faction
     else
       # Unfinished
@@ -67,9 +71,13 @@ class Game < ActiveRecord::Base
   end
 
   def player_winner
-    if runner_score > corporation_score || draw_death?
+    if flatlined?
+      corporation_user.userid
+    elsif draw_death?
       runner_user.userid
-    elsif corporation_score > runner_score || flatlined?
+    elsif runner_score > corporation_score
+      runner_user.userid
+    elsif corporation_score > runner_score
       corporation_user.userid
     else
       # Unfinished

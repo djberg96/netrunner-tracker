@@ -20,7 +20,14 @@
       </p>
       <p>You can see greater detail for a game by clicking on it</p>
     <% when 'show' %>
-      <h3>Winner: <%= @game.player_winner %></h3>
+      <% if @game.unfinished? %>
+        <h3>No Winner (unfinished)</h3>
+      <% else %>
+        <h3>Winner: <%= @game.player_winner %>
+          <% if @game.flatlined? %><br>- Flatline</br><% end %>
+          <% if @game.draw_death? %><br>- Draw Death</br><% end %>
+        </h3>
+      <% end %>
       <p>Here you see details for the selected game.</p>
       <p>Games that end due to special circumstances, such as flatlining, should be noted in the comments.
     <% end %>

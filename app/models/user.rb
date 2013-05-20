@@ -59,19 +59,29 @@ class User < ActiveRecord::Base
   end
 
   def wins_as_runner
-    games_as_runner.where("runner_score > corporation_score")
+    games_as_runner.where(%Q{
+      flatlined != 't' and (
+        runner_score > corporation_score or
+        draw_death = 't'
+      )
+    })
   end
 
   def losses_as_runner
-    games_as_runner.where("runner_score < corporation_score")
+    games_as_runner.where(%Q{flatlined = 't' or runner_score < corporation_score})
   end
 
   def wins_as_corporation
-    games_as_corporation.where("corporation_score > runner_score")
+    games_as_corporation.where(%Q{
+      draw_death != 't' and (
+        corporation_score > runner_score or
+        flatlined = 't'
+      )
+    })
   end
 
   def losses_as_corporation
-    games_as_corporation.where("corporation_score < runner_score")
+    games_as_corporation.where(%Q{draw_death = 't' or corporation_score < runner_score})
   end
 
   def total_wins_as_runner
