@@ -15,7 +15,7 @@
           <td><%= @user.total_games %></td>
         <tr>
           <td><b><%= t("activerecord.attributes.user.email", :default => t("activerecord.labels.email", :default => "Email")) %>:</b></td>
-          <td><%= @user.email %></td>
+          <td><%= mail_to @user.email, nil, :encode => :javascript %></td>
           <td><b>Wins</b></td>
           <td><%= @user.total_wins %></td>
         </tr>
