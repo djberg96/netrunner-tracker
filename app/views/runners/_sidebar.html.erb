@@ -1,7 +1,12 @@
 <div class="block notice">
   <h3>Runners</h3>
   <div class="content">
-    <p>A list of all currently available runners.</p>
+    <% case params[:action] %>
+    <% when 'show' %>
+      <p>Details about the selected runner.</p>
+    <% when 'index' %>
+      <p>A list of all currently available runners.</p>
+    <% end %>
   </div>
 </div>
 <div class="block">
