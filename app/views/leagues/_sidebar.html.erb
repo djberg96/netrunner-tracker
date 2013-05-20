@@ -21,6 +21,7 @@
     <li><%= link_to 'Players', users_path %></li>
     <% if params[:action] == 'show' %>
       <li><%= link_to "Games of #{@league.name}", league_games_path(@league) %></li>
+      <li><%= link_to "Players of #{@league.name}", league_users_path(@league) %></li>
     <% end %>
   </ul>
 </div>
