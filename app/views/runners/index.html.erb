@@ -2,7 +2,9 @@
   <div class="secondary-navigation">
     <ul class="wat-cf">
       <li class="first active"><%= link_to "#{t("web-app-theme.list", :default => "List")}", runners_path  %></li>
-      <li><%= link_to "#{t("web-app-theme.new", :default => "New")}", new_runner_path %></li>
+      <% if current_user.admin? %>
+        <li><%= link_to "#{t("web-app-theme.new", :default => "New")}", new_runner_path %></li>
+      <% end %>
     </ul>
   </div>          
   <div class="content">          
@@ -10,37 +12,18 @@
     <div class="inner">
       <table class="table">
         <tr>             
-          <th class="first">ID</th>
-                    <th>
-            <%= t("activerecord.attributes.runner.faction", :default => t("activerecord.labels.faction", :default => "Faction")) %>
-          </th>
-                    <th><%= t("web-app-theme.created_at", :default => "Created at")  %></th>
-          <th class="last">&nbsp;</th>
+          <th><%= t("activerecord.attributes.runner.faction", :default => t("activerecord.labels.faction", :default => "Faction")) %></th>
+          <th><%= t("activerecord.attributes.runner.identity", :default => t("activerecord.labels.identity", :default => "Identity")) %></th>
+          <th><%= t("activerecord.attributes.runner.name", :default => t("activerecord.labels.name", :default => "Name")) %></th>
         </tr>
         <% @runners.each do |runner| -%>
-        <tr class="<%= cycle("odd", "even") %>">
-          <td>
-            <%= runner.id %>
-          </td>
-                    <td>
-            <%= link_to runner.faction, runner_path(runner) %>
-          </td>
-                    <td>
-            <%= runner.created_at %>
-          </td>
-          <td class="last">
-            <%= link_to "#{t("web-app-theme.show", :default => "Show")}", runner_path(runner) %> |
-            <%= link_to "#{t("web-app-theme.edit", :default => "Edit")}", edit_runner_path(runner) %> |
-            <%= link_to "#{t("web-app-theme.delete", :default => "Delete")}", runner_path(runner), :method => :delete, :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}" %>
-          </td>
+        <tr class="<%= cycle("odd", "even") %>" onclick="window.location.href = '<%= runner_path(runner) %>'">
+          <td> <%= runner.faction %> </td>
+          <td> <%= runner.identity %> </td>
+          <td> <%= runner.name %> </td>
         </tr>          
         <% end -%>
       </table>
-      <div class="actions-bar wat-cf">
-        <div class="actions">
-        </div>
-        
-      </div>
     </div>
   </div>
 </div>
