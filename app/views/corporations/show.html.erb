@@ -2,7 +2,9 @@
   <div class="secondary-navigation">
     <ul class="wat-cf">
       <li class="first"><%= link_to "#{t("web-app-theme.list", :default => "List")}", corporations_path  %></li>
-      <li><%= link_to "#{t("web-app-theme.new", :default => "New")}", new_corporation_path %></li>
+      <% if current_user.admin? %>
+        <li><%= link_to "#{t("web-app-theme.new", :default => "New")}", new_corporation_path %></li>
+      <% end %>
       <li class="active"><%= link_to "#{t("web-app-theme.show", :default => "Show")}", corporation_path %></li>
     </ul>
   </div>          
@@ -24,8 +26,9 @@
           <%= @corporation.identity %>
         </p>
       <div class="wat-cf">
-        <%= link_to image_tag("web-app-theme/icons/application_edit.png", :alt => "#{t("web-app-theme.edit", :default=> "Edit")}") + " " + t("web-app-theme.edit", :default=> "Edit"), edit_corporation_path(@corporation), :class => "button" %> 
-        <%= link_to image_tag("web-app-theme/icons/cross.png", :alt => "#{t("web-app-theme.delete", :default=> "Delete")}") + " " + t("web-app-theme.delete", :default => "Delete"), corporation_path(@corporation), :method => "delete", :class => "button", :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}" %>
+        <% if current_user.admin? %>
+          <%= link_to image_tag("web-app-theme/icons/application_edit.png", :alt => "#{t("web-app-theme.edit", :default=> "Edit")}") + " " + t("web-app-theme.edit", :default=> "Edit"), edit_corporation_path(@corporation), :class => "button" %> 
+        <% end %>
       </div>      
     </div>
   </div>
