@@ -33,9 +33,9 @@
     <% end %>
     <% if @games %>
       <p>
-      Total Games: <%= @games.count %><br/>
-      Runner Wins: <%= @games.runner_wins.count %><br/>
-      Corporation Wins: <%= @games.corporation_wins.count %><br/>
+      Total Games: <%= Game.count %><br/>
+      Runner Wins: <%= Game.runner_wins.count %><br/>
+      Corporation Wins: <%= Game.corporation_wins.count %><br/>
       </p>
     <% end %>
   </div>
