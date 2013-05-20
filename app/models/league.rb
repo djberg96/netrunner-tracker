@@ -5,6 +5,15 @@ class League < ActiveRecord::Base
 
   belongs_to :created_by, :class_name => 'User', :foreign_key => 'created_by'
 
+  ## Validations
+
+  validate do |league|
+    if User.find(created_by).maximum_leagues_created?
+      msg = "A player may not create more than 3 leagues."
+      errors.add(:name, msg)
+    end
+  end
+
   validates :name,
     :presence   => true,
     :uniqueness => true,
