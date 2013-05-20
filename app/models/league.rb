@@ -2,6 +2,8 @@ class League < ActiveRecord::Base
   attr_accessible :comments, :name, :created_by
 
   has_many :games
+  has_many :runner_users, :through => :games, :uniq => true
+  has_many :corporation_users, :through => :games, :uniq => true
 
   belongs_to :created_by, :class_name => 'User', :foreign_key => 'created_by'
 
@@ -25,4 +27,10 @@ class League < ActiveRecord::Base
   ## Pagination
 
   paginates_per 10
+
+  ## Handy Methods
+
+  def users
+    runner_users + corporation_users
+  end
 end
