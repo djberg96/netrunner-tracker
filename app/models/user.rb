@@ -4,8 +4,16 @@ class User < ActiveRecord::Base
 
   has_many :games_as_runner, :class_name => 'Game', :foreign_key => :runner_user_id
   has_many :games_as_corporation, :class_name => 'Game', :foreign_key => :corporation_user_id
+  has_many :leagues_created, :class_name => 'League', :foreign_key => :created_by
 
   has_secure_password
+
+  ## Constants
+
+  # Maximum number of leagues a user may create
+  LEAGUES_CREATE_MAXIMUM = 3
+
+  ## Validations
 
   validates :userid,
     :uniqueness => true,
@@ -88,5 +96,13 @@ class User < ActiveRecord::Base
 
   def total_losses
     total_losses_as_runner + total_losses_as_corporation
+  end
+
+  def total_leagues_created
+    leagues_created.count
+  end
+
+  def maximum_leagues_created?
+    total_leagues_created >= LEAGUES_CREATE_MAXIMUM
   end
 end
