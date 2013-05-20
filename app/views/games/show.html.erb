@@ -38,8 +38,11 @@
         </tr>
 
         <tr>
+          <td><b><%= t("activerecord.attributes.game.flatlined", :default => t("activerecord.labels.flatlined", :default => "Flatlined")) %>:</b></td>
+          <td><%= @game.flatlined? ? 'Yes' : 'No' %></td>
+          <td><b><%= t("activerecord.attributes.game.draw_death", :default => t("activerecord.labels.draw_death", :default => "Draw Death")) %>:</b></td>
+          <td><%= @game.draw_death? ? 'Yes' : 'No' %></td>
         </tr>
-
 
         <tr>
           <td><b><%= t("activerecord.attributes.game.comment", :default => t("activerecord.labels.comment", :default => "Comment")) %>:</b></td>

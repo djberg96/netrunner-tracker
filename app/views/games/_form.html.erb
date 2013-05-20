@@ -4,57 +4,70 @@
 <table class="table">
   <tr>
     <td>
-      <%= f.label :league_id, t("activerecord.attributes.game.league", :default => "League"), :class => :label %>
+      <%= f.label :league_id, t("activerecord.attributes.game.league", :default => "League (optional)"), :class => :label %>
       <%= f.collection_select(:league_id, League.all, :id, :name, {:include_blank => true}) %>
-      <span class="description">Optional</span>
     </td>
 
     <td>
       <%= f.label :date, t("activerecord.attributes.game.date", :default => "Date"), :class => :label %>
       <%= f.date_select :date, :class => 'date_select' %>
     </td>
+    <td></td>
+    <td>
+        <%= f.label :unfinished, t("activerecord.attributes.game.unfinished", :default => "Unfinished?"), :class => :label %>
+        <%= f.check_box :unfinished %>
+    </td>
   </tr>
 
   <tr>
     <td>
-      <%= f.label :runner_user_id, t("activerecord.attributes.game.runner_user_id", :default => "Runner user"), :class => :label %>
+      <%= f.label :runner_user_id, t("activerecord.attributes.game.runner_user_id", :default => "Runner Player"), :class => :label %>
       <%= f.collection_select(:runner_user_id, User.all, :id, :userid, {:selected => current_user.id}) %>
     </td>
 
     <td>
-      <%= f.label :runner_id, t("activerecord.attributes.game.runner", :default => "Runner"), :class => :label %>
+      <%= f.label :runner_id, t("activerecord.attributes.game.runner", :default => "Runner Faction"), :class => :label %>
       <%= f.collection_select(:runner_id, @runners, :id, :faction_and_name) %>
     </td>
 
     <td>
       <%= f.label :scores do %>
-        <%= f.label :runner_score, t("activerecord.attributes.game.runner_score", :default => "Runner score"), :class => :label %>
-        <%= f.select(:runner_score, 0..9) %>
+        <%= f.label :runner_score, t("activerecord.attributes.game.runner_score", :default => "Runner Score"), :class => :label %>
+        <%= f.select(:runner_score, 0..15) %>
       <% end %>
+    </td>
+
+    <td>
+        <%= f.label :flatlined, t("activerecord.attributes.game.flatlined", :default => "Flatlined?"), :class => :label %>
+        <%= f.check_box :flatlined %>
     </td>
   </tr>
 
   <tr>
     <td>
-      <%= f.label :corporation_user_id, t("activerecord.attributes.game.corporation_user_id", :default => "Corporation user"), :class => :label %>
+      <%= f.label :corporation_user_id, t("activerecord.attributes.game.corporation_user_id", :default => "Corp Player"), :class => :label %>
       <%= f.collection_select(:corporation_user_id, User.all, :id, :userid, {:selected => current_user.id}) %>
     </td>
 
     <td>
-      <%= f.label :corporation_id, t("activerecord.attributes.game.corporation", :default => "Corporation"), :class => :label %>
+      <%= f.label :corporation_id, t("activerecord.attributes.game.corporation", :default => "Corporation Faction"), :class => :label %>
       <%= f.collection_select(:corporation_id, @corporations, :id, :faction_and_slogan) %>
     </td>
 
     <td>
       <%= f.label :scores do %>
-        <%= f.label :corporation_score, t("activerecord.attributes.game.corporation_score", :default => "Corporation score"), :class => :label %>
-        <%= f.select(:corporation_score, 0..9) %>
+        <%= f.label :corporation_score, t("activerecord.attributes.game.corporation_score", :default => "Corp Score"), :class => :label %>
+        <%= f.select(:corporation_score, 0..15) %>
       <% end %>
+    </td>
+    <td>
+        <%= f.label :draw_death, t("activerecord.attributes.game.flatlined", :default => "Draw Death?"), :class => :label %>
+        <%= f.check_box :draw_death %>
     </td>
   </tr>
 
   <tr>
-    <td colspan=3>
+    <td colspan=4>
       <%= f.label :comment, t("activerecord.attributes.game.comment", :default => "Comment"), :class => :label %>
       <%= f.text_area :comment, :class => 'text_area', :rows => 5 %>
     </td>
