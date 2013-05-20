@@ -2,7 +2,11 @@
   <div class="content">
     <% case params[:action] %>
     <% when 'index' %>
-      <h3>Players</h3>
+      <% if @league %>
+        <h4>Players of <%= @league.name %></h4>
+      <% else %>
+        <h3>Players</h3>
+      <% end %>
       <p>A list of players and their game statistics. Click on the userid to view details about that player.</p>
       <p>You may view any profile, but may only edit your own.</p>
     <% when 'show' %>

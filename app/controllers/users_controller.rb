@@ -2,7 +2,14 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.json
   def index
-    @users = User.order(:userid).page(params[:page])
+    if params[:league_id]
+      @league = League.find(params[:league_id])
+      @users  = @league.users
+    else
+      @users = User.order("lower(userid)")
+    end
+
+    @users = @users.page(params[:page])
 
     respond_to do |format|
       format.html # index.html.erb

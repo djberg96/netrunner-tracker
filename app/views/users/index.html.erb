@@ -8,7 +8,11 @@
     </ul>
   </div>          
   <div class="content">          
-    <h2 class="title"><%= t("web-app-theme.all", :default => "All")  %> Players</h2>
+    <% if @league %>
+      <h2 class="title"><%= t("web-app-theme.league", :default => "League")  %> Players - <%= @league.name %></h2>
+    <% else %>
+      <h2 class="title"><%= t("web-app-theme.all", :default => "All")  %> Players</h2>
+    <% end %>
     <div class="inner">
       <table class="table">
         <tr>             
