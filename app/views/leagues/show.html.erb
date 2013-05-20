@@ -25,6 +25,11 @@
         </p>
 
         <p>
+          <b><%= t("activerecord.attributes.league.games", :default => t("activerecord.labels.games", :default => "Games Played")) %>:</b>
+          <%= @league.games.count %>
+        </p>
+
+        <p>
           <b><%= t("activerecord.attributes.league.users", :default => t("activerecord.labels.users", :default => "Players")) %>:</b>
           <%= @league.users.map(&:userid).join(", ") %>
         </p>
