@@ -12,9 +12,11 @@
     <div class="inner">
       <table class="table">
         <tr>             
-          <th><%= t("activerecord.attributes.card.title", :default => t("activerecord.labels.title", :default => "Title")) %></th>
-          <th><%= t("activerecord.attributes.card.faction", :default => t("activerecord.labels.faction", :default => "Faction")) %></th>
-          <th><%= t("activerecord.attributes.card.kind", :default => t("activerecord.labels.kind", :default => "Type")) %></th>
+          <th><%= sortable "title", "Title" %></th>
+          <th><%= sortable "faction", "Faction" %></th>
+          <th><%= sortable "kind", "Type" %></th>
+          <th><%= sortable "cost", "Cost" %></th>
+          <th><%= sortable "influence", "Influence" %></th>
         </tr>
         <% @cards.each do |card| -%>
         <tr class="<%= cycle("odd", "even") %>" onclick="window.location.href = '<%= card_path(card) %>'">
@@ -22,6 +24,8 @@
           <td><%= card.title %></td>
           <td><%= card.faction %></td>
           <td><%= card.kind %></td>
+          <td><%= card.cost %></td>
+          <td><%= card.influence %></td>
         </tr>          
         <% end -%>
       </table>
