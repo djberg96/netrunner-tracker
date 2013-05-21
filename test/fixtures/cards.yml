@@ -356,50 +356,50 @@ research_station:
 
 priority_requisition:
   title: Priority Requisition
-  faction: Neutral
+  faction: Neutral Corporation
   kind: Agenda
   agenda_points: 3
   cost: 5
 
 private_security_force:
   title: Priority Requisition
-  faction: Neutral
+  faction: Neutral Corporation
   kind: Agenda
   agenda_points: 2
   cost: 4
 
 melange_mining_corp:
   title: Melange Mining Corp
-  faction: Neutral
+  faction: Neutral Corporation
   kind: Asset
   cost: 1
 
 enigma:
   title: Ice
-  faction: Neutral
+  faction: Neutral Corporation
   kind: Ice
   cost: 3
 
 hunter:
   title: Hunter
-  faction: Neutral
+  faction: Neutral Corporation
   kind: Ice
   cost: 1
 
 wall_of_static:
   title: Wall of Static
-  faction: Neutral
+  faction: Neutral Corporation
   kind: Ice
   cost: 3
 
 hedge_fund:
   title: Hedge Fund
-  faction: Neutral
+  faction: Neutral Corporation
   kind: Operation
   cost: 5
 
 pad_campaign:
   title: PAD Campaign
-  faction: Neutral
+  faction: Neutral Corporation
   kind: Upgrade
   cost: 2

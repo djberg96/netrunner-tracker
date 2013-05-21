@@ -6,7 +6,7 @@ class Card < ActiveRecord::Base
     'Jinteki',
     'NBN',
     'Weyland',
-    'Neutral Corp',
+    'Neutral Corporation',
     'Anarch',
     'Criminal',
     'Shaper',
