@@ -91,46 +91,64 @@ nisei_mk_ii:
   title: Nisei MK II
   faction: Jinteki
   kind: Agenda
+  agenda_points: 2
+  cost: 4
 
 project_junebug:
   title: Project Junebug
   faction: Jinteki
   kind: Asset
+  influence: 1
+  cost: 0
 
 snare:
   title: Snare!
   faction: Jinteki
   kind: Asset
+  influence: 2
+  cost: 0
 
 zaibatsu_loyalty:
   title: Zaibatsu Loyalty:
   faction: Jinteki
   kind: Asset
+  influence: 1
+  cost: 0
 
 cell_portal:
   title: Cell Portal
   faction: Jinteki
   kind: Ice
+  influence: 2
+  cost: 5
 
 chum:
   title: Chum
   faction: Jinteki
   kind: Ice
+  influence: 1
+  cost: 1
 
 data_mine:
   title: Data Mine
   faction: Jinteki
   kind: Ice
+  influence: 2
+  cost: 0
 
 neural_katana:
   title: Neural Katana
   faction: Jinteki
   kind: Ice
+  influence: 2
+  cost: 4
 
 wall_of_thorns:
   title: Wall of Thorns
   faction: Jinteki
   kind: Ice
+  influence: 1
+  cost: 8
 
 jinteki:
   title: Jinteki
@@ -141,13 +159,19 @@ neural_emp:
   title: Neural EMP
   faction: Jinteki
   kind: Operation
+  influence: 2
+  cost: 2
 
 precognition:
   title: Precognition
   faction: Jinteki
   kind: Operation
+  influence: 3
+  cost: 0
 
 akitaro_watanabe:
   title: Akitaro Watanabe
   faction: Jinteki
   kind: Upgrade
+  influence: 2
+  cost: 1
