@@ -58,6 +58,69 @@ class User < ActiveRecord::Base
     games.count
   end
 
+  def games_as_haas_bioroid
+    corp = Corporation.where(:faction => "Haas-Bioroid")
+    games_as_corporation.where(:corporation_id => corp)
+  end
+
+  def total_games_as_haas_bioroid
+    games_as_haas_bioroid.count
+  end
+
+  def games_as_jinteki
+    corp = Corporation.where(:faction => "Jinteki")
+    games_as_corporation.where(:corporation_id => corp)
+  end
+
+  def total_games_as_jinteki
+    games_as_jinteki.count
+  end
+
+  def games_as_nbn
+    corp = Corporation.where(:faction => "NBN")
+    games_as_corporation.where(:corporation_id => corp)
+  end
+
+  def total_games_as_nbn
+    games_as_nbn.count
+  end
+
+  def games_as_weyland
+    corp = Corporation.where(:faction => "Weyland Consortium")
+    games_as_corporation.where(:corporation_id => corp)
+  end
+
+  def total_games_as_weyland
+    games_as_weyland.count
+  end
+
+  def games_as_anarch
+    runner = Runner.where(:faction => "Anarch")
+    games_as_runner.where(:runner_id => runner)
+  end
+
+  def total_games_as_anarch
+    games_as_anarch.count
+  end
+
+  def games_as_criminal
+    runner = Runner.where(:faction => "Criminal")
+    games_as_runner.where(:runner_id => runner)
+  end
+
+  def total_games_as_criminal
+    games_as_criminal.count
+  end
+
+  def games_as_shaper
+    runner = Runner.where(:faction => "Shaper")
+    games_as_runner.where(:runner_id => runner)
+  end
+
+  def total_games_as_shaper
+    games_as_shaper.count
+  end
+
   def wins_as_runner
     games_as_runner.where(%Q{
       flatlined != 't' and (
@@ -106,6 +169,10 @@ class User < ActiveRecord::Base
 
   def total_losses
     total_losses_as_runner + total_losses_as_corporation
+  end
+
+  def win_percentage
+    (total_wins.to_f / total_games.to_f) * 100
   end
 
   def total_leagues_created

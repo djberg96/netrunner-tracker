@@ -1,0 +1,53 @@
+<div class="block">
+  <div class="secondary-navigation">
+    <ul class="wat-cf">
+      <li class="first"><%= link_to "List", users_path %></li>
+      <li class="first"><%= link_to "Show", user_path %></li>
+      <li class="active"><%= link_to "Stats", stats_user_path %></li>
+    </ul>
+  </div>          
+  <div class="content">
+    <div class="inner">
+      <p></p>
+      <table class="table" title="Stats">
+        <tr>
+          <th>Faction</th>
+          <th>Total</th>
+          <th>Wins</th>
+          <th>Losses</th>
+          <th>Average Score</th>
+        </tr>
+        <tr>
+          <td>Haas-Bioroid</td>
+          <td><%= @user.total_games_as_haas_bioroid %></td>
+        </tr>
+        <tr>
+          <td>Jinteki</td>
+          <td><%= @user.total_games_as_jinteki %></td>
+        </tr>
+        <tr>
+          <td>NBN</td>
+          <td><%= @user.total_games_as_nbn %></td>
+        </tr>
+        <tr>
+          <td>Weyland Consortium</td>
+          <td><%= @user.total_games_as_weyland %></td>
+        </tr>
+        <tr>
+          <td>Anarch</td>
+          <td><%= @user.total_games_as_anarch %></td>
+        </tr>
+        <tr>
+          <td>Criminal</td>
+          <td><%= @user.total_games_as_criminal %></td>
+        </tr>
+        <tr>
+          <td>Shaper</td>
+          <td><%= @user.total_games_as_shaper %></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
+
+<% content_for :sidebar, render(:partial => 'sidebar') -%>

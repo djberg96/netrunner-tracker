@@ -23,23 +23,23 @@ NetrunnerTracker::Application.routes.draw do
 
   resources :cards
 
-
-  resources :games
-
+  resources :games do
+    collection do
+      get 'stats'
+    end
+  end
 
   resources :users
 
-
   resources :leagues
 
-
   resources :corporations
-
 
   resources :runners
 
   resources :users do
     resources :games
+    get 'stats', :on => :member
   end
 
   resources :leagues do

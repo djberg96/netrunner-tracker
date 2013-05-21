@@ -114,4 +114,13 @@ class UsersController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def stats
+    @user = User.find(params[:id])
+
+    respond_to do |format|
+      format.html
+      format.json
+    end
+  end
 end
