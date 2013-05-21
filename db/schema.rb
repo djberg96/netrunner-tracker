@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130520162130) do
+ActiveRecord::Schema.define(:version => 20130521030255) do
 
   create_table "cards", :force => true do |t|
     t.string   "title"
@@ -44,6 +44,7 @@ ActiveRecord::Schema.define(:version => 20130520162130) do
     t.boolean  "flatlined",           :default => false
     t.boolean  "draw_death",          :default => false
     t.boolean  "unfinished",          :default => false
+    t.integer  "match_id"
   end
 
   create_table "leagues", :force => true do |t|
@@ -54,12 +55,44 @@ ActiveRecord::Schema.define(:version => 20130520162130) do
     t.integer  "created_by"
   end
 
+  create_table "matches", :force => true do |t|
+    t.string   "name"
+    t.integer  "game1"
+    t.integer  "game2"
+    t.integer  "round"
+    t.integer  "points"
+    t.integer  "prestige"
+    t.integer  "tournament_id"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
+
   create_table "runners", :force => true do |t|
     t.string   "faction"
     t.string   "identity"
     t.string   "name"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "sessions", :force => true do |t|
+    t.string   "session_id", :null => false
+    t.text     "data"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "sessions", ["session_id"], :name => "index_sessions_on_session_id"
+  add_index "sessions", ["updated_at"], :name => "index_sessions_on_updated_at"
+
+  create_table "tournaments", :force => true do |t|
+    t.string   "name"
+    t.integer  "num_players"
+    t.integer  "num_rounds"
+    t.integer  "winner"
+    t.integer  "created_by"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
 
   create_table "users", :force => true do |t|
