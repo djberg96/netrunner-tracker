@@ -175,3 +175,92 @@ akitaro_watanabe:
   kind: Upgrade
   influence: 2
   cost: 1
+
+astroscript_pilot_program:
+  title: Astroscript Pilot Program
+  faction: NBN
+  kind: Agenda
+  agenda_points: 2
+  cost: 3
+
+breaking_news:
+  title: Breaking News
+  faction: NBN
+  kind: Agenda
+  agenda_points: 1
+  cost: 2
+
+ghost_branch:
+  title: Ghost Branch
+  faction: NBN
+  kind: Asset
+  influence: 1
+  cost: 0
+
+data_raven:
+  title: Data Raven
+  faction: NBN
+  kind: Ice
+  influence: 2
+  cost: 4
+
+matrix_analyzer:
+  title: Matrix Analyzer
+  faction: NBN
+  kind: Ice
+  influence: 2
+  cost: 1
+
+tollbooth:
+  title: Tollbooth
+  faction: NBN
+  kind: Ice
+  influence: 2
+  cost: 8
+
+nbn:
+  title: NBN
+  faction: NBN
+  kind: Identity
+
+anonymous_tip:
+  title: Anonymous Tip
+  faction: NBN
+  kind: Operation
+  influence: 1
+  cost: 0
+
+closed_accounts:
+  title: Closed Accounts
+  faction: NBN
+  kind: Operation
+  influence: 1
+  cost: 1
+
+psychographics:
+  title: Psychographics
+  faction: NBN
+  kind: Operation
+  influence: 3
+  cost: 0
+
+sea_source:
+  title: SEA Source
+  faction: NBN
+  kind: Operation
+  influence: 2
+  cost: 2
+
+red_herrings:
+  title: Red Herrings
+  faction: NBN
+  kind: Upgrade
+  influence: 2
+  cost: 1
+
+sansan_city_grid:
+  title: SanSan City Grid
+  faction: NBN
+  kind: Upgrade
+  influence: 3
+  cost: 6
