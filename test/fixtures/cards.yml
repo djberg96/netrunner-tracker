@@ -62,3 +62,68 @@ experiential_data:
   title: Experiential Data
   faction: Haas-Bioroid
   kind: Upgrade
+
+nisei_mk_ii:
+  title: Nisei MK II
+  faction: Jinteki
+  kind: Agenda
+
+project_junebug:
+  title: Project Junebug
+  faction: Jinteki
+  kind: Asset
+
+snare:
+  title: Snare!
+  faction: Jinteki
+  kind: Asset
+
+zaibatsu_loyalty:
+  title: Zaibatsu Loyalty:
+  faction: Jinteki
+  kind: Asset
+
+cell_portal:
+  title: Cell Portal
+  faction: Jinteki
+  kind: Ice
+
+chum:
+  title: Chum
+  faction: Jinteki
+  kind: Ice
+
+data_mine:
+  title: Data Mine
+  faction: Jinteki
+  kind: Ice
+
+neural_katana:
+  title: Neural Katana
+  faction: Jinteki
+  kind: Ice
+
+wall_of_thorns:
+  title: Wall of Thorns
+  faction: Jinteki
+  kind: Ice
+
+jinteki:
+  title: Jinteki
+  faction: Jinteki
+  kind: Identity
+
+neural_emp:
+  title: Neural EMP
+  faction: Jinteki
+  kind: Operation
+
+precognition:
+  title: Precognition
+  faction: Jinteki
+  kind: Operation
+
+akitaro_watanabe:
+  title: Akitaro Watanabe
+  faction: Jinteki
+  kind: Upgrade
