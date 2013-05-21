@@ -264,3 +264,142 @@ sansan_city_grid:
   kind: Upgrade
   influence: 3
   cost: 6
+
+hostile_takeover:
+  title: Hostile Takeover
+  faction: Weyland Consortium
+  kind: Agenda
+  agenda_points: 1
+  cost: 2
+
+posted_bounty:
+  title: Posted Bounty
+  faction: Weyland Consortium
+  kind: Agenda
+  agenda_points: 1
+  cost: 3
+
+security_subcontract:
+  title: Security Subcontract
+  faction: Weyland Consortium
+  kind: Asset
+  influence: 1
+  cost: 0
+
+archer:
+  title: Archer
+  faction: Weyland Consortium
+  kind: Ice
+  influence: 2
+  cost: 4
+
+hadrians_wall:
+  title: Hadrian's Wall
+  faction: Weyland Consortium
+  kind: Ice
+  influence: 3
+  cost: 10
+
+ice_wall:
+  title: Ice Wall
+  faction: Weyland Consortium
+  kind: Ice
+  influence: 1
+  cost: 1
+
+shadow:
+  title: Shadow
+  faction: Weyland Consortium
+  kind: Ice
+  influence: 1
+  cost: 3
+
+weyland_consortium:
+  title: Weyland Consortium
+  faction: Weyland Consortium
+  kind: Identity
+
+aggressive_negotiations:
+  title: Aggressive Negotiations
+  faction: Weyland Consortium
+  kind: Operation
+  influence: 1
+  cost: 1
+
+beanstalk_royalties:
+  title: Beanstalk Royalties
+  faction: Weyland Consortium
+  kind: Operation
+  influence: 1
+  cost: 0
+
+scorched_earth:
+  title: Scorched Earth
+  faction: Weyland Consortium
+  kind: Operation
+  influence: 4
+  cost: 3
+
+shipment_from_kaguya:
+  title: Shipment from Kaguya
+  faction: Weyland Consortium
+  kind: Operation
+  influence: 1
+  cost: 0
+
+research_station:
+  title: Research Station
+  faction: Weyland Consortium
+  kind: Upgrade
+  influence: 1
+  cost: 2
+
+priority_requisition:
+  title: Priority Requisition
+  faction: Neutral
+  kind: Agenda
+  agenda_points: 3
+  cost: 5
+
+private_security_force:
+  title: Priority Requisition
+  faction: Neutral
+  kind: Agenda
+  agenda_points: 2
+  cost: 4
+
+melange_mining_corp:
+  title: Melange Mining Corp
+  faction: Neutral
+  kind: Asset
+  cost: 1
+
+enigma:
+  title: Ice
+  faction: Neutral
+  kind: Ice
+  cost: 3
+
+hunter:
+  title: Hunter
+  faction: Neutral
+  kind: Ice
+  cost: 1
+
+wall_of_static:
+  title: Wall of Static
+  faction: Neutral
+  kind: Ice
+  cost: 3
+
+hedge_fund:
+  title: Hedge Fund
+  faction: Neutral
+  kind: Operation
+  cost: 5
+
+pad_campaign:
+  title: PAD Campaign
+  faction: Neutral
+  kind: Upgrade
+  cost: 2
