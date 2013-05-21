@@ -2,36 +2,50 @@ accelerated_beta_test:
   title: Accelerated Beta Test
   faction: Haas-Bioroid
   kind: Agenda
+  agenda_points: 2
+  cost: 3
 
 adonis_campaign:
   title: Adonis Campaign
   faction: Haas-Bioroid
   kind: Asset
+  influence: 2
+  cost: 4
 
 aggressive_secretary:
   title: Aggressive Secretary
   faction: Haas-Bioroid
   kind: Asset
+  influence: 2
+  cost: 0
 
 heimdal:
   title: Heimdal 1.0
   faction: Haas-Bioroid
   kind: Ice
+  influence: 2
+  cost: 8
  
 ichi:
   title: Ichi 1.0
   faction: Haas-Bioroid
   kind: Ice
+  influence: 2
+  cost: 5
 
 rototurret:
   title: Rototurret
   faction: Haas-Bioroid
   kind: Ice
+  influence: 1
+  cost: 4
   
 viktor:
   title: Viktor 1.0
   faction: Haas-Bioroid
   kind: Ice
+  influence: 2
+  cost: 3
 
 haas-bioroid:
   title: Haas-Bioroid
@@ -42,26 +56,36 @@ archived_memories:
   title: Archived Memories
   faction: Haas-Bioroid
   kind: Operation
+  influence: 2
+  cost: 0
 
 biotic_labor:
   title: Biotic Labor
   faction: Haas-Bioroid
   kind: Operation
+  influence: 4
+  cost: 4
 
 shipment_from_mirrormorph:
   title: Shipment from Mirrormorph
   faction: Haas-Bioroid
   kind: Operation
+  influence: 2
+  cost: 1
 
 corporate_troubleshooter:
   title: Corporate Troubleshooter
   faction: Haas-Bioroid
   kind: Upgrade
+  influence: 1
+  cost: 0
 
 experiential_data:
   title: Experiential Data
   faction: Haas-Bioroid
   kind: Upgrade
+  influence: 1
+  cost: 2
 
 nisei_mk_ii:
   title: Nisei MK II
