@@ -20,31 +20,58 @@
         <tr>
           <td>Haas-Bioroid</td>
           <td><%= @user.total_games_as_haas_bioroid %></td>
+          <td><%= @user.total_wins_as_haas_bioroid %></td>
+          <td><%= @user.total_losses_as_haas_bioroid %></td>
+          <td><%= @user.average_score_as_haas_bioroid.round(1) %></td>
         </tr>
         <tr>
           <td>Jinteki</td>
           <td><%= @user.total_games_as_jinteki %></td>
+          <td><%= @user.total_wins_as_jinteki %></td>
+          <td><%= @user.total_losses_as_jinteki %></td>
+          <td><%= @user.average_score_as_jinteki.round(1) %></td>
         </tr>
         <tr>
           <td>NBN</td>
           <td><%= @user.total_games_as_nbn %></td>
+          <td><%= @user.total_wins_as_nbn %></td>
+          <td><%= @user.total_losses_as_nbn %></td>
+          <td><%= @user.average_score_as_nbn.round(1) %></td>
         </tr>
         <tr>
           <td>Weyland Consortium</td>
           <td><%= @user.total_games_as_weyland %></td>
+          <td><%= @user.total_wins_as_weyland %></td>
+          <td><%= @user.total_losses_as_weyland %></td>
+          <td><%= @user.average_score_as_weyland.round(1) %></td>
         </tr>
         <tr>
           <td>Anarch</td>
           <td><%= @user.total_games_as_anarch %></td>
+          <td><%= @user.total_wins_as_anarch %></td>
+          <td><%= @user.total_losses_as_anarch %></td>
+          <td><%= @user.average_score_as_anarch.round(1) %></td>
         </tr>
         <tr>
           <td>Criminal</td>
           <td><%= @user.total_games_as_criminal %></td>
+          <td><%= @user.total_wins_as_criminal %></td>
+          <td><%= @user.total_losses_as_criminal %></td>
+          <td><%= @user.average_score_as_criminal.round(1) %></td>
         </tr>
         <tr>
           <td>Shaper</td>
           <td><%= @user.total_games_as_shaper %></td>
+          <td><%= @user.total_wins_as_shaper %></td>
+          <td><%= @user.total_losses_as_shaper %></td>
+          <td><%= @user.average_score_as_shaper.round(1) %></td>
         </tr>
+        <tr>
+          <td><b>SUMMARY</b></td>
+          <td><b><%= @user.total_games %></b></td>
+          <td><b><%= @user.total_wins %></b></td>
+          <td><b><%= @user.total_losses %></b></td>
+          <td><b><%= @user.overall_average_score.round(1) %></b></td>
       </table>
     </div>
   </div>

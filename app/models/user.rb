@@ -58,6 +58,10 @@ class User < ActiveRecord::Base
     games.count
   end
 
+  def overall_average_score
+    (games_as_runner.average(:runner_score).to_f + games_as_corporation.average(:corporation_score).to_f) / 2
+  end
+
   def games_as_haas_bioroid
     corp = Corporation.where(:faction => "Haas-Bioroid")
     games_as_corporation.where(:corporation_id => corp)
@@ -67,9 +71,17 @@ class User < ActiveRecord::Base
     games_as_haas_bioroid.count
   end
 
+  def average_score_as_haas_bioroid
+    games_as_haas_bioroid.average(:corporation_score).to_f
+  end
+
   def games_as_jinteki
     corp = Corporation.where(:faction => "Jinteki")
     games_as_corporation.where(:corporation_id => corp)
+  end
+
+  def average_score_as_jinteki
+    games_as_jinteki.average(:corporation_score).to_f
   end
 
   def total_games_as_jinteki
@@ -79,6 +91,10 @@ class User < ActiveRecord::Base
   def games_as_nbn
     corp = Corporation.where(:faction => "NBN")
     games_as_corporation.where(:corporation_id => corp)
+  end
+
+  def average_score_as_nbn
+    games_as_nbn.average(:corporation_score).to_f
   end
 
   def total_games_as_nbn
@@ -94,6 +110,10 @@ class User < ActiveRecord::Base
     games_as_weyland.count
   end
 
+  def average_score_as_weyland
+    games_as_weyland.average(:corporation_score).to_f
+  end
+
   def games_as_anarch
     runner = Runner.where(:faction => "Anarch")
     games_as_runner.where(:runner_id => runner)
@@ -103,6 +123,18 @@ class User < ActiveRecord::Base
     games_as_anarch.count
   end
 
+  def average_score_as_anarch
+    games_as_anarch.average(:runner_score).to_f
+  end
+
+  def average_score_as_criminal
+    games_as_criminal.average(:runner_score).to_f
+  end
+
+  def average_score_as_shaper
+    games_as_shaper.average(:runner_score).to_f
+  end
+
   def games_as_criminal
     runner = Runner.where(:faction => "Criminal")
     games_as_runner.where(:runner_id => runner)
@@ -110,6 +142,10 @@ class User < ActiveRecord::Base
 
   def total_games_as_criminal
     games_as_criminal.count
+  end
+
+  def average_score_as_anarch
+    games_as_anarch.average(:runner_score)
   end
 
   def games_as_shaper
@@ -130,6 +166,60 @@ class User < ActiveRecord::Base
     })
   end
 
+  def wins_as_anarch
+    runner = Runner.where(:faction => "Anarch")
+    wins_as_runner.where(:runner_id => runner)
+  end
+
+  def total_wins_as_anarch
+    wins_as_anarch.count
+  end
+
+  def losses_as_anarch
+    runner = Runner.where(:faction => "Anarch")
+    losses_as_runner.where(:runner_id => runner)
+  end
+
+  def total_losses_as_anarch
+    losses_as_anarch.count
+  end
+
+  def wins_as_criminal
+    runner = Runner.where(:faction => "Criminal")
+    wins_as_runner.where(:runner_id => runner)
+  end
+
+  def total_wins_as_criminal
+    wins_as_criminal.count
+  end
+
+  def losses_as_criminal
+    runner = Runner.where(:faction => "Criminal")
+    losses_as_runner.where(:runner_id => runner)
+  end
+
+  def total_losses_as_criminal
+    losses_as_criminal.count
+  end
+
+  def wins_as_shaper
+    runner = Runner.where(:faction => "Shaper")
+    wins_as_runner.where(:runner_id => runner)
+  end
+
+  def total_wins_as_shaper
+    wins_as_shaper.count
+  end
+
+  def losses_as_shaper
+    runner = Runner.where(:faction => "Shaper")
+    losses_as_runner.where(:runner_id => runner)
+  end
+
+  def total_losses_as_shaper
+    losses_as_shaper.count
+  end
+
   def losses_as_runner
     games_as_runner.where(%Q{flatlined = 't' or runner_score < corporation_score})
   end
@@ -141,6 +231,78 @@ class User < ActiveRecord::Base
         flatlined = 't'
       )
     })
+  end
+
+  def wins_as_haas_bioroid
+    corp = Corporation.where(:faction => "Haas-Bioroid")
+    wins_as_corporation.where(:corporation_id => corp)
+  end
+
+  def total_wins_as_haas_bioroid
+    wins_as_haas_bioroid.count
+  end
+
+  def losses_as_haas_bioroid
+    corp = Corporation.where(:faction => "Haas-Bioroid")
+    losses_as_corporation.where(:corporation_id => corp)
+  end
+
+  def total_losses_as_haas_bioroid
+    losses_as_haas_bioroid.count
+  end
+
+  def wins_as_jinteki
+    corp = Corporation.where(:faction => "Jinteki")
+    wins_as_corporation.where(:corporation_id => corp)
+  end
+
+  def total_wins_as_jinteki
+    wins_as_jinteki.count
+  end
+
+  def losses_as_jinteki
+    corp = Corporation.where(:faction => "Jinteki")
+    losses_as_corporation.where(:corporation_id => corp)
+  end
+
+  def total_losses_as_jinteki
+    losses_as_jinteki.count
+  end
+
+  def wins_as_nbn
+    corp = Corporation.where(:faction => "NBN")
+    wins_as_corporation.where(:corporation_id => corp)
+  end
+
+  def total_wins_as_nbn
+    wins_as_nbn.count
+  end
+
+  def losses_as_nbn
+    corp = Corporation.where(:faction => "NBN")
+    losses_as_corporation.where(:corporation_id => corp)
+  end
+
+  def total_losses_as_nbn
+    losses_as_nbn.count
+  end
+
+  def wins_as_weyland
+    corp = Corporation.where(:faction => "Weyland Consortium")
+    wins_as_corporation.where(:corporation_id => corp)
+  end
+
+  def total_wins_as_weyland
+    wins_as_weyland.count
+  end
+
+  def losses_as_weyland
+    corp = Corporation.where(:faction => "Weyland Consortium")
+    losses_as_corporation.where(:corporation_id => corp)
+  end
+
+  def total_losses_as_weyland
+    losses_as_weyland.count
   end
 
   def losses_as_corporation

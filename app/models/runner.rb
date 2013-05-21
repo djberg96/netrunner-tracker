@@ -3,14 +3,14 @@ class Runner < ActiveRecord::Base
 
   has_many :games
 
-  FACTIONS = %w[Anarchist Criminal Shaper]
+  FACTIONS = %w[Anarch Criminal Shaper]
 
   validates :faction,
     :presence  => true,
     :format    => {:with => /\A[a-zA-Z]+\z/, :message => "only letters allowed"},
     :inclusion => {
       :in => FACTIONS,
-      :message => 'must be "Anarchist", "Criminal" or "Shaper"'
+      :message => 'must be "Anarch", "Criminal" or "Shaper"'
     }
 
   validates :identity,
