@@ -144,10 +144,6 @@ class User < ActiveRecord::Base
     games_as_criminal.count
   end
 
-  def average_score_as_anarch
-    games_as_anarch.average(:runner_score)
-  end
-
   def games_as_shaper
     runner = Runner.where(:faction => "Shaper")
     games_as_runner.where(:runner_id => runner)
