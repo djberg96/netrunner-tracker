@@ -1,9 +1,64 @@
-core1:
+accelerated_beta_test:
   title: Accelerated Beta Test
   faction: Haas-Bioroid
   kind: Agenda
 
-core2:
+adonis_campaign:
   title: Adonis Campaign
   faction: Haas-Bioroid
   kind: Asset
+
+aggressive_secretary:
+  title: Aggressive Secretary
+  faction: Haas-Bioroid
+  kind: Asset
+
+heimdal:
+  title: Heimdal 1.0
+  faction: Haas-Bioroid
+  kind: Ice
+ 
+ichi:
+  title: Ichi 1.0
+  faction: Haas-Bioroid
+  kind: Ice
+
+rototurret:
+  title: Rototurret
+  faction: Haas-Bioroid
+  kind: Ice
+  
+viktor:
+  title: Viktor 1.0
+  faction: Haas-Bioroid
+  kind: Ice
+
+haas-bioroid:
+  title: Haas-Bioroid
+  faction: Haas-Bioroid
+  kind: Identity
+
+archived_memories:
+  title: Archived Memories
+  faction: Haas-Bioroid
+  kind: Operation
+
+biotic_labor:
+  title: Biotic Labor
+  faction: Haas-Bioroid
+  kind: Operation
+
+shipment_from_mirrormorph:
+  title: Shipment from Mirrormorph
+  faction: Haas-Bioroid
+  kind: Operation
+
+corporate_troubleshooter:
+  title: Corporate Troubleshooter
+  faction: Haas-Bioroid
+  kind: Upgrade
+
+experiential_data:
+  title: Experiential Data
+  faction: Haas-Bioroid
+  kind: Upgrade
