@@ -11,3 +11,12 @@
  *= require_self
  *= require_tree .
  */
+
+/* For sortable column headers */
+.table th.sortable{
+  font-size: 1.2em;
+}
+
+.table th.sortable a{
+  text-decoration: none;
+}

@@ -12,11 +12,11 @@
     <div class="inner">
       <table class="table">
         <tr>             
-          <th><%= sortable "title", "Title" %></th>
-          <th><%= sortable "faction", "Faction" %></th>
-          <th><%= sortable "kind", "Type" %></th>
-          <th><%= sortable "cost", "Cost" %></th>
-          <th><%= sortable "influence", "Influence" %></th>
+          <th class="sortable"><%= sortable "title", "Title" %></th>
+          <th class="sortable"><%= sortable "faction", "Faction" %></th>
+          <th class="sortable"><%= sortable "kind", "Type" %></th>
+          <th class="sortable"><%= sortable "cost", "Cost" %></th>
+          <th class="sortable"><%= sortable "influence", "Influence" %></th>
         </tr>
         <% @cards.each do |card| -%>
         <tr class="<%= cycle("odd", "even") %>" onclick="window.location.href = '<%= card_path(card) %>'">
