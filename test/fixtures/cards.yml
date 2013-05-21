@@ -109,7 +109,7 @@ snare:
   cost: 0
 
 zaibatsu_loyalty:
-  title: Zaibatsu Loyalty:
+  title: Zaibatsu Loyalty
   faction: Jinteki
   kind: Asset
   influence: 1
