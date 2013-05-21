@@ -29,4 +29,12 @@ class Card < ActiveRecord::Base
   validates :title,
     :presence   => true,
     :uniqueness => true
+
+  validates :faction,
+    :presence  => true,
+    :inclusion => {:in => FACTIONS, :message => "Invalid faction"}
+
+  validates :kind,
+    :presence  => true,
+    :inclusion => {:in => TYPES, :message => "Invalid card type"}
 end

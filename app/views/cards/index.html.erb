@@ -2,7 +2,9 @@
   <div class="secondary-navigation">
     <ul class="wat-cf">
       <li class="first active"><%= link_to "#{t("web-app-theme.list", :default => "List")}", cards_path  %></li>
-      <li><%= link_to "#{t("web-app-theme.new", :default => "New")}", new_card_path %></li>
+      <% if current_user.admin? %>
+        <li><%= link_to "#{t("web-app-theme.new", :default => "New")}", new_card_path %></li>
+      <% end %>
     </ul>
   </div>          
   <div class="content">          
@@ -10,39 +12,23 @@
     <div class="inner">
       <table class="table">
         <tr>             
-          <th class="first">ID</th>
-                    <th>
-            <%= t("activerecord.attributes.card.title", :default => t("activerecord.labels.title", :default => "Title")) %>
-          </th>
-                    <th><%= t("web-app-theme.created_at", :default => "Created at")  %></th>
-          <th class="last">&nbsp;</th>
+          <th><%= t("activerecord.attributes.card.title", :default => t("activerecord.labels.title", :default => "Title")) %></th>
+          <th><%= t("activerecord.attributes.card.faction", :default => t("activerecord.labels.faction", :default => "Faction")) %></th>
+          <th><%= t("activerecord.attributes.card.kind", :default => t("activerecord.labels.kind", :default => "Type")) %></th>
         </tr>
         <% @cards.each do |card| -%>
-        <tr class="<%= cycle("odd", "even") %>">
-          <td>
-            <%= card.id %>
-          </td>
-                    <td>
-            <%= link_to card.title, card_path(card) %>
-          </td>
-                    <td>
-            <%= card.created_at %>
-          </td>
-          <td class="last">
-            <%= link_to "#{t("web-app-theme.show", :default => "Show")}", card_path(card) %> |
-            <%= link_to "#{t("web-app-theme.edit", :default => "Edit")}", edit_card_path(card) %> |
-            <%= link_to "#{t("web-app-theme.delete", :default => "Delete")}", card_path(card), :method => :delete, :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}" %>
-          </td>
+        <tr class="<%= cycle("odd", "even") %>" onclick="window.location.href = '<%= card_path(card) %>'">
+
+          <td><%= card.title %></td>
+          <td><%= card.faction %></td>
+          <td><%= card.kind %></td>
         </tr>          
         <% end -%>
       </table>
-      <div class="actions-bar wat-cf">
-        <div class="actions">
-        </div>
-        
-        <%= paginate @cards  %>
-        
-      </div>
+      <p>
+        <%= link_to_previous_page @cards, 'Previous' %>
+        <%= link_to_next_page @cards, 'Next' %>
+      </p>
     </div>
   </div>
 </div>
