@@ -25,11 +25,27 @@
           <b><%= t("activerecord.attributes.card.faction", :default => t("activerecord.labels.faction", :default => "Faction")) %>:</b>
           <%= @card.faction %>
         </p>
+
+        <p>
+          <b>Cost:</b>
+          <%= @card.cost %>
+        </p>
+
+        <p>
+          <% if @card.agenda? %>
+            <b>Agenda Points:</b>
+            <%= @card.agenda_points %>
+          <% else %>
+            <b>Influence:</b>
+            <%= @card.influence %>
+          <% end %>
+        </p>
+
       <div class="wat-cf">
         <% if current_user.admin? %>
           <%= link_to image_tag("web-app-theme/icons/application_edit.png", :alt => "#{t("web-app-theme.edit", :default=> "Edit")}") + " " + t("web-app-theme.edit", :default=> "Edit"), edit_card_path(@card), :class => "button" %> 
         <% end %>
-      </div>      
+      </div>
     </div>
   </div>
 </div>

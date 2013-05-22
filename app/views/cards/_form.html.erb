@@ -1,21 +1,41 @@
+<table class="table">
+  <tr>
+    <div class="group">
+      <td><%= f.label :title, :class => :label %></td>
+      <td colspan=3>
+        <span class="description">Ex. Access to Globalsec</span>
+        <%= f.text_field :title, :class => :text_field %>
+      </td>
+    </div>
+  </tr>
 
-  <div class="group">
-    <%= f.label :title, t("activerecord.attributes.card.title", :default => "Title"), :class => :label %>
-    <%= f.text_field :title, :class => 'text_field' %>
-    <span class="description">Ex: a simple text</span>
-  </div>
+  <tr>
+    <div class="group">
+      <td><%= f.label :type, :class => :label %></td>
+      <td><%= f.select :kind, Card::TYPES %></td>
+      <td><%= f.label :influence, :class => :label %></td>
+      <td><%= f.select :influence, 0..4 %></td>
+    </div>
+  </tr>
 
-  <div class="group">
-    <%= f.label :kind, t("activerecord.attributes.card.kind", :default => "Kind"), :class => :label %>
-    <%= f.text_field :kind, :class => 'text_field' %>
-    <span class="description">Ex: a simple text</span>
-  </div>
+  <tr>
+    <div class="group">
+      <td><%= f.label :faction, :class => :label %></td>
+      <td><%= f.select :faction, Card::FACTIONS %></td>
+      <td><%= f.label :cost, :class => :label %></td>
+      <td><%= f.select :cost, 0..15 %></td>
+    </div>
+  </tr>
 
-  <div class="group">
-    <%= f.label :faction, t("activerecord.attributes.card.faction", :default => "Faction"), :class => :label %>
-    <%= f.text_field :faction, :class => 'text_field' %>
-    <span class="description">Ex: a simple text</span>
-  </div>
+  <tr>
+    <div class="group">
+      <td></td>
+      <td></td>
+      <td><%= f.label :agenda_points, :class => :label %></td>
+      <td><%= f.select :agenda_points, 1..3, :include_blank => true, :default => nil %></td>
+    </div>
+  </tr>
+</table>
         
 <div class="group navform wat-cf">
   <button class="button" type="submit">
