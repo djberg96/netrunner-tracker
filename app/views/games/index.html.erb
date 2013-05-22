@@ -20,19 +20,23 @@
     <div class="inner">
       <table class="table">
         <tr>             
-          <th><%= t("activerecord.attributes.game.league.name", :default => t("activerecord.labels.league", :default => "League")) %> </th>
-          <th><%= t("activerecord.attributes.game.runner_user", :default => t("activerecord.labels.league", :default => "Runner")) %> </th>
-          <th><%= t("activerecord.attributes.game.runner_score", :default => t("activerecord.labels.league", :default => "Score")) %> </th>
-          <th><%= t("activerecord.attributes.game.corporation_user", :default => t("activerecord.labels.league", :default => "Corp")) %> </th>
-          <th><%= t("activerecord.attributes.game.corporation_score", :default => t("activerecord.labels.league", :default => "Score")) %> </th>
-          <th><%= t("activerecord.attributes.game.date", :default => t("activerecord.labels.league", :default => "Date")) %> </th>
+          <th>League</th>
+          <th>Runner</th>
+          <th>Faction</th>
+          <th>Score</th>
+          <th>Corp</th>
+          <th>Faction</th>
+          <th>Score</th>
+          <th>Date</th>
         </tr>
         <% @games.each do |game| -%>
           <tr class="<%= cycle("odd", "even") %>" onclick="window.location.href = '<%= game_path(game) %>'">
           <td><%= game.league.name if game.league %></td>
           <td><%= link_to game.runner_user.userid, user_path(game.runner_user) %></td>
+          <td><%= game.runner.faction %></td>
           <td><%= game.runner_score %></td>
           <td><%= link_to game.corporation_user.userid, user_path(game.corporation_user) %></td>
+          <td><%= game.corporation.short_name %></td>
           <td><%= game.corporation_score %></td>
           <td><%= game.date.strftime("%d-%b-%Y") %></td>
         </tr>          
