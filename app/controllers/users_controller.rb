@@ -107,6 +107,12 @@ class UsersController < ApplicationController
       return
     end
 
+    unless @user.total_games == 0
+      flash[:error] = "You cannot delete a user with at least 1 recorded game."
+      redirect_to user_path(@user)
+      return
+    end
+
     @user.destroy
 
     respond_to do |format|
