@@ -15,12 +15,16 @@
           <th><%= t("activerecord.attributes.corporation.faction", :default => t("activerecord.labels.faction", :default => "Faction")) %> </th>
           <th><%= t("activerecord.attributes.corporation.slogan", :default => t("activerecord.labels.slogan", :default => "Slogan")) %> </th>
           <th><%= t("activerecord.attributes.corporation.identity", :default => t("activerecord.labels.identity", :default => "Identity")) %> </th>
+          <th>Min. Cards</th>
+          <th>Max. Influence</th>
         </tr>
         <% @corporations.each do |corporation| -%>
         <tr class="<%= cycle("odd", "even") %>" onclick="window.location.href = '<%= corporation_path(corporation) %>'">
           <td> <%= corporation.faction %> </td>
           <td> <%= corporation.slogan %> </td>
           <td> <%= corporation.identity %> </td>
+          <td> <%= corporation.min_cards %> </td>
+          <td> <%= corporation.max_influence %> </td>
         </tr>          
         <% end -%>
       </table>
