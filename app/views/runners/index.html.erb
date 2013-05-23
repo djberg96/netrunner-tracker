@@ -12,15 +12,19 @@
     <div class="inner">
       <table class="table">
         <tr>             
-          <th><%= t("activerecord.attributes.runner.faction", :default => t("activerecord.labels.faction", :default => "Faction")) %></th>
-          <th><%= t("activerecord.attributes.runner.identity", :default => t("activerecord.labels.identity", :default => "Identity")) %></th>
-          <th><%= t("activerecord.attributes.runner.name", :default => t("activerecord.labels.name", :default => "Name")) %></th>
+          <th class="first">Faction</th>
+          <th>Identity</th>
+          <th>Name</th>
+          <th>Min. Cards</th>
+          <th>Max. Influence</th>
         </tr>
         <% @runners.each do |runner| -%>
         <tr class="<%= cycle("odd", "even") %>" onclick="window.location.href = '<%= runner_path(runner) %>'">
           <td> <%= runner.faction %> </td>
           <td> <%= runner.identity %> </td>
           <td> <%= runner.name %> </td>
+          <td> <%= runner.min_cards %> </td>
+          <td> <%= runner.max_influence %> </td>
         </tr>          
         <% end -%>
       </table>

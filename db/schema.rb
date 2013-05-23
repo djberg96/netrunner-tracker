@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130521121102) do
+ActiveRecord::Schema.define(:version => 20130523163403) do
 
   create_table "cards", :force => true do |t|
     t.string   "title"
@@ -28,8 +28,20 @@ ActiveRecord::Schema.define(:version => 20130521121102) do
     t.string   "faction"
     t.string   "slogan"
     t.string   "identity"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
+    t.integer  "min_cards",     :default => 45
+    t.integer  "max_influence", :default => 15
+  end
+
+  create_table "decks", :force => true do |t|
+    t.string   "name"
+    t.integer  "user_id"
+    t.integer  "corporation_id"
+    t.integer  "runner_id"
+    t.text     "cards"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
   end
 
   create_table "games", :force => true do |t|
@@ -61,8 +73,10 @@ ActiveRecord::Schema.define(:version => 20130521121102) do
     t.string   "faction"
     t.string   "identity"
     t.string   "name"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
+    t.integer  "min_cards",     :default => 45
+    t.integer  "max_influence", :default => 15
   end
 
   create_table "sessions", :force => true do |t|
