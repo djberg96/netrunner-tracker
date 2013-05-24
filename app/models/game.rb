@@ -9,6 +9,7 @@ class Game < ActiveRecord::Base
   belongs_to :runner
   belongs_to :corporation
   belongs_to :league
+  belongs_to :match
 
   validate :runner_and_corporation_are_not_same_player
 

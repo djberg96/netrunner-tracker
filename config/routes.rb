@@ -1,4 +1,7 @@
 NetrunnerTracker::Application.routes.draw do
+  resources :matches
+
+
   get "sessions/new"
   get "sessions/create"
   get "sessions/destroy"

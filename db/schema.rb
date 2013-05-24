@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130523163403) do
+ActiveRecord::Schema.define(:version => 20130524005245) do
 
   create_table "cards", :force => true do |t|
     t.string   "title"
@@ -35,11 +35,11 @@ ActiveRecord::Schema.define(:version => 20130523163403) do
   end
 
   create_table "decks", :force => true do |t|
-    t.string   "name"
     t.integer  "user_id"
+    t.string   "name"
+    t.text     "cards"
     t.integer  "corporation_id"
     t.integer  "runner_id"
-    t.text     "cards"
     t.datetime "created_at",     :null => false
     t.datetime "updated_at",     :null => false
   end
@@ -59,6 +59,7 @@ ActiveRecord::Schema.define(:version => 20130523163403) do
     t.boolean  "flatlined",           :default => false
     t.boolean  "draw_death",          :default => false
     t.boolean  "unfinished",          :default => false
+    t.integer  "match_id"
   end
 
   create_table "leagues", :force => true do |t|
@@ -67,6 +68,14 @@ ActiveRecord::Schema.define(:version => 20130523163403) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
     t.integer  "created_by"
+  end
+
+  create_table "matches", :force => true do |t|
+    t.string   "name"
+    t.integer  "tournament_id"
+    t.date     "date"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
   end
 
   create_table "runners", :force => true do |t|
@@ -88,6 +97,16 @@ ActiveRecord::Schema.define(:version => 20130523163403) do
 
   add_index "sessions", ["session_id"], :name => "index_sessions_on_session_id"
   add_index "sessions", ["updated_at"], :name => "index_sessions_on_updated_at"
+
+  create_table "tournaments", :force => true do |t|
+    t.string   "name"
+    t.integer  "num_players"
+    t.integer  "num_rounds"
+    t.integer  "winner"
+    t.integer  "created_by"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
 
   create_table "users", :force => true do |t|
     t.string   "userid"
