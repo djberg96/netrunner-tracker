@@ -10,37 +10,23 @@
     <div class="inner">
       <table class="table">
         <tr>             
-          <th class="first">ID</th>
-                    <th>
-            <%= t("activerecord.attributes.match.name", :default => t("activerecord.labels.name", :default => "Name")) %>
-          </th>
-                    <th><%= t("web-app-theme.created_at", :default => "Created at")  %></th>
-          <th class="last">&nbsp;</th>
+          <th>Tournament</th>
+          <th>Match</th>
+          <th>Players</th>
+          <th>Winner</th>
+          <th>Date</th>
         </tr>
+
         <% @matches.each do |match| -%>
-        <tr class="<%= cycle("odd", "even") %>">
-          <td>
-            <%= match.id %>
-          </td>
-                    <td>
-            <%= link_to match.name, match_path(match) %>
-          </td>
-                    <td>
-            <%= match.created_at %>
-          </td>
-          <td class="last">
-            <%= link_to "#{t("web-app-theme.show", :default => "Show")}", match_path(match) %> |
-            <%= link_to "#{t("web-app-theme.edit", :default => "Edit")}", edit_match_path(match) %> |
-            <%= link_to "#{t("web-app-theme.delete", :default => "Delete")}", match_path(match), :method => :delete, :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}" %>
-          </td>
-        </tr>          
+          <tr class="<%= cycle("odd", "even") %>">
+            <td></td>
+            <td><%= link_to match.name, match_path(match) %></td>
+            <td><%= match.players.join(', ') %></td>
+            <td></td>
+            <td><%= match.created_at.strftime("%d-%b-%Y") %></td>
+          </tr>
         <% end -%>
       </table>
-      <div class="actions-bar wat-cf">
-        <div class="actions">
-        </div>
-        
-      </div>
     </div>
   </div>
 </div>
