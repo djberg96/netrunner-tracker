@@ -55,6 +55,9 @@ class MatchesController < ApplicationController
     @runners = Runner.all
     @corporations = Corporation.all
 
+    @game1.date = @match.date
+    @game2.date = @match.date
+
     @match.games = [@game1, @game2]
 
     respond_to do |format|
