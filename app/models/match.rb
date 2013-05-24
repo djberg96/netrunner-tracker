@@ -6,11 +6,22 @@ class Match < ActiveRecord::Base
   belongs_to :tournament
 
   accepts_nested_attributes_for :games
+  #validates_associated :games
 
   #validates :players_switched_sides
 
   def players
-    game = games.first
-    [game.runner_user.userid, game.corporation_user.userid]
+    games.first.players
+  end
+
+  def game1_winner
+    games.first.player_winner
+  end
+
+  def game2_winner
+    games.last.player_winner
+  end
+
+  def match_points
   end
 end
