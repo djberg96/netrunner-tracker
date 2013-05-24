@@ -6,9 +6,20 @@ class Match < ActiveRecord::Base
   belongs_to :tournament
 
   accepts_nested_attributes_for :games
-  #validates_associated :games
+  validates_associated :games
 
-  #validates :players_switched_sides
+  validate :players_switched_sides
+
+  ## Validations
+
+  def players_switched_sides
+    if games[0].runner_user == games[1].runner_user
+      msg = "Runner may not be the same player twice in a match"
+      errors.add(:base, msg)
+    end
+  end
+
+  ## Handy Methods
 
   def players
     games.first.players
