@@ -43,6 +43,12 @@ class MatchesController < ApplicationController
   # GET /matches/1/edit
   def edit
     @match = Match.find(params[:id])
+    @game1 = @match.games[0]
+    @game2 = @match.games[1]
+
+    @users = User.order("lower(userid)")
+    @runners = Runner.all
+    @corporations = Corporation.all
   end
 
   # POST /matches
