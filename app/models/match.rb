@@ -3,6 +3,4 @@ class Match < ActiveRecord::Base
 
   has_many :games
   belongs_to :tournament
-
-  accepts_nested_attributes_for :games
 end

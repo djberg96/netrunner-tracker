@@ -25,6 +25,14 @@ class MatchesController < ApplicationController
   # GET /matches/new.json
   def new
     @match = Match.new
+    @game1 = Game.new
+    @game2 = Game.new
+
+    @users = User.order("lower(userid)")
+    @runners = Runner.order(:faction, :name)
+    @corporations = Corporation.order(:faction, :slogan)
+
+    @match.games = [@game1, @game2]
 
     respond_to do |format|
       format.html # new.html.erb
@@ -41,6 +49,13 @@ class MatchesController < ApplicationController
   # POST /matches.json
   def create
     @match = Match.new(params[:match])
+    @game1 = Game.new(params[:game1])
+    @game2 = Game.new(params[:game2])
+
+    @runners = Runner.all
+    @corporations = Corporation.all
+
+    @match.games = [@game1, @game2]
 
     respond_to do |format|
       if @match.save

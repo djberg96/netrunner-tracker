@@ -38,6 +38,10 @@ class Corporation < ActiveRecord::Base
     faction + ' - ' + slogan
   end
 
+  def short_faction_and_slogan
+    short_name + ' - ' + slogan
+  end
+
   def short_name
     case faction
     when 'Weyland Consortium'
