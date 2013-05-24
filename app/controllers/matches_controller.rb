@@ -52,6 +52,7 @@ class MatchesController < ApplicationController
     @game1 = Game.new(params[:game1])
     @game2 = Game.new(params[:game2])
 
+    @users = User.order("lower(userid)")
     @runners = Runner.all
     @corporations = Corporation.all
 
