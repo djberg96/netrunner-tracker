@@ -10,12 +10,34 @@ class Match < ActiveRecord::Base
 
   validate :players_switched_sides
 
+  before_save :set_match_points
+
   ## Validations
 
   def players_switched_sides
     if games[0].runner_user == games[1].runner_user
-      msg = "Runner may not be the same player twice in a match"
+      msg = "Player may not be the same faction twice in a match"
       errors.add(:base, msg)
+    end
+  end
+
+  ## Callbacks
+
+  def set_match_points
+    player1 = games[0].runner_user.userid
+    player2 = games[0].corporation_user.userid
+
+    player1_match_points = 0
+    player2_match_points = 0
+
+    games.each do |g|
+      if player1 == g.player_winner
+        self.player1_match_points += 10
+        self.player2_match_points += g.player_loser_score
+      else
+        self.player2_match_points += 10
+        self.player1_match_points += g.player_loser_score
+      end
     end
   end
 
