@@ -10,8 +10,8 @@ class Match < ActiveRecord::Base
 
   validate :players_switched_sides
 
-  before_create :set_match_points
-  before_create :set_prestige_points
+  before_save :set_match_points
+  before_save :set_prestige_points
 
   ## Validations
 
@@ -25,8 +25,8 @@ class Match < ActiveRecord::Base
   ## Callbacks
 
   def set_match_points
-    player1_match_points = 0
-    player2_match_points = 0
+    self.player1_match_points = 0
+    self.player2_match_points = 0
 
     games.each do |g|
       if player1.userid == g.player_winner
@@ -40,8 +40,8 @@ class Match < ActiveRecord::Base
   end
 
   def set_prestige_points
-    player1_prestige_points = 0
-    player2_prestige_points = 0
+    self.player1_prestige_points = 0
+    self.player2_prestige_points = 0
 
     games.each do |g|
       if player1.userid == g.player_winner
