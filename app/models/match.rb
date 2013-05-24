@@ -29,10 +29,15 @@ class Match < ActiveRecord::Base
     games.first.player_winner
   end
 
+  def game1_loser
+    games.first.player_loser
+  end
+
   def game2_winner
     games.last.player_winner
   end
 
-  def match_points
+  def game2_loser
+    games.last.player_loser
   end
 end
