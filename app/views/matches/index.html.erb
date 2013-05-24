@@ -1,25 +1,48 @@
-<h1>Listing matches</h1>
+<div class="block">
+  <div class="secondary-navigation">
+    <ul class="wat-cf">
+      <li class="first active"><%= link_to "#{t("web-app-theme.list", :default => "List")}", matches_path  %></li>
+      <li><%= link_to "#{t("web-app-theme.new", :default => "New")}", new_match_path %></li>
+    </ul>
+  </div>          
+  <div class="content">          
+    <h2 class="title"><%= t("web-app-theme.all", :default => "All")  %> Matches</h2>
+    <div class="inner">
+      <table class="table">
+        <tr>             
+          <th class="first">ID</th>
+                    <th>
+            <%= t("activerecord.attributes.match.name", :default => t("activerecord.labels.name", :default => "Name")) %>
+          </th>
+                    <th><%= t("web-app-theme.created_at", :default => "Created at")  %></th>
+          <th class="last">&nbsp;</th>
+        </tr>
+        <% @matches.each do |match| -%>
+        <tr class="<%= cycle("odd", "even") %>">
+          <td>
+            <%= match.id %>
+          </td>
+                    <td>
+            <%= link_to match.name, match_path(match) %>
+          </td>
+                    <td>
+            <%= match.created_at %>
+          </td>
+          <td class="last">
+            <%= link_to "#{t("web-app-theme.show", :default => "Show")}", match_path(match) %> |
+            <%= link_to "#{t("web-app-theme.edit", :default => "Edit")}", edit_match_path(match) %> |
+            <%= link_to "#{t("web-app-theme.delete", :default => "Delete")}", match_path(match), :method => :delete, :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}" %>
+          </td>
+        </tr>          
+        <% end -%>
+      </table>
+      <div class="actions-bar wat-cf">
+        <div class="actions">
+        </div>
+        
+      </div>
+    </div>
+  </div>
+</div>
 
-<table>
-  <tr>
-    <th>Game</th>
-    <th>Date</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @matches.each do |match| %>
-  <tr>
-    <td><%= match.game_id %></td>
-    <td><%= match.date %></td>
-    <td><%= link_to 'Show', match %></td>
-    <td><%= link_to 'Edit', edit_match_path(match) %></td>
-    <td><%= link_to 'Destroy', match, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
-<% end %>
-</table>
-
-<br />
-
-<%= link_to 'New Match', new_match_path %>
+<% content_for :sidebar, render(:partial => 'sidebar') -%>
