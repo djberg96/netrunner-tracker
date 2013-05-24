@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  num_players: 1
+  num_rounds: 1
+  winner: 1
+  created_by: 1
+
+two:
+  name: MyString
+  num_players: 1
+  num_rounds: 1
+  winner: 1
+  created_by: 1
