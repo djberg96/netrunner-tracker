@@ -42,6 +42,10 @@ class Corporation < ActiveRecord::Base
     short_name + ' - ' + slogan
   end
 
+  def short_faction_and_short_slogan
+    short_name + ' - ' + short_slogan
+  end
+
   def short_name
     case faction
     when 'Weyland Consortium'
@@ -50,6 +54,25 @@ class Corporation < ActiveRecord::Base
       'HB'
     else
       faction
+    end
+  end
+
+  def short_slogan
+    case slogan
+    when "Engineering the Future"
+      "EtF"
+    when "Stronger Together"
+      "ST"
+    when "Personal Evolution"
+      "PE"
+    when "Replicating Perfection"
+      "RP"
+    when "Making News"
+      "MN"
+    when "Building a Better World"
+      "BaBW"
+    else
+      slogan
     end
   end
 end

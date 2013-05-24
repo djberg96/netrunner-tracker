@@ -79,13 +79,13 @@ class Game < ActiveRecord::Base
 
   def faction_winner
     if flatlined?
-      corporation.faction
+      corporation.short_faction_and_short_slogan
     elsif draw_death?
-      runner.faction
+      runner.faction_and_short_name
     elsif runner_score > corporation_score
-      runner.faction
+      runner.faction_and_short_name
     elsif corporation_score > runner_score
-      corporation.faction
+      corporation.short_faction_and_short_slogan
     else
       # Unfinished
     end
@@ -93,13 +93,13 @@ class Game < ActiveRecord::Base
 
   def faction_loser
     if flatlined?
-      runner.faction
+      runner.faction_and_short_name
     elsif draw_death?
-      corporation.faction
+      corporation.short_faction_and_short_slogan
     elsif runner_score > corporation_score
-      corporation.faction
+      corporation.short_faction_and_short_slogan
     elsif corporation_score > runner_score
-      runner.faction
+      runner.faction_and_short_name
     else
       # Unfinished
     end

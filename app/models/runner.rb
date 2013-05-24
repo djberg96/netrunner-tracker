@@ -28,4 +28,19 @@ class Runner < ActiveRecord::Base
   def faction_and_name
     faction + ' - ' + name
   end
+
+  def faction_and_short_name
+    faction + ' - ' + short_name
+  end
+
+  def short_name
+    case name
+    when /McCaffrey/i
+      "Kate"
+    when /Gabriel Santiago/i
+      "Gabe"
+    else
+      name
+    end
+  end
 end
