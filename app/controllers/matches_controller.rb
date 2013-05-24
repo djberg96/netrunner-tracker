@@ -67,6 +67,17 @@ class MatchesController < ApplicationController
 
     @match.games = [@game1, @game2]
 
+    # Add this here to make it look nicer on error.
+    if @game1.runner_user == @game2.runner_user
+      flash.now[:error] = "Runner may not be same player in both matches"
+    end
+
+    if @game1.runner_user == @game1.corporation_user ||
+       @game2.runner_user == @game2.corporation_user
+    then
+      flash.now[:error] = "Runner and Corporation may not be the same player within a game"
+    end
+
     respond_to do |format|
       if @match.save
         format.html { redirect_to @match, notice: 'Match was successfully created.' }
@@ -82,6 +93,13 @@ class MatchesController < ApplicationController
   # PUT /matches/1.json
   def update
     @match = Match.find(params[:id])
+
+    @game1 = @match.games[0]
+    @game2 = @match.games[1]
+
+    @users = User.order("lower(userid)")
+    @runners = Runner.all
+    @corporations = Corporation.all
 
     respond_to do |format|
       if @match.update_attributes(params[:match])
