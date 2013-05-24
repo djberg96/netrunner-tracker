@@ -11,6 +11,7 @@ class Match < ActiveRecord::Base
   validate :players_switched_sides
 
   before_save :set_match_points
+  after_save :set_prestige_points
 
   ## Validations
 
@@ -24,14 +25,11 @@ class Match < ActiveRecord::Base
   ## Callbacks
 
   def set_match_points
-    player1 = games[0].runner_user.userid
-    player2 = games[0].corporation_user.userid
-
     player1_match_points = 0
     player2_match_points = 0
 
     games.each do |g|
-      if player1 == g.player_winner
+      if player1.userid == g.player_winner
         self.player1_match_points += 10
         self.player2_match_points += g.player_loser_score
       else
@@ -41,10 +39,29 @@ class Match < ActiveRecord::Base
     end
   end
 
+  def set_prestige_points
+  end
+
+  def match_winner
+    if player1_match_points > player2_match_points
+      player1.userid
+    else
+      player2.userid
+    end
+  end
+
   ## Handy Methods
 
   def players
     games.first.players
+  end
+
+  def player1
+    games[0].runner_user
+  end
+
+  def player2
+    games[0].corporation_user
   end
 
   def game1_winner
