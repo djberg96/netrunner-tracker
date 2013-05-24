@@ -8,25 +8,55 @@
   </div>          
   <div class="content">
     <div class="inner">
-      
-        <p>
-          <b><%= t("activerecord.attributes.match.name", :default => t("activerecord.labels.name", :default => "Name")) %>:</b>
-          <%= @match.name %>
-        </p>
+      <table class="table">      
+        <tr>
+          <td><b>Name:</b></td>
+          <td><%= @match.name %></td>
+          <td><b>Tournament</b></td>
+          <td><%= @match.tournament.name if @match.tournament %></td>
+          <td><b>Date:</b></td>
+          <td><%= @match.date %></td>
+        </tr>
+      </table>
 
-        <p>
-          <b><%= t("activerecord.attributes.match.tournament_id", :default => t("activerecord.labels.tournament_id", :default => "Tournament")) %>:</b>
-          <%= @match.tournament_id %>
-        </p>
+      <p></p>
 
-        <p>
-          <b><%= t("activerecord.attributes.match.date", :default => t("activerecord.labels.date", :default => "Date")) %>:</b>
-          <%= @match.date %>
-        </p>
-      <div class="wat-cf">
-        <%= link_to image_tag("web-app-theme/icons/application_edit.png", :alt => "#{t("web-app-theme.edit", :default=> "Edit")}") + " " + t("web-app-theme.edit", :default=> "Edit"), edit_match_path(@match), :class => "button" %> 
-        <%= link_to image_tag("web-app-theme/icons/cross.png", :alt => "#{t("web-app-theme.delete", :default=> "Delete")}") + " " + t("web-app-theme.delete", :default => "Delete"), match_path(@match), :method => "delete", :class => "button", :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}" %>
-      </div>      
+      <table class="table">
+        <tr>
+          <th></th>
+          <th>Winner</th>
+          <th>Score</th>
+          <th>Faction</th>
+          <th>Loser</th>
+          <th>Score</th>
+          <th>Faction</th>
+        </tr>
+        <tr>
+          <td>GAME 1</td>
+          <td><%= @match.games.first.player_winner %></td>
+          <td><%= @match.games.first.player_winner_score %></td>
+          <td><%= @match.games.first.faction_winner %></td>
+          <td><%= @match.games.first.player_loser %></td>
+          <td><%= @match.games.first.player_loser_score %></td>
+          <td><%= @match.games.first.faction_loser %></td>
+        </tr>
+        <tr>
+          <td>GAME 2</td>
+          <td><%= @match.games.last.player_winner %></td>
+          <td><%= @match.games.last.player_winner_score %></td>
+          <td><%= @match.games.last.faction_winner %></td>
+          <td><%= @match.games.last.player_loser %></td>
+          <td><%= @match.games.last.player_loser_score %></td>
+          <td><%= @match.games.last.faction_loser %></td>
+        </tr>
+      </table>
+
+      <% if current_user.admin? %>
+        <div class="wat-cf">
+          <%= link_to image_tag("web-app-theme/icons/application_edit.png", :alt => "#{t("web-app-theme.edit", :default=> "Edit")}") + " " + t("web-app-theme.edit", :default=> "Edit"), edit_match_path(@match), :class => "button" %> 
+          <%= link_to image_tag("web-app-theme/icons/cross.png", :alt => "#{t("web-app-theme.delete", :default=> "Delete")}") + " " + t("web-app-theme.delete", :default => "Delete"), match_path(@match), :method => "delete", :class => "button", :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}" %>
+        </div>      
+      <% end %>
     </div>
   </div>
 </div>

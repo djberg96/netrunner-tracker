@@ -91,6 +91,20 @@ class Game < ActiveRecord::Base
     end
   end
 
+  def faction_loser
+    if flatlined?
+      runner.faction
+    elsif draw_death?
+      corporation.faction
+    elsif runner_score > corporation_score
+      corporation.faction
+    elsif corporation_score > runner_score
+      runner.faction
+    else
+      # Unfinished
+    end
+  end
+
   def player_winner
     if flatlined?
       corporation_user.userid
@@ -100,6 +114,48 @@ class Game < ActiveRecord::Base
       runner_user.userid
     elsif corporation_score > runner_score
       corporation_user.userid
+    else
+      # Unfinished
+    end
+  end
+
+  def player_loser
+    if flatlined?
+      runner_user.userid
+    elsif draw_death?
+      corporation_user.userid
+    elsif runner_score > corporation_score
+      corporation_user.userid
+    elsif corporation_score > runner_score
+      runner_user.userid
+    else
+      # Unfinished
+    end
+  end
+
+  def player_winner_score
+    if flatlined?
+      corporation_score
+    elsif draw_death?
+      runner_score
+    elsif runner_score > corporation_score
+      runner_score
+    elsif corporation_score > runner_score
+      corporation_score
+    else
+      # Unfinished
+    end
+  end
+
+  def player_loser_score
+    if flatlined?
+      runner_score
+    elsif draw_death?
+      corporation_score
+    elsif runner_score > corporation_score
+      corporation_score
+    elsif corporation_score > runner_score
+      runner_score
     else
       # Unfinished
     end
