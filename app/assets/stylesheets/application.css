@@ -20,3 +20,8 @@
 .table th.sortable a{
   text-decoration: none;
 }
+
+.match legend {
+  font-weight: bold;
+  margin: 0 3%;
+}
