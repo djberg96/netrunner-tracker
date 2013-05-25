@@ -6,12 +6,14 @@ class Match < ActiveRecord::Base
   belongs_to :tournament
 
   accepts_nested_attributes_for :games
+
   validates_associated :games
 
   validate :players_switched_sides
 
   before_save :set_match_points
   before_save :set_prestige_points
+  before_save :update_tournament_count
 
   ## Validations
 
@@ -23,6 +25,20 @@ class Match < ActiveRecord::Base
   end
 
   ## Callbacks
+
+  # Automatically set the number of players for a tournment when a match
+  # is added to that tournament.
+  #--
+  # TODO: There's probably a better way to get the number of players.
+  #
+  def update_tournament_count
+    if self.tournament
+      m_with_t = Match.where("tournament_id is not null")
+      num = m_with_t.map(&:games).flatten.map(&:runner_user).map(&:userid).uniq.size
+      self.tournament.num_players = num
+      self.tournament.save
+    end
+  end
 
   def set_match_points
     self.player1_match_points = 0
