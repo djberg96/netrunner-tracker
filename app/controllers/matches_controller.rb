@@ -2,7 +2,12 @@ class MatchesController < ApplicationController
   # GET /matches
   # GET /matches.json
   def index
-    @matches = Match.all
+    if params[:tournament_id]
+      @tournament = Tournament.find(params[:tournament_id])
+      @matches = Match.where(:tournament_id => @tournament)
+    else
+      @matches = Match.all
+    end
 
     respond_to do |format|
       format.html # index.html.erb

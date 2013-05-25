@@ -6,7 +6,11 @@
     </ul>
   </div>          
   <div class="content">          
-    <h2 class="title"><%= t("web-app-theme.all", :default => "All")  %> Matches</h2>
+    <% if @tournament %>
+      <h2 class="title">Matches: <%= @tournament.name %></h2>
+    <% else %>
+      <h2 class="title"><%= t("web-app-theme.all", :default => "All") %> Matches</h2>
+    <% end %>
     <div class="inner">
       <table class="table">
         <tr>             
@@ -19,7 +23,7 @@
 
         <% @matches.each do |match| -%>
           <tr class="<%= cycle("odd", "even") %>" onclick="window.location.href='<%= match_path(match) %>'">
-            <td></td>
+            <td><%= match.tournament.name if match.tournament %></td>
             <td><%= match.name %></td>
             <td><%= match.players.join(', ') %></td>
             <td></td>
