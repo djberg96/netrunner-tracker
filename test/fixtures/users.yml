@@ -1,7 +1,63 @@
-dannyboy:
-  userid: dannyboy
+djberg96:
+  userid: djberg96
   email: djberg96@gmail.com
   password_digest: <%= BCrypt::Password.create('asdfasdf') %>
   first_name: Daniel
   last_name: Berger
   admin: true
+
+quizoid:
+  userid: quizoid
+  email: quizoid@gmail.com
+  password_digest: <%= BCrypt::Password.create('asdfasdf') %>
+  first_name: Tony
+  last_name: Martins
+  admin: false
+
+tobin:
+  userid: tobin
+  email: tobin@hotmail.com
+  password_digest: <%= BCrypt::Password.create('asdfasdf') %>
+  first_name: Tobin
+  last_name: Lopes
+  admin: false
+
+joe:
+  userid: joe
+  email: joe@yahoo.com
+  password_digest: <%= BCrypt::Password.create('asdfasdf') %>
+  first_name: Joe
+  last_name: Smith
+  admin: false
+
+sally:
+  userid: sally
+  email: sally@yahoo.com
+  password_digest: <%= BCrypt::Password.create('asdfasdf') %>
+  first_name: Sally
+  last_name: Jones
+  admin: false
+
+mary:
+  userid: mary
+  email: mary@yahoo.com
+  password_digest: <%= BCrypt::Password.create('asdfasdf') %>
+  first_name: Mary
+  last_name: Johnson
+  admin: false
+
+drobbins:
+  userid: drobbins
+  email: drobbins@yahoo.com
+  password_digest: <%= BCrypt::Password.create('asdfasdf') %>
+  first_name: David
+  last_name: Robbins
+  admin: false
+
+mmathews:
+  userid: mmathews
+  email: mmathews@yahoo.com
+  password_digest: <%= BCrypt::Password.create('asdfasdf') %>
+  first_name: Michael
+  last_name: Matthews
+  admin: false
