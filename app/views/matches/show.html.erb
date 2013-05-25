@@ -11,9 +11,9 @@
     <div class="inner">
       <table class="table">      
         <tr>
-          <td><b>WINNER:</b> <%= @match.match_winner %></td>
+          <td>Tournament: <%= link_to @match.tournament.name, tournament_path(@match.tournament) if @match.tournament %></td>
+          <td>Round: <%= @match.round %></td>
           <td>Match Name: <%= @match.name %></b></td>
-          <td>Tournament: <%= @match.tournament.name if @match.tournament %></td>
         </tr>
         <tr>
           <td>Player 1: <%= @match.player1.userid %></td>
