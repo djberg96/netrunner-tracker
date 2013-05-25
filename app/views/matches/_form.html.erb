@@ -2,7 +2,7 @@
     <% if Tournament.count > 0 %>
       <tr>
         <td><%= f.label :tournament_id, t("activerecord.attributes.match.tournament_id", :default => "Tournament"), :class => :label %></td>
-        <td><%= f.collection_select(:tournament_id, Tournament.order(:name), :id, :name) %></td>
+        <td><%= f.collection_select(:tournament_id, Tournament.order(:name), :id, :name, :include_blank => true) %></td>
       </tr>
   <% end %>
     <tr>
