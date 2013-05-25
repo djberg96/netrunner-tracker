@@ -1,9 +1,7 @@
 NetrunnerTracker::Application.routes.draw do
   resources :tournaments
 
-
   resources :matches
-
 
   get "sessions/new"
   get "sessions/create"
@@ -51,6 +49,12 @@ NetrunnerTracker::Application.routes.draw do
   resources :leagues do
     resources :games
     resources :users
+  end
+
+  resources :tournaments do
+    resources :matches do
+      resources :games
+    end
   end
 
   # The priority is based upon order of creation:
