@@ -101,6 +101,11 @@ class MatchesController < ApplicationController
     @runners = Runner.all
     @corporations = Corporation.all
 
+    @game1 = Game.new(params[:game1])
+    @game2 = Game.new(params[:game2])
+
+    @match.games = [@game1, @game2]
+
     respond_to do |format|
       if @match.update_attributes(params[:match])
         format.html { redirect_to @match, notice: 'Match was successfully updated.' }
