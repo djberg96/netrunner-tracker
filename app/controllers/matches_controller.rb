@@ -52,8 +52,8 @@ class MatchesController < ApplicationController
     @game2 = @match.games[1]
 
     @users = User.order("lower(userid)")
-    @runners = Runner.all
-    @corporations = Corporation.all
+    @runners = Runner.order(:faction, :name)
+    @corporations = Corporation.order(:faction, :slogan)
   end
 
   # POST /matches
