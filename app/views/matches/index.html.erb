@@ -26,7 +26,7 @@
             <td><%= match.tournament.name if match.tournament %></td>
             <td><%= match.name %></td>
             <td><%= match.players.join(', ') %></td>
-            <td></td>
+            <td><%= match.match_winner %></td>
             <td><%= match.created_at.strftime("%d-%b-%Y") %></td>
           </tr>
         <% end -%>
