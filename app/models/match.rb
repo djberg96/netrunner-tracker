@@ -1,12 +1,11 @@
 class Match < ActiveRecord::Base
   attr_accessible :date, :game_id, :name, :tournament_id, :round
 
-  has_many :games
+  has_many :games, :dependent => :destroy
 
   belongs_to :tournament
 
   accepts_nested_attributes_for :games
-
   validates_associated :games
 
   validate :players_switched_sides
