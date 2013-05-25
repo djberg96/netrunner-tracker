@@ -8,6 +8,9 @@ class GamesController < ApplicationController
     elsif params[:league_id]
       @league = League.find(params[:league_id])
       @games = Game.where("league_id = #{@league.id}")
+    elsif params[:match_id]
+      @match = Match.find(params[:match_id])
+      @games = Game.where("match_id = #{@match.id}")
     else
       @games = Game
     end
