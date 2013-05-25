@@ -45,9 +45,19 @@
         </tr>
 
         <tr>
+          <td><b>Match Game?</b></td>
+          <% if @game.match %>
+            <td><%= link_to 'View Match', match_path(@game.match) %></td>
+          <% else %>
+            <td>No</td>
+          <% end %>
+        </tr>
+
+        <tr>
           <td><b><%= t("activerecord.attributes.game.comment", :default => t("activerecord.labels.comment", :default => "Comment")) %>:</b></td>
           <td colspan=3><%= @game.comment %></td>
         </tr>
+
       </table>
 
       <div class="wat-cf">
