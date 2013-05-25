@@ -39,7 +39,7 @@
           <td><%= link_to game.corporation_user.userid, user_path(game.corporation_user) %></td>
           <td><%= game.corporation.short_name %></td>
           <td><%= game.corporation_score %></td>
-          <td><%= game.date.strftime("%d-%b-%Y") %></td>
+          <td><%= game.date.strftime("%d-%b-%Y") if game.date %></td>
         </tr>          
         <% end -%>
       </table>
