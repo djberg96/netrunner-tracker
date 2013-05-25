@@ -18,9 +18,9 @@
         </tr>
 
         <% @matches.each do |match| -%>
-          <tr class="<%= cycle("odd", "even") %>">
+          <tr class="<%= cycle("odd", "even") %>" onclick="window.location.href='<%= match_path(match) %>'">
             <td></td>
-            <td><%= link_to match.name, match_path(match) %></td>
+            <td><%= match.name %></td>
             <td><%= match.players.join(', ') %></td>
             <td></td>
             <td><%= match.created_at.strftime("%d-%b-%Y") %></td>
