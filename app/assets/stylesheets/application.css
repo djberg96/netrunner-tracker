@@ -25,3 +25,14 @@
   font-weight: bold;
   margin: 0 3%;
 }
+
+ul label {
+  font-size: 1.2em;
+  text-align: right;
+  float: right;
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+  margin-top: 0.5em;
+  margin-right: 1em;
+}

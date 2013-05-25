@@ -1,6 +1,7 @@
 <div class="block">
   <div class="secondary-navigation">
     <ul class="wat-cf">
+      <label class="date"><%= @match.date.strftime("%d-%b-%Y") %></label>
       <li class="first"><%= link_to "#{t("web-app-theme.list", :default => "List")}", matches_path  %></li>
       <li><%= link_to "#{t("web-app-theme.new", :default => "New")}", new_match_path %></li>
       <li class="active"><%= link_to "#{t("web-app-theme.show", :default => "Show")}", match_path %></li>
@@ -13,7 +14,6 @@
           <td><b><font color='red'>WINNER:</b> <%= @match.match_winner %></font></td>
           <td><b>Match Name:</b> <%= @match.name %></b></td>
           <td><b>Tournament:</b> <%= @match.tournament.name if @match.tournament %></td>
-          <td><b>Date:</b> <%= @match.date %></td>
         </tr>
         <tr>
           <td><b>Player 1:</b> <%= @match.player1.userid %></td>
