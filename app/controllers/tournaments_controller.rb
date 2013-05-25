@@ -36,6 +36,7 @@ class TournamentsController < ApplicationController
   # GET /tournaments/1/edit
   def edit
     @tournament = Tournament.find(params[:id])
+    @users = User.order("lower(userid)")
   end
 
   # POST /tournaments
