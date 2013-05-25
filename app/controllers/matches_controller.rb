@@ -106,10 +106,9 @@ class MatchesController < ApplicationController
     @runners = Runner.all
     @corporations = Corporation.all
 
-    @game1 = Game.new(params[:game1])
-    @game2 = Game.new(params[:game2])
-
-    @match.games = [@game1, @game2]
+    # TODO: Get nested model form to work!
+    @match.games.first.update_attributes(params[:game1])
+    @match.games.last.update_attributes(params[:game2])
 
     respond_to do |format|
       if @match.update_attributes(params[:match])
