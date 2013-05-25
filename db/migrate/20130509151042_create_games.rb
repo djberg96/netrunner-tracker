@@ -8,7 +8,7 @@ class CreateGames < ActiveRecord::Migration
       t.integer :corporation_id
       t.integer :runner_score
       t.integer :corporation_score
-      t.date :date
+      t.date :date, :default => Time.now
       t.text :comment
 
       t.timestamps
