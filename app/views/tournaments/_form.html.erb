@@ -1,37 +1,30 @@
-<%= form_for(@tournament) do |f| %>
-  <% if @tournament.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@tournament.errors.count, "error") %> prohibited this tournament from being saved:</h2>
 
-      <ul>
-      <% @tournament.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+  <div class="group">
+    <%= f.label :name, t("activerecord.attributes.tournament.name", :default => "Name"), :class => :label %>
+    <%= f.text_field :name, :class => 'text_field' %>
+  </div>
 
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
+  <div class="group">
+    <%= f.label :num_players, t("activerecord.attributes.tournament.num_players", :default => "Number of Players"), :class => :label %>
+    <%= f.number_field :num_players, :class => 'number_field' %>
+    <span class="description">Optional. You can set this later.</span>
   </div>
-  <div class="field">
-    <%= f.label :num_players %><br />
-    <%= f.number_field :num_players %>
+
+  <div class="group">
+    <%= f.label :num_rounds, t("activerecord.attributes.tournament.num_rounds", :default => "Number of Rounds"), :class => :label %>
+    <%= f.select :num_rounds, 2..9, :class => 'number_field' %>
   </div>
-  <div class="field">
-    <%= f.label :num_rounds %><br />
-    <%= f.number_field :num_rounds %>
+
+  <div class="group">
+    <%= f.label :winner, t("activerecord.attributes.tournament.winner", :default => "Winner"), :class => :label %>
+    <%= f.collection_select :winner, @users, :id, :userid, :include_blank => true %>
+    <span class="description">Optional. You can set this later.</span>
   </div>
-  <div class="field">
-    <%= f.label :winner %><br />
-    <%= f.number_field :winner %>
-  </div>
-  <div class="field">
-    <%= f.label :created_by %><br />
-    <%= f.number_field :created_by %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+
+<div class="group navform wat-cf">
+  <button class="button" type="submit">
+    <%= image_tag("web-app-theme/icons/tick.png", :alt => "#{t("web-app-theme.save", :default => "Save")}") %> <%= t("web-app-theme.save", :default => "Save") %>
+  </button>
+  <span class="text_button_padding"><%= t("web-app-theme.or", :default => "or") %></span>
+	<%= link_to t("web-app-theme.cancel", :default => "Cancel"), tournaments_path, :class => "text_button_padding link_button" %>
+</div>

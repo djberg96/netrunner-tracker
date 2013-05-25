@@ -25,6 +25,7 @@ class TournamentsController < ApplicationController
   # GET /tournaments/new.json
   def new
     @tournament = Tournament.new
+    @users = User.order("lower(userid)")
 
     respond_to do |format|
       format.html # new.html.erb
@@ -41,6 +42,9 @@ class TournamentsController < ApplicationController
   # POST /tournaments.json
   def create
     @tournament = Tournament.new(params[:tournament])
+    @users = User.order("lower(userid)")
+
+    @tournament.created_by = User.find(session[:user_id]).id
 
     respond_to do |format|
       if @tournament.save

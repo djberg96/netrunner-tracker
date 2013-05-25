@@ -1,6 +1,19 @@
-<h1>Editing tournament</h1>
+<div class="block">
+  <div class="secondary-navigation">
+    <ul class="wat-cf">
+      <li class="first"><%= link_to "#{t("web-app-theme.list", :default => "List")}", tournaments_path  %></li>
+      <li><%= link_to "#{t("web-app-theme.new", :default => "New")}", new_tournament_path %></li>
+      <li class="active"><%= link_to "#{t("web-app-theme.edit", :default => "Edit")}", edit_tournament_path %></li>
+    </ul>
+  </div>          
+  <div class="content">            
+    <h2 class="title"><%= t("web-app-theme.edit", :default => "Edit") %> Tournament</h2>
+    <div class="inner">
+      <%= form_for @tournament, :url => tournament_path(@tournament), :html => { :class => :form } do |f| -%>
+        <%= render :partial => "form", :locals => {:f => f} %>
+      <% end -%>
+    </div>
+  </div>
+</div>
 
-<%= render 'form' %>
-
-<%= link_to 'Show', @tournament %> |
-<%= link_to 'Back', tournaments_path %>
+<% content_for :sidebar, render(:partial => 'sidebar') -%>
