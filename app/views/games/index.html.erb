@@ -6,7 +6,8 @@
       <% else %>
         <li class="first active"><%= link_to "#{t("web-app-theme.list", :default => "List")}", games_path  %></li>
       <% end %>
-      <li><%= link_to "#{t("web-app-theme.new", :default => "New")}", new_game_path %></li>
+      <li><%= link_to "#{t("web-app-theme.new", :default => "New Game")}", new_game_path %></li>
+      <li><%= link_to "New Match", new_match_path %></li>
     </ul>
   </div>          
   <div class="content">          
