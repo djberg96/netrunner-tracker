@@ -74,7 +74,7 @@ class MatchesController < ApplicationController
 
     # Add this here to make it look nicer on error.
     if @game1.runner_user == @game2.runner_user
-      flash.now[:error] = "Runner may not be same player in both matches"
+      flash.now[:error] = "Runner may not be same player in both games of a match"
     end
 
     if @game1.runner_user == @game1.corporation_user ||

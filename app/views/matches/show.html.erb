@@ -11,19 +11,19 @@
     <div class="inner">
       <table class="table">      
         <tr>
-          <td><b><font color='red'>WINNER:</b> <%= @match.match_winner %></font></td>
-          <td><b>Match Name:</b> <%= @match.name %></b></td>
-          <td><b>Tournament:</b> <%= @match.tournament.name if @match.tournament %></td>
+          <td><b>WINNER:</b> <%= @match.match_winner %></td>
+          <td>Match Name: <%= @match.name %></b></td>
+          <td>Tournament: <%= @match.tournament.name if @match.tournament %></td>
         </tr>
         <tr>
-          <td><b>Player 1:</b> <%= @match.player1.userid %></td>
-          <td><b>Match Points:</b> <%= @match.player1_match_points %></td>
-          <td><b>Prestige:</b> <%= @match.player1_prestige_points %></td>
+          <td>Player 1: <%= @match.player1.userid %></td>
+          <td>Match Points: <%= @match.player1_match_points %></td>
+          <td>Prestige: <%= @match.player1_prestige_points %></td>
         </tr>
         <tr>
-          <td><b>Player 2:</b> <%= @match.player2.userid %></td>
-          <td><b>Match Points:</b> <%= @match.player2_match_points %></td>
-          <td><b>Prestige:</b> <%= @match.player2_prestige_points %></td>
+          <td>Player 2: <%= @match.player2.userid %></td>
+          <td>Match Points: <%= @match.player2_match_points %></td>
+          <td>Prestige: <%= @match.player2_prestige_points %></td>
         </tr>
       </table>
 
@@ -43,7 +43,7 @@
           <th>Faction</th>
         </tr>
         <tr>
-          <td>GAME 1</td>
+          <td><b>GAME 1</b></td>
           <td><%= @match.games.first.player_winner %></td>
           <td><%= @match.games.first.player_winner_score %></td>
           <td><%= @match.games.first.faction_winner %></td>
@@ -52,7 +52,7 @@
           <td><%= @match.games.first.faction_loser %></td>
         </tr>
         <tr>
-          <td>GAME 2</td>
+          <td><b>GAME 2</b></td>
           <td><%= @match.games.last.player_winner %></td>
           <td><%= @match.games.last.player_winner_score %></td>
           <td><%= @match.games.last.faction_winner %></td>
