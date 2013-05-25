@@ -10,17 +10,17 @@
     <div class="inner">
       <table class="table">
         <tr>             
-          <th class="first">Name</th>
+          <th>Name</th>
           <th>Num. Players</th>
           <th>Num. Rounds</th>
           <th>Winner</th>
         </tr>
         <% @tournaments.each do |tournament| -%>
-        <tr class="<%= cycle("odd", "even") %>">
-          <td><%= @tournament.name %></td>
-          <td><%= @tournament.num_players %></td>
-          <td><%= @tournament.num_rounds %></td>
-          <td><%= @tournament.winner %></td>
+        <tr class="<%= cycle("odd", "even") %>" onclick="window.location.href = '<%= tournament_path(tournament) %>'">
+          <td><%= tournament.name %></td>
+          <td><%= tournament.num_players %></td>
+          <td><%= tournament.num_rounds %></td>
+          <td><%= tournament.winner %></td>
         </tr>          
         <% end -%>
       </table>
