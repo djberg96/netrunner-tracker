@@ -44,7 +44,7 @@ class TournamentsController < ApplicationController
     @tournament = Tournament.new(params[:tournament])
     @users = User.order("lower(userid)")
 
-    @tournament.created_by = User.find(session[:user_id]).id
+    @tournament.created_by = User.find(session[:user_id])
 
     respond_to do |format|
       if @tournament.save
