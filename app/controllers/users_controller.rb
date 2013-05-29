@@ -4,7 +4,7 @@ class UsersController < ApplicationController
   def index
     if params[:league_id]
       @league = League.find(params[:league_id])
-      @users  = @league.users
+      @users  = User.where(:id => @league.users)
     else
       @users = User.order("lower(userid)")
     end
