@@ -36,6 +36,6 @@ class League < ActiveRecord::Base
   # User.where(:id => league#users).
   #
   def users
-    (runner_users + corporation_users).uniq
+    runner_users + corporation_users
   end
 end
