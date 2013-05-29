@@ -2,12 +2,10 @@ class League < ActiveRecord::Base
   attr_accessible :comments, :name, :created_by
 
   has_many :games
-  has_many :runner_users, :through => :games, :uniq => true, :order => "lower(userid)"
-  has_many :corporation_users, :through => :games, :uniq => true, :order => "lower(userid)"
+  has_many :runner_users, :through => :games, :order => "lower(userid)"
+  has_many :corporation_users, :through => :games, :order => "lower(userid)"
 
   belongs_to :created_by, :class_name => 'User', :foreign_key => 'created_by'
-
-  #has_many :players, :through => :games, :source => :runner_user, :uniq => true
 
   ## Validations
 
