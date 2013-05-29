@@ -1,37 +1,32 @@
 <div class="block">
   <div class="secondary-navigation">
     <ul class="wat-cf">
-      <li class="first"><%= link_to "#{t("web-app-theme.list", :default => "List")}", leagues_path  %></li>
-      <li><%= link_to "#{t("web-app-theme.new", :default => "New")}", new_league_path %></li>
-      <li class="active"><%= link_to "#{t("web-app-theme.show", :default => "Show")}", league_path %></li>
+      <li class="first"><%= link_to 'List', leagues_path  %></li>
+      <li><%= link_to 'New', new_league_path %></li>
+      <li class="active"><%= link_to 'Show', league_path %></li>
     </ul>
   </div>          
   <div class="content">
     <div class="inner">
       
         <p>
-          <b><%= t("activerecord.attributes.league.name", :default => t("activerecord.labels.name", :default => "Name")) %>:</b>
-          <%= @league.name %>
+          <b>Name:</b> <%= @league.name %>
         </p>
 
         <p>
-          <b><%= t("activerecord.attributes.league.comments", :default => t("activerecord.labels.comments", :default => "Comments")) %>:</b>
-          <%= @league.comments %>
+          <b>Comments:</b> <%= @league.comments %>
         </p>
 
         <p>
-          <b><%= t("activerecord.attributes.league.created_by", :default => t("activerecord.labels.created_by", :default => "Created By")) %>:</b>
-          <%= @league.created_by.userid %>
+          <b>Created By:</b> <%= @league.created_by.userid %>
         </p>
 
         <p>
-          <b><%= t("activerecord.attributes.league.games", :default => t("activerecord.labels.games", :default => "Games Played")) %>:</b>
-          <%= @league.games.count %>
+          <b>Games Played:</b> <%= @league.games.count %>
         </p>
 
         <p>
-          <b><%= t("activerecord.attributes.league.users", :default => t("activerecord.labels.users", :default => "Players")) %>:</b>
-          <%= @league.users.map(&:userid).join(", ") %>
+          <b>Players:</b> <%= @users %>
         </p>
 
       <div class="wat-cf">
