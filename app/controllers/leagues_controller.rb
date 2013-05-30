@@ -14,6 +14,7 @@ class LeaguesController < ApplicationController
   # GET /leagues/1.json
   def show
     @league = League.find_by_id(params[:id])
+    @users  = User.select("users.*").where(:id => @league.users).map(&:userid).join(', ')
 
     unless @league
       flash[:error] = "League not found."
