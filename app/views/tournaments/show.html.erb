@@ -3,36 +3,35 @@
     <ul class="wat-cf">
       <li class="first"><%= link_to "#{t("web-app-theme.list", :default => "List")}", tournaments_path  %></li>
       <li><%= link_to "#{t("web-app-theme.new", :default => "New Tournament")}", new_tournament_path %></li>
-      <li class="active"><%= link_to "#{t("web-app-theme.show", :default => "Show")}", tournament_path %></li>
       <li><%= link_to "New Match", new_match_path %></li>
+      <li class="active"><%= link_to "#{t("web-app-theme.show", :default => "Show")}", tournament_path %></li>
     </ul>
   </div>          
   <div class="content">
     <div class="inner">
       
         <p>
-          <b><%= t("activerecord.attributes.tournament.name", :default => t("activerecord.labels.name", :default => "Name")) %>:</b>
-          <%= @tournament.name %>
+          <b>Name:</b><%= @tournament.name %>
         </p>
 
         <p>
-          <b><%= t("activerecord.attributes.tournament.num_players", :default => t("activerecord.labels.num_players", :default => "Num players")) %>:</b>
-          <%= @tournament.num_players %>
+          <b>Players:</b> <%= @tournament.num_players %>
         </p>
 
         <p>
-          <b><%= t("activerecord.attributes.tournament.num_rounds", :default => t("activerecord.labels.num_rounds", :default => "Num rounds")) %>:</b>
-          <%= @tournament.num_rounds %>
+          <b>Rounds:</b> <%= @tournament.num_rounds %>
         </p>
 
         <p>
-          <b><%= t("activerecord.attributes.tournament.winner", :default => t("activerecord.labels.winner", :default => "Winner")) %>:</b>
-          <%= @tournament.winner %>
+          <b>Matches:</b> <%= @tournament.matches.size %>
         </p>
 
         <p>
-          <b><%= t("activerecord.attributes.tournament.created_by", :default => t("activerecord.labels.created_by", :default => "Created by")) %>:</b>
-          <%= @tournament.created_by.userid %>
+          <b>Winner:</b> <%= @tournament.winner %>
+        </p>
+
+        <p>
+          <b>Created by:</b> <%= @tournament.created_by.userid %>
         </p>
 
       <% if @tournament.created_by == current_user %>
