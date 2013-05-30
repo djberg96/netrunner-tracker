@@ -74,7 +74,7 @@ class Game < ActiveRecord::Base
   ## Handy methods
 
   def players
-    [runner_user.userid, corporation_user.userid]
+    [runner_user, corporation_user]
   end
 
   def faction_winner

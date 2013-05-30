@@ -26,6 +26,11 @@
   margin: 0 3%;
 }
 
+.table td.clickable:hover {
+  background: Burlywood;
+  cursor: pointer;
+}
+
 ul label {
   font-size: 1.2em;
   text-align: right;

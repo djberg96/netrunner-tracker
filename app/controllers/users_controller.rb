@@ -5,6 +5,9 @@ class UsersController < ApplicationController
     if params[:league_id]
       @league = League.find(params[:league_id])
       @users  = User.where(:id => @league.users)
+    elsif params[:game_id]
+      @game  = Game.find(params[:game_id])
+      @users = User.where(:id => @game.players)
     else
       @users = User.order("lower(userid)")
     end

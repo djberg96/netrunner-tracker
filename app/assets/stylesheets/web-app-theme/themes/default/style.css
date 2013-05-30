@@ -308,6 +308,8 @@ hr {
   background: #f8f8f8;
 }
 
+/* Added by Dan Berger */
+
 .table tr.even:hover {
   background: BurlyWood;
   cursor: pointer;

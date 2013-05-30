@@ -10,29 +10,26 @@
   <div class="content">
     <div class="inner">
       
-        <p>
-          <b>Name:</b><%= @tournament.name %>
-        </p>
+      <table class="table">
+        <tr>
+          <td><b>Name:</b> <%= @tournament.name %></td>
+          <td><b>Created by:</b> <%= @tournament.created_by.userid %></td>
+        </tr>
 
-        <p>
-          <b>Players:</b> <%= @tournament.num_players %>
-        </p>
+        <tr>
+          <td class="clickable" onclick="window.location.href = '<%= tournament_matches_path(@tournament) %>'">
+            <b>Players:</b> <%= @tournament.num_players %> - Click to view
+          </td>
+          <td><b>Rounds:</b> <%= @tournament.num_rounds %></td>
+        </tr>
 
-        <p>
-          <b>Rounds:</b> <%= @tournament.num_rounds %>
-        </p>
-
-        <p>
-          <b>Matches:</b> <%= @tournament.matches.size %>
-        </p>
-
-        <p>
-          <b>Winner:</b> <%= @tournament.winner %>
-        </p>
-
-        <p>
-          <b>Created by:</b> <%= @tournament.created_by.userid %>
-        </p>
+        <tr>
+          <td class="clickable" onclick="window.location.href = '<%= tournament_matches_path(@tournament) %>'">
+            <b>Matches:</b> <%= @tournament.matches.size %> - Click to view
+          </td>
+          <td class="clickable"><b>Winner:</b> <%= @tournament.winner %></td>
+        </tr>
+      </table>
 
       <% if @tournament.created_by == current_user %>
       <div class="wat-cf">
