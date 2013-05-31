@@ -10,6 +10,8 @@
   <div class="content">          
     <% if @league %>
       <h2 class="title"><%= t("web-app-theme.league", :default => "League")  %> Players - <%= @league.name %></h2>
+    <% elsif @tournament %>
+      <h2 class="title"><%= t("web-app-theme.league", :default => "Tournament")  %> Players - <%= @tournament.name %></h2>
     <% else %>
       <h2 class="title"><%= t("web-app-theme.all", :default => "All")  %> Players</h2>
     <% end %>

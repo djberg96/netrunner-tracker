@@ -8,6 +8,9 @@ class UsersController < ApplicationController
     elsif params[:game_id]
       @game  = Game.find(params[:game_id])
       @users = User.where(:id => @game.players)
+    elsif params[:tournament_id]
+      @tournament = Tournament.find(params[:tournament_id])
+      @users = Kaminari.paginate_array(@tournament.players)
     else
       @users = User.order("lower(userid)")
     end

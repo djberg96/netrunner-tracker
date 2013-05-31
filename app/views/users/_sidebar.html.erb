@@ -4,11 +4,15 @@
     <% when 'index' %>
       <% if @league %>
         <h4>Players of <%= @league.name %></h4>
+        <p>A list of players involved in the selected league.</p>
+      <% elsif @tournament %>
+        <h3>Players in Tournament</h3>
+        <p>A list of players involved in the selected tournament.</p>
       <% else %>
         <h3>Players</h3>
+        <p>A list of players and their game statistics. Click on the userid to view details about that player.</p>
+        <p>You may view any profile, but may only edit your own.</p>
       <% end %>
-      <p>A list of players and their game statistics. Click on the userid to view details about that player.</p>
-      <p>You may view any profile, but may only edit your own.</p>
     <% when 'show' %>
       <h3>Player: <%= @user.userid %></h3>
       <p>Details for the selected player, including wins and losses.</p>
@@ -24,5 +28,6 @@
       <li><%= link_to "Games of #{@user.userid}", user_games_path(@user) %></li>
     <% end %>
     <li><%= link_to 'Leagues', leagues_path %></li>
+    <li><%= link_to 'Tournaments', tournaments_path %></li>
   </ul>
 </div>
