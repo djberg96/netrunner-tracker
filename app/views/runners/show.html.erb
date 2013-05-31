@@ -33,6 +33,11 @@
           <b><%= t("activerecord.attributes.runner.max_influence", :default => t("activerecord.labels.max_influence", :default => "Max. Influence")) %>:</b>
           <%= @runner.max_influence %>
         </p>
+        <div class="wat-cf">
+        <% if current_user.admin? %>
+          <%= link_to image_tag("web-app-theme/icons/application_edit.png", :alt => "#{t("web-app-theme.edit", :default=> "Edit")}") + " " + t("web-app-theme.edit", :default=> "Edit"), edit_runner_path(@runner), :class => "button" %> 
+        <% end %>
+      </div>
     </div>
   </div>
 </div>
