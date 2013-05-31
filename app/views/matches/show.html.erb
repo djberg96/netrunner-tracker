@@ -53,7 +53,7 @@
           <th>Score</th>
           <th>Faction</th>
         </tr>
-        <tr>
+        <tr class="clickable" onclick="window.location.href = '<%= game_path(@match.games.first) %>'">
           <td><b>GAME 1</b></td>
           <td><%= @match.games.first.player_winner %></td>
           <td><%= @match.games.first.player_winner_score %></td>
@@ -62,7 +62,7 @@
           <td><%= @match.games.first.player_loser_score %></td>
           <td><%= @match.games.first.faction_loser %></td>
         </tr>
-        <tr>
+        <tr class="clickable" onclick="window.location.href = '<%= game_path(@match.games.last) %>'">
           <td><b>GAME 2</b></td>
           <td><%= @match.games.last.player_winner %></td>
           <td><%= @match.games.last.player_winner_score %></td>

@@ -26,7 +26,12 @@
   margin: 0 3%;
 }
 
-.table td.clickable:hover {
+.table td.clickable:hover { 
+  background: Burlywood;
+  cursor: pointer;
+}
+
+.table tr.clickable:hover { 
   background: Burlywood;
   cursor: pointer;
 }
