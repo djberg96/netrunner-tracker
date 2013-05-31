@@ -52,6 +52,10 @@ NetrunnerTracker::Application.routes.draw do
   end
 
   resources :tournaments do
+    resources :users
+  end
+
+  resources :tournaments do
     resources :matches do
       resources :games do
         resources :users
