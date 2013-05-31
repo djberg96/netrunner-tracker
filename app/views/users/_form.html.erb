@@ -24,6 +24,12 @@
   </div>
 
   <div class="group">
+    <%= f.label :comments, t("activerecord.attributes.user.comments", :default => "Comments"), :class => :label %>
+    <%= f.text_area :comments, :rows => 3, :class => 'text_area' %>
+    <span class="description">Add any additional comments you would like</span>
+  </div>
+
+  <div class="group">
     <%= f.label :password, t("activerecord.attributes.user.password", :default => "Password"), :class => :label %>
     <%= f.password_field :password, :class => 'password_field' %>
     <span class="description">6-32 characters</span>

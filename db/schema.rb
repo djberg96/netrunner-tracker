@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130524210642) do
+ActiveRecord::Schema.define(:version => 20130531225043) do
 
   create_table "cards", :force => true do |t|
     t.string   "title"
@@ -80,6 +80,7 @@ ActiveRecord::Schema.define(:version => 20130524210642) do
     t.integer  "player2_match_points",    :default => 0
     t.integer  "player1_prestige_points", :default => 0
     t.integer  "player2_prestige_points", :default => 0
+    t.integer  "round",                   :default => 1
   end
 
   create_table "runners", :force => true do |t|
@@ -121,6 +122,7 @@ ActiveRecord::Schema.define(:version => 20130524210642) do
     t.boolean  "admin",           :default => false
     t.datetime "created_at",                         :null => false
     t.datetime "updated_at",                         :null => false
+    t.text     "comments"
   end
 
 end
