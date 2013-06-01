@@ -5,6 +5,8 @@
       <li class="first"><%= link_to "#{t("web-app-theme.list", :default => "List")}", matches_path  %></li>
       <li><%= link_to "#{t("web-app-theme.new", :default => "New")}", new_match_path %></li>
       <li class="active"><%= link_to "#{t("web-app-theme.show", :default => "Show")}", match_path %></li>
+      <li><%= link_to "#{t("web-app-theme.show", :default => "Match Players")}", match_users_path(@match) %></li>
+      <li><%= link_to "#{t("web-app-theme.show", :default => "Match Games")}", match_games_path(@match) %></li>
     </ul>
   </div>          
   <div class="content">
