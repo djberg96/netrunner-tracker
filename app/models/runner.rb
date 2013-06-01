@@ -1,5 +1,5 @@
 class Runner < ActiveRecord::Base
-  attr_accessible :faction, :identity, :name
+  attr_accessible :faction, :identity, :name, :max_influence, :min_cards
 
   has_many :games
 

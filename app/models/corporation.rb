@@ -1,5 +1,5 @@
 class Corporation < ActiveRecord::Base
-  attr_accessible :faction, :identity, :slogan
+  attr_accessible :faction, :identity, :slogan, :max_influence, :min_cards
 
   FACTIONS = [
     'Haas-Bioroid',

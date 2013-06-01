@@ -30,6 +30,13 @@
       <% end %>
       <p>Here you see details for the selected game.</p>
       <p>If the game was part of a match, you can click the 'View Match' link to view details of the match.</p>
+    <% when 'new' %>
+      <h3>Record a Game</h3>
+      <p>Record your game results here.</p>
+      <p>
+        If your opponent does not have an account, use the "OCTGN" or "Guest"
+        account as your opponent. Note their name or OCTGN userid in the comments.
+      </p>
     <% end %>
     <% if @games %>
       <p>
