@@ -12,6 +12,10 @@
       <h2 class="title"><%= t("web-app-theme.league", :default => "League")  %> Players - <%= @league.name %></h2>
     <% elsif @tournament %>
       <h2 class="title"><%= t("web-app-theme.league", :default => "Tournament")  %> Players - <%= @tournament.name %></h2>
+    <% elsif @match %>
+      <h2 class="title"><%= t("web-app-theme.league", :default => "Match")  %> Players - <%= @match.name %></h2>
+    <% elsif @game %>
+      <h2 class="title"><%= t("web-app-theme.league", :default => "Game")  %> Players - Game # <%= @game.id %></h2>
     <% else %>
       <h2 class="title"><%= t("web-app-theme.all", :default => "All")  %> Players</h2>
     <% end %>
