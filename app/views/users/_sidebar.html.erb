@@ -24,9 +24,6 @@
   <ul class="navigation">
     <li><%= link_to 'Matches', matches_path %></li>
     <li><%= link_to 'Games', games_path %></li>
-    <% if params[:action] == 'show' %>
-      <li><%= link_to "Games of #{@user.userid}", user_games_path(@user) %></li>
-    <% end %>
     <li><%= link_to 'Leagues', leagues_path %></li>
     <li><%= link_to 'Tournaments', tournaments_path %></li>
   </ul>
