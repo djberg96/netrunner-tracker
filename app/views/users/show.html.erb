@@ -1,6 +1,7 @@
 <div class="block">
   <div class="secondary-navigation">
     <ul class="wat-cf">
+      <label class="date">Registered: <%= @user.created_at.strftime("%d-%b-%Y") %></label>
       <li class="first"><%= link_to "List", users_path %></li>
       <li class="active"><%= link_to "Show", user_path %></li>
       <li class="second"><%= link_to "Games", user_games_path(@user) %></li>
