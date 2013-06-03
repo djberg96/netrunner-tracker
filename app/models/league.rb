@@ -1,4 +1,6 @@
 class League < ActiveRecord::Base
+  extend FriendlyId
+
   attr_accessible :comments, :name, :created_by
 
   has_many :games
@@ -7,9 +9,13 @@ class League < ActiveRecord::Base
 
   belongs_to :created_by, :class_name => 'User', :foreign_key => 'created_by'
 
+  friendly_id :name, :use => :slugged
+
   ## Validations
 
-  validate do |league|
+  validate :check_max, :on => :create
+
+  def check_max
     if User.find(created_by).maximum_leagues_created?
       msg = "A player may not create more than 3 leagues."
       errors.add(:name, msg)

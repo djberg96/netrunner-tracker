@@ -13,7 +13,7 @@ class LeaguesController < ApplicationController
   # GET /leagues/1
   # GET /leagues/1.json
   def show
-    @league = League.find_by_id(params[:id])
+    @league = League.find(params[:id])
     @users  = User.select("users.*").where(:id => @league.users).map(&:userid).join(', ')
 
     unless @league
@@ -46,7 +46,7 @@ class LeaguesController < ApplicationController
 
   # GET /leagues/1/edit
   def edit
-    @league = League.find_by_id(params[:id])
+    @league = League.find(params[:id])
     @current = User.find(session[:user_id])
 
     unless @league
