@@ -33,7 +33,7 @@
 
     <td>
       <%= f.label :scores do %>
-        <%= f.label :runner_score, t("activerecord.attributes.game.runner_score", :default => "Runner Score"), :class => :label %>
+        <%= f.label :runner_score, "Runner AP", :class => :label, :title => runner_agenda_tooltip %>
         <%= f.select(:runner_score, 0..15) %>
       <% end %>
     </td>
@@ -58,7 +58,7 @@
 
     <td>
       <%= f.label :scores do %>
-        <%= f.label :corporation_score, t("activerecord.attributes.game.corporation_score", :default => "Corp Score"), :class => :label %>
+        <%= f.label :corporation_score, "Corp AP", :class => :label, :title => corp_agenda_tooltip %>
         <%= f.select(:corporation_score, 0..15) %>
       <% end %>
     </td>
