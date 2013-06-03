@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130531225043) do
+ActiveRecord::Schema.define(:version => 20130603152100) do
 
   create_table "cards", :force => true do |t|
     t.string   "title"
@@ -111,7 +111,10 @@ ActiveRecord::Schema.define(:version => 20130531225043) do
     t.integer  "created_by"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+    t.string   "slug"
   end
+
+  add_index "tournaments", ["slug"], :name => "index_tournaments_on_slug"
 
   create_table "users", :force => true do |t|
     t.string   "userid"
