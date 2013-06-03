@@ -29,7 +29,7 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
-    @user = User.find_by_id(params[:id])
+    @user = User.find(params[:id])
 
     unless @user
       flash[:error] = "Player not found."
@@ -56,7 +56,7 @@ class UsersController < ApplicationController
 
   # GET /users/1/edit
   def edit
-    @user = User.find_by_id(params[:id])
+    @user = User.find(params[:id])
     @current = User.find(session[:user_id])
 
     unless @user

@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+  extend FriendlyId
+
   attr_accessible :email, :first_name, :last_name, :userid
   attr_accessible :password, :password_confirmation, :admin, :comments
 
@@ -7,6 +9,8 @@ class User < ActiveRecord::Base
   has_many :leagues_created, :class_name => 'League', :foreign_key => :created_by
 
   has_secure_password
+
+  friendly_id :userid
 
   ## Constants
 
