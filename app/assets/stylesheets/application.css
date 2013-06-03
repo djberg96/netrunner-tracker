@@ -12,6 +12,10 @@
  *= require_tree .
  */
 
+.table tr.top{
+  border-top: 2px solid black; 
+}
+
 /* For sortable column headers */
 .table th.sortable{
   font-size: 1.2em;
