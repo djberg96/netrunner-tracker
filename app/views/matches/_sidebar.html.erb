@@ -1,5 +1,11 @@
 <div class="block notice">
   <% case params[:action] %>
+  <% when 'new' %>
+    <h3>New Match</h3>
+    <div class="content">
+      <p>Create a new match.</p>
+      <p>Match points and prestige points will be tallied automatically.</p>
+    </div>
   <% when 'show' %>
     <h3>Match Winner: <%= @match.match_winner %></h3>
     <div class="content">

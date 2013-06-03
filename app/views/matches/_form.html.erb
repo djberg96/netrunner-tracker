@@ -1,7 +1,7 @@
   <table class="table">
     <% if Tournament.count > 0 %>
       <tr>
-        <td><%= f.label :tournament_id, t("activerecord.attributes.match.tournament_id", :default => "Tournament"), :class => :label %></td>
+        <td><%= f.label :tournament_id, "Tournament (optional)", :class => :label %></td>
         <td><%= f.collection_select(:tournament_id, Tournament.order(:name), :id, :name, :include_blank => true) %></td>
         <td><%= f.label :round, :class => :label %></td>
         <td><%= f.select :round, 1..8 %></td>
@@ -24,7 +24,7 @@
           <td><%= game1.collection_select(:runner_user_id, @users, :id, :userid) %></td>
           <td><%= game1.label :runner, "Faction" %></td>
           <td><%= game1.collection_select(:runner_id, @runners, :id, :faction_and_name) %></td>
-          <td><%= game1.label :runner_score, "Score" %></td>
+          <td><%= game1.label :runner_score, "AP", :title => runner_agenda_tooltip %></td>
           <td><%= game1.select(:runner_score, 0..15) %></td>
           <td><%= game1.label :flatlined, "Flatlined?" %></td>
           <td><%= game1.check_box :flatlined %></td>
@@ -33,7 +33,7 @@
           <td><%= game1.collection_select(:corporation_user_id, @users, :id, :userid) %></td>
           <td><%= game1.label :corporation, "Faction" %></td>
           <td><%= game1.collection_select(:corporation_id, @corporations, :id, :short_faction_and_slogan) %></td>
-          <td><%= game1.label :corporation_score, "Score" %></td>
+          <td><%= game1.label :corporation_score, "AP", :title => corp_agenda_tooltip %></td>
           <td><%= game1.select(:corporation_score, 0..15) %></td>
           <td><%= game1.label :draw_death, "Draw Death?" %></td>
           <td><%= game1.check_box :draw_death %></td>
@@ -50,7 +50,7 @@
           <td><%= game1.collection_select(:runner_user_id, @users, :id, :userid) %></td>
           <td><%= game1.label :runner, "Faction" %></td>
           <td><%= game1.collection_select(:runner_id, @runners, :id, :faction_and_name) %></td>
-          <td><%= game1.label :runner_score, "Score" %></td>
+          <td><%= game1.label :runner_score, "AP", :title => runner_agenda_tooltip %></td>
           <td><%= game1.select(:runner_score, 0..15) %></td>
           <td><%= game1.label :flatlined, "Flatlined?" %></td>
           <td><%= game1.check_box :flatlined %></td>
@@ -59,7 +59,7 @@
           <td><%= game1.collection_select(:corporation_user_id, @users, :id, :userid) %></td>
           <td><%= game1.label :corporation, "Faction" %></td>
           <td><%= game1.collection_select(:corporation_id, @corporations, :id, :short_faction_and_slogan) %></td>
-          <td><%= game1.label :corporation_score, "Score" %></td>
+          <td><%= game1.label :corporation_score, "AP", :title => corp_agenda_tooltip %></td>
           <td><%= game1.select(:corporation_score, 0..15) %></td>
           <td><%= game1.label :draw_death, "Draw Death?" %></td>
           <td><%= game1.check_box :draw_death %></td>
