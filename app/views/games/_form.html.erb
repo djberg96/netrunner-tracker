@@ -1,6 +1,9 @@
 <div class="block">
 <div class="content">
 <div class="inner">
+
+<% title = "Please use 'OCTGN' or 'Guest' if your opponent is not registered." %>
+
 <table class="table">
   <tr>
     <td>
@@ -21,7 +24,7 @@
 
   <tr>
     <td>
-      <%= f.label :runner_user_id, t("activerecord.attributes.game.runner_user_id", :default => "Runner Player"), :class => :label %>
+      <%= f.label :runner_user_id, "Runner Player", :class => :label, :title => title %>
       <%= f.collection_select(:runner_user_id, User.order("lower(userid)"), :id, :userid,
           {:selected => @game.runner_user ? @game.runner_user.id : current_user.id}) %>
     </td>
@@ -46,7 +49,7 @@
 
   <tr>
     <td>
-      <%= f.label :corporation_user_id, t("activerecord.attributes.game.corporation_user_id", :default => "Corp Player"), :class => :label %>
+      <%= f.label :corporation_user_id, "Corp Player", :class => :label, :title => title %>
       <%= f.collection_select(:corporation_user_id, User.order("lower(userid)"), :id, :userid, {
         :selected => @game.corporation_user ? @game.corporation_user.id : current_user.id}) %>
     </td>
