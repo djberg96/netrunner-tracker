@@ -180,7 +180,7 @@ class Game < ActiveRecord::Base
   scope :hb, joins(:corporation).where(:corporations => {:faction => "Haas-Bioroid"})
   scope :jinteki, joins(:corporation).where(:corporations => {:faction => "Jinteki"})
   scope :nbn, joins(:corporation).where(:corporations => {:faction => "NBN"})
-  scope :weyland, joins(:corporation).where(:corporations => {:faction => "Weyland Corporation"})
+  scope :weyland, joins(:corporation).where(:corporations => {:faction => "Weyland Consortium"})
 
   scope :anarch, joins(:runner).where(:runners => {:faction => "Anarch"})
   scope :criminal, joins(:runner).where(:runners => {:faction => "Criminal"})
