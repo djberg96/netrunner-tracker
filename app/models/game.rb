@@ -185,4 +185,13 @@ class Game < ActiveRecord::Base
   scope :anarch, joins(:runner).where(:runners => {:faction => "Anarch"})
   scope :criminal, joins(:runner).where(:runners => {:faction => "Criminal"})
   scope :shaper, joins(:runner).where(:runners => {:faction => "Shaper"})
+
+  scope :anarch_wins, anarch.merge(runner_wins)
+  scope :criminal_wins, criminal.merge(runner_wins)
+  scope :shaper_wins, shaper.merge(runner_wins)
+
+  scope :hb_wins, hb.merge(corporation_wins)
+  scope :jinteki_wins, jinteki.merge(corporation_wins)
+  scope :nbn_wins, nbn.merge(corporation_wins)
+  scope :weyland_wins, weyland.merge(corporation_wins)
 end
