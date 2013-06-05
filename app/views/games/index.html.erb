@@ -37,7 +37,9 @@
           <th>Date</th>
         </tr>
         <% @games.each do |game| -%>
-          <tr class="<%= cycle("odd", "even") %>" onclick="window.location.href = '<%= game_path(game) %>'">
+          <% title="#{game.runner.faction_and_name} vs. #{game.corporation.faction_and_slogan}" %>
+          <% title += "\n\n#{game.comment}" unless game.comment.blank? %>
+          <tr title="<%= title %>" class="<%= cycle("odd", "even") %>" onclick="window.location.href = '<%= game_path(game) %>'">
           <td><%= game.league.name if game.league %></td>
           <td><%= link_to game.runner_user.userid, user_path(game.runner_user) %></td>
           <td><%= game.runner.faction %></td>
