@@ -19,6 +19,9 @@
       <% end %>
       </p>
       <p>You can see greater detail for a game by clicking on it</p>
+    <% when 'stats' %>
+      <h3>Overall Stats</h3>
+      <p>Here you can see a breakdown of wins and losses by faction.</p>
     <% when 'show' %>
       <% if @game.unfinished? %>
         <h3>No Winner (unfinished)</h3>
