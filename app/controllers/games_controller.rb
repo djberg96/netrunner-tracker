@@ -122,4 +122,11 @@ class GamesController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def stats
+    respond_to do |format|
+      format.html
+      format.json
+    end
+  end
 end

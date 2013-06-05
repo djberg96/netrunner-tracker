@@ -2,13 +2,14 @@
   <div class="secondary-navigation">
     <ul class="wat-cf">
       <% if @user || @league %>
-        <li class="first active"><%= link_to "#{t("web-app-theme.list", :default => "List All")}", games_path  %></li>
+        <li class="first active"><%= link_to "List All", games_path  %></li>
       <% else %>
-        <li class="first active"><%= link_to "#{t("web-app-theme.list", :default => "List")}", games_path  %></li>
+        <li class="first active"><%= link_to "List", games_path  %></li>
       <% end %>
-      <li><%= link_to "#{t("web-app-theme.new", :default => "New Game")}", new_game_path %></li>
-      <li><%= link_to "#{t("web-app-theme.new", :default => "Match Details")}", match_path(@match) if @match %></li>
+      <li><%= link_to "New Game", new_game_path %></li>
+      <li><%= link_to "Match Details", match_path(@match) if @match %></li>
       <li><%= link_to "New Match", new_match_path %></li>
+      <li><%= link_to "Stats", stats_games_path %></li>
     </ul>
   </div>          
   <div class="content">          

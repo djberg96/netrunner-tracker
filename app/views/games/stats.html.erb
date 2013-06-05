@@ -1,0 +1,67 @@
+<div class="block">
+  <div class="secondary-navigation">
+    <ul class="wat-cf">
+      <li><%= link_to "List", games_path %></li>
+      <li><%= link_to "New Game", new_game_path %></li>
+      <li><%= link_to "New Match", new_match_path %></li>
+      <li class="first active"><%= link_to "Stats", stats_games_path %></li>
+    </ul>
+  </div>          
+  <div class="content">
+    <div class="inner">
+      <p></p>
+      <table class="table" title="Stats">
+        <tr>
+          <th>Faction</th>
+          <th>Total</th>
+          <th>Wins</th>
+          <th>Losses</th>
+        </tr>
+        <tr>
+          <td>Haas-Bioroid</td>
+          <td><%= Game.hb.count %></td>
+          <td><%= Game.hb_wins.count %></td>
+          <td><%= Game.hb.count - Game.hb_wins.count %></td>
+        </tr>
+        <tr>
+          <td>Jinteki</td>
+          <td><%= Game.jinteki.count %></td>
+          <td><%= Game.jinteki_wins.count %></td>
+          <td><%= Game.jinteki.count - Game.jinteki_wins.count %></td>
+        </tr>
+        <tr>
+          <td>NBN</td>
+          <td><%= Game.nbn.count %></td>
+          <td><%= Game.nbn_wins.count %></td>
+          <td><%= Game.nbn.count - Game.nbn_wins.count %></td>
+        </tr>
+        <tr>
+          <td>Weyland Consortium</td>
+          <td><%= Game.weyland.count %></td>
+          <td><%= Game.weyland_wins.count %></td>
+          <td><%= Game.weyland.count - Game.weyland_wins.count %></td>
+        </tr>
+        <tr>
+          <td>Anarch</td>
+          <td><%= Game.anarch.count %></td>
+          <td><%= Game.anarch_wins.count %></td>
+          <td><%= Game.anarch.count - Game.anarch_wins.count %></td>
+        </tr>
+        <tr>
+          <td>Criminal</td>
+          <td><%= Game.criminal.count %></td>
+          <td><%= Game.criminal_wins.count %></td>
+          <td><%= Game.criminal.count - Game.criminal_wins.count %></td>
+        </tr>
+        <tr>
+          <td>Shaper</td>
+          <td><%= Game.shaper.count %></td>
+          <td><%= Game.shaper_wins.count %></td>
+          <td><%= Game.shaper.count - Game.shaper_wins.count %></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
+
+<% content_for :sidebar, render(:partial => 'sidebar') -%>
