@@ -176,4 +176,13 @@ class Game < ActiveRecord::Base
   })
 
   scope :no_winner, where('unfinished is true')
+
+  scope :hb, joins(:corporation).where(:corporations => {:faction => "Haas-Bioroid"})
+  scope :jinteki, joins(:corporation).where(:corporations => {:faction => "Jinteki"})
+  scope :nbn, joins(:corporation).where(:corporations => {:faction => "NBN"})
+  scope :weyland, joins(:corporation).where(:corporations => {:faction => "Weyland Corporation"})
+
+  scope :anarch, joins(:runner).where(:runners => {:faction => "Anarch"})
+  scope :criminal, joins(:runner).where(:runners => {:faction => "Criminal"})
+  scope :shaper, joins(:runner).where(:runners => {:faction => "Shaper"})
 end

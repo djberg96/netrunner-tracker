@@ -75,4 +75,20 @@ class Corporation < ActiveRecord::Base
       slogan
     end
   end
+
+  def self.jinteki_games
+    joins(:games).where("faction = ?", "Jinteki")
+  end
+
+  def self.hb_games
+    joins(:games).where("faction = ?", "Haas-Bioroid")
+  end
+
+  def self.weyland_games
+    joins(:games).where("faction = ?", "Weyland")
+  end
+
+  def self.nbn_games
+    joins(:games).where("faction = ?", "NBN")
+  end
 end
