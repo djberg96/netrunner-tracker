@@ -2,7 +2,7 @@
 
 #NetrunnerTracker::Application.config.session_store :cookie_store, key: '_netrunner-tracker_session'
 
-expire_time = Rails.env.production? ? 30.minutes : 24.hours
+expire_time = Rails.env.production? ? 90.minutes : 24.hours
 
 NetrunnerTracker::Application.config.session_store(
   :active_record_store,
