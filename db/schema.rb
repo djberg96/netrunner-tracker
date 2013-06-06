@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130603153013) do
+ActiveRecord::Schema.define(:version => 20130606044954) do
 
   create_table "cards", :force => true do |t|
     t.string   "title"
@@ -84,6 +84,7 @@ ActiveRecord::Schema.define(:version => 20130603153013) do
     t.integer  "player1_prestige_points", :default => 0
     t.integer  "player2_prestige_points", :default => 0
     t.integer  "round",                   :default => 1
+    t.text     "comment"
   end
 
   create_table "runners", :force => true do |t|

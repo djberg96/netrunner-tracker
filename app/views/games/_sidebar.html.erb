@@ -9,13 +9,21 @@
       <% if @league %>
         of <%= @league.name %>
       <% end %>
-      </h3>
-      <p>The Games list shows all of the games that have been played
-      <% if @user %>
-        by <%= @user.userid %>
+      <% if @match %>
+        of Match</h3>
+        <h4><%= @match.name %></h4>
       <% end %>
-      <% if @league %>
-        in the league '<%= @league.name %>'
+      </h3>
+      <% if @match %>
+        <p>The Games list shows the two games from the selected match.</p>
+      <% else %>
+        <p>The Games list shows all of the games that have been played
+        <% if @user %>
+          by <%= @user.userid %>
+        <% end %>
+        <% if @league %>
+          in the league '<%= @league.name %>'
+        <% end %>
       <% end %>
       </p>
       <p>You can see greater detail for a game by clicking on it</p>
@@ -42,11 +50,16 @@
       </p>
     <% end %>
     <% if @games %>
-      <p>
-      Total Games: <%= Game.count %><br/>
-      Runner Wins: <%= Game.runner_wins.count %><br/>
-      Corporation Wins: <%= Game.corporation_wins.count %><br/>
+      <% if @match %>
+        <p>
+        Match Winner: <%= @match.match_winner %>
+      <% else %>
+        <p>
+        Total Games: <%= Game.count %><br/>
+        Runner Wins: <%= Game.runner_wins.count %><br/>
+        Corporation Wins: <%= Game.corporation_wins.count %><br/>
       </p>
+      <% end %>
     <% end %>
   </div>
 </div>

@@ -1,5 +1,5 @@
 class Match < ActiveRecord::Base
-  attr_accessible :date, :game_id, :name, :tournament_id, :round
+  attr_accessible :date, :game_id, :name, :tournament_id, :round, :comment
 
   has_many :games, :dependent => :destroy
 

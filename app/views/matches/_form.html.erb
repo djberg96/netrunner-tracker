@@ -6,7 +6,7 @@
         <td><%= f.label :round, :class => :label %></td>
         <td><%= f.select :round, 1..8 %></td>
       </tr>
-  <% end %>
+    <% end %>
     <tr>
       <td><%= f.label :name, t("activerecord.attributes.match.name", :default => "Match Name (optional)"), :class => :label %></td>
       <td><%= f.text_field :name, :class => 'text_field' %></td>
@@ -14,7 +14,6 @@
       <td><%= f.date_select :date, :class => 'date_select' %></td>
     </tr>
   </table>
-
 
   <%= field_set_tag "Game 1", :class => "match" do %>
     <%= fields_for :game1 do |game1| %>
@@ -67,6 +66,15 @@
       </table>
     <% end %>
   <% end %>
+
+  <p></p>
+
+  <table class="table">
+    <tr>
+      <td><%= f.label :comment, "Comments" %></td>
+      <td colspan=3><%= f.text_area :comment, :class => :text_area, :rows => 4  %></td>
+    </tr>
+  </table>
 
   <p></p>
         
