@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
   extend FriendlyId
 
-  attr_accessible :email, :first_name, :last_name, :userid
+  attr_accessible :email, :first_name, :last_name, :userid, :octgnid
   attr_accessible :password, :password_confirmation, :admin, :comments
 
   has_many :games_as_runner, :class_name => 'Game', :foreign_key => :runner_user_id

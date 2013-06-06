@@ -12,12 +12,16 @@
     <div class="inner">
       <table class="table">  
         <tr>
-          <td><b><%= t("activerecord.attributes.user.userid", :default => t("activerecord.labels.userid", :default => "Userid")) %>:</b></td>
-          <td><%= @user.userid %></td>
+          <td><b>Userid:</b></td>
+          <td title="Name after slash (if present) is the player's OCTGN id"><%= @user.userid %>
+            <% if @user.octgnid %>
+              / <%= @user.octgnid %>
+            <% end %>
+          </td>
           <td><b>Games Played</b></td>
           <td><%= @user.total_games %></td>
         <tr>
-          <td><b><%= t("activerecord.attributes.user.email", :default => t("activerecord.labels.email", :default => "Email")) %>:</b></td>
+          <td><b>Email:</b></td>
           <td><%= mail_to @user.email, nil, :encode => :javascript %></td>
           <td><b>Wins</b></td>
           <td><%= @user.total_wins %></td>

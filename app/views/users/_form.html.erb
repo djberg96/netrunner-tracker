@@ -6,6 +6,12 @@
   </div>
 
   <div class="group">
+    <%= f.label :octgnid, "OCTGN ID", :class => :label %>
+    <%= f.text_field :octgnid, :class => 'text_field' %>
+    <span class="description">Set this if your OCTGN userid is different than your Userid</span>
+  </div>
+
+  <div class="group">
     <%= f.label :email, t("activerecord.attributes.user.email", :default => "Email"), :class => :label %>
     <%= f.text_field :email, :class => 'text_field' %>
     <span class="description">Email address is used for logging in</span>
