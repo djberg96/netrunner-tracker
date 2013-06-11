@@ -2,6 +2,8 @@
 
 Netrunner-Tracker is a web-application for tracking games of Android: Netrunner, the two-player "Living Card Game", published by Fantasy Flight Games. This is a two-player "Living Card Game" that pits one player as a Runner against another player as a Corporation.
 
+http://www.boardgamegeek.com/boardgame/124742/android-netrunner
+
 Within the website you can track individual games, and matches - a set of two games, 1 as the Corporation, 1 as the Runner. In addition, you'll be able to track your game statistics. You can see how many games you played, your win percentage, and even a breakdown of your statistics by faction, including your average score.
 
 In the case of matches, the application will automatically tally your match points and prestige points to tell you who won the match.
@@ -21,3 +23,7 @@ There are many items on the TODO list, but keep in mind that this is a hobby pro
 - User preferences. Allow the user some ability to set preferences as far as layout/theme and privacy.
 
 - Add a deck builder and allow players to associate a deck with a game or match.
+
+- Add ability to inspect games by faction on the Stats page.
+
+- Add greater detail (probably using some xhtml) on the Stats page, so players can view a breakdown by individual identity.
