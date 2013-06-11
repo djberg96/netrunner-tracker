@@ -32,6 +32,6 @@ There are many items on the TODO list, but keep in mind that this is a hobby pro
 
 I welcome patches! Just fork the project and send your pull request with a note explaining what it is.
 
-I also welcome contributions. Please consider tipping me at https://www.gittip.com/. My userid is "djberg96".
+I also welcome contributions. Please consider tipping me at https://www.gittip.com. My userid is "djberg96".
 
 Enjoy!
