@@ -17,7 +17,9 @@
             <li><%= link_to "Record Game", new_game_path, :title => game_tooltip %></li>
             <li><%= link_to "My Profile", user_path(current_user), :title => profile_tooltip %></li>
           <% end %>
-          <li><a href="/logout" class="logout"><%= t("web-app-theme.logout", :default => "Logout") %></a></li>
+          <% if params[:controller] != 'sessions' %>
+            <li><a href="/logout" class="logout"><%= t("web-app-theme.logout", :default => "Logout") %></a></li>
+          <% end %>
         </ul>
       </div>
       <div id="main-navigation">
