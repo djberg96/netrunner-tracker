@@ -110,13 +110,19 @@ class User < ActiveRecord::Base
     games_as_corporation.where(:corporation_id => corp)
   end
 
+  alias games_as_weyland_consortium games_as_weyland
+
   def total_games_as_weyland
     games_as_weyland.count
   end
 
+  alias total_games_as_weyland_consortium total_games_as_weyland
+
   def average_score_as_weyland
     games_as_weyland.average(:corporation_score).to_f
   end
+
+  alias average_score_as_weyland_consortium total_games_as_weyland
 
   def games_as_anarch
     runner = Runner.where(:faction => "Anarch")
@@ -299,18 +305,26 @@ class User < ActiveRecord::Base
     wins_as_corporation.where(:corporation_id => corp)
   end
 
+  alias wins_as_weyland_consortium wins_as_weyland
+
   def total_wins_as_weyland
     wins_as_weyland.count
   end
+
+  alias total_wins_as_weyland_consortium total_wins_as_weyland
 
   def losses_as_weyland
     corp = Corporation.where(:faction => "Weyland Consortium")
     losses_as_corporation.where(:corporation_id => corp)
   end
 
+  alias losses_as_weyland_consortium losses_as_weyland
+
   def total_losses_as_weyland
     losses_as_weyland.count
   end
+
+  alias total_losses_as_weyland_consortium total_losses_as_weyland
 
   def losses_as_corporation
     games_as_corporation.where(

@@ -62,6 +62,7 @@
         <% if @corps || @runners %>
           <% faction = @corps.first.faction.downcase.sub('-', '_') if @corps %>
           <% faction = @runners.first.faction.downcase.sub('-', '_') if @runners %>
+          <% faction.sub!(' ', '_') %>
           <p>
           Total Games: <%= @user.send("total_games_as_#{faction}") %><br/>
           Wins: <%= @user.send("total_wins_as_#{faction}") %><br/>
