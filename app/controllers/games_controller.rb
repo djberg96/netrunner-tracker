@@ -129,4 +129,58 @@ class GamesController < ApplicationController
       format.json
     end
   end
+
+  def anarch
+    get_runner_faction("Anarch")
+  end
+
+  def criminal
+    get_runner_faction("Criminal")
+  end
+
+  def shaper
+    get_runner_faction("Shaper")
+  end
+
+  def jinteki
+    get_corp_faction("Jinteki")
+  end
+
+  def nbn
+    get_corp_faction("NBN")
+  end
+
+  def hb
+    get_corp_faction("Haas-Bioroid")
+  end
+
+  def weyland
+    get_corp_faction("Weyland Consortium")
+  end
+
+  private
+
+  def get_corp_faction(faction_name)
+    @user = User.find(params[:user_id])
+    @corps = Corporation.where(:faction => faction_name)
+
+    @games = Game.joins(:corporation).
+      where(:corporation_user_id => @user.id).
+      where(:corporation_id => @corps).
+      order('date desc').page(params[:page])
+
+    render :index
+  end
+
+  def get_runner_faction(faction_name)
+    @user = User.find(params[:user_id])
+    @runners = Runner.where(:faction => faction_name)
+
+    @games = Game.joins(:runner).
+      where(:runner_user_id => @user.id).
+      where(:runner_id => @runners).
+      order('date desc').page(params[:page])
+
+    render :index
+  end
 end

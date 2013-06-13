@@ -42,7 +42,15 @@ NetrunnerTracker::Application.routes.draw do
   resources :runners
 
   resources :users do
-    resources :games
+    resources :games do
+      get 'anarch', :on => :collection
+      get 'criminal', :on => :collection
+      get 'shaper', :on => :collection
+      get 'jinteki', :on => :collection
+      get 'nbn', :on => :collection
+      get 'weyland', :on => :collection
+      get 'hb', :on => :collection
+    end
     get 'stats', :on => :member
   end
 
