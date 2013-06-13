@@ -24,8 +24,6 @@ There are many items on the TODO list, but keep in mind that this is a hobby pro
 
 - Add a deck builder and allow players to associate a deck with a game or match.
 
-- Add ability to inspect games by identity on the Stats page.
-
 - Add greater detail (probably using some xhtml) on the Stats page, so players can view a breakdown by individual identity.
 
 == Want to Contribute?
