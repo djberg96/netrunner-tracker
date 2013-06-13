@@ -30,6 +30,11 @@
     <% when 'stats' %>
       <h3>Overall Stats</h3>
       <p>Here you can see a breakdown of wins and losses by faction.</p>
+    <% when 'hb', 'weyland', 'jinteki', 'nbn', 'anarch', 'criminal', 'shaper' %>
+      <% faction = @corps.first.faction if @corps %>
+      <% faction = @runners.first.faction if @runners %>
+      <h3>Games as <%= faction %></h3>
+      <p>Here you can see a list of games as <%= faction %>.</p>
     <% when 'show' %>
       <% if @game.unfinished? %>
         <h3>No Winner (unfinished)</h3>
@@ -54,11 +59,21 @@
         <p>
         Match Winner: <%= @match.match_winner %>
       <% else %>
-        <p>
-        Total Games: <%= Game.count %><br/>
-        Runner Wins: <%= Game.runner_wins.count %><br/>
-        Corporation Wins: <%= Game.corporation_wins.count %><br/>
-      </p>
+        <% if @corps || @runners %>
+          <% faction = @corps.first.faction.downcase.sub('-', '_') if @corps %>
+          <% faction = @runners.first.faction.downcase.sub('-', '_') if @runners %>
+          <p>
+          Total Games: <%= @user.send("total_games_as_#{faction}") %><br/>
+          Wins: <%= @user.send("total_wins_as_#{faction}") %><br/>
+          Losses: <%= @user.send("total_losses_as_#{faction}") %><br/>
+          </p>
+        <% else %>
+          <p>
+          Total Games: <%= Game.count %><br/>
+          Runner Wins: <%= Game.runner_wins.count %><br/>
+          Corporation Wins: <%= Game.corporation_wins.count %><br/>
+          </p>
+        <% end %>
       <% end %>
     <% end %>
   </div>

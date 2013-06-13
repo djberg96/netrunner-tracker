@@ -14,7 +14,13 @@
   </div>          
   <div class="content">          
     <% if @user %>
-      <h2 class="title">Games of <%= @user.userid %></h2>
+      <% if @corps %>
+        <h2 class="title">Games of <%= @user.userid %> as <%= @corps.first.faction %></h2>
+      <% elsif @runners %>
+        <h2 class="title">Games of <%= @user.userid %> as <%= @runners.first.faction %></h2>
+      <% else %>
+        <h2 class="title">Games of <%= @user.userid %></h2>
+      <% end %>
     <% elsif @league %>
       <h2 class="title">Games of <%= @league.name %></h2>
     <% elsif @match %>
