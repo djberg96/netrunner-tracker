@@ -63,6 +63,15 @@ ul label {
   font-weight: bold;
 }
 
+#login_form table {
+  padding: 0.5em;
+}
+
+#login_form #login_button {
+  padding-left: 0.5em;
+  padding-bottom: 0.5em;
+}
+
 #site_description {
   float: right;
   position: relative;
