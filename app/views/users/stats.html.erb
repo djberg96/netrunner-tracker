@@ -17,49 +17,70 @@
           <th>Losses</th>
           <th>Average Score</th>
         </tr>
-        <tr>
+        <tr class="clickable"
+          onclick="window.location.href = '<%= hb_user_games_path(@user) %>'"
+          title="View games as Haas-Bioroid"
+        >
           <td>Haas-Bioroid</td>
           <td><%= @user.total_games_as_haas_bioroid %></td>
           <td><%= @user.total_wins_as_haas_bioroid %></td>
           <td><%= @user.total_losses_as_haas_bioroid %></td>
           <td><%= @user.average_score_as_haas_bioroid.round(1) %></td>
         </tr>
-        <tr>
+        <tr class="clickable"
+          onclick="window.location.href = '<%= jinteki_user_games_path(@user) %>'"
+          title="View games as Jinteki"
+        >
           <td>Jinteki</td>
           <td><%= @user.total_games_as_jinteki %></td>
           <td><%= @user.total_wins_as_jinteki %></td>
           <td><%= @user.total_losses_as_jinteki %></td>
           <td><%= @user.average_score_as_jinteki.round(1) %></td>
         </tr>
-        <tr>
+        <tr class="clickable"
+          onclick="window.location.href = '<%= nbn_user_games_path(@user) %>'"
+          title="View games as NBN"
+        >
           <td>NBN</td>
           <td><%= @user.total_games_as_nbn %></td>
           <td><%= @user.total_wins_as_nbn %></td>
           <td><%= @user.total_losses_as_nbn %></td>
           <td><%= @user.average_score_as_nbn.round(1) %></td>
         </tr>
-        <tr>
+        <tr class="clickable"
+          onclick="window.location.href = '<%= weyland_user_games_path(@user) %>'"
+          title="View games as Weyland Consortium" 
+        >
           <td>Weyland Consortium</td>
           <td><%= @user.total_games_as_weyland %></td>
           <td><%= @user.total_wins_as_weyland %></td>
           <td><%= @user.total_losses_as_weyland %></td>
           <td><%= @user.average_score_as_weyland.round(1) %></td>
         </tr>
-        <tr>
+        <tr class="clickable"
+          onclick="window.location.href = '<%= anarch_user_games_path(@user) %>'"
+          title="View games as Anarch"
+        >
           <td>Anarch</td>
           <td><%= @user.total_games_as_anarch %></td>
           <td><%= @user.total_wins_as_anarch %></td>
           <td><%= @user.total_losses_as_anarch %></td>
           <td><%= @user.average_score_as_anarch.round(1) %></td>
         </tr>
-        <tr>
+        <tr class="clickable"
+          onclick="window.location.href = '<%= criminal_user_games_path(@user) %>'"
+          title="View games as Criminal"
+        >
           <td>Criminal</td>
           <td><%= @user.total_games_as_criminal %></td>
           <td><%= @user.total_wins_as_criminal %></td>
           <td><%= @user.total_losses_as_criminal %></td>
           <td><%= @user.average_score_as_criminal.round(1) %></td>
         </tr>
-        <tr>
+        <tr class="clickable"
+          onclick="window.location.href = '<%= shaper_user_games_path(@user) %>'"
+          title="View games as Shaper"
+        >
           <td>Shaper</td>
           <td><%= @user.total_games_as_shaper %></td>
           <td><%= @user.total_wins_as_shaper %></td>
