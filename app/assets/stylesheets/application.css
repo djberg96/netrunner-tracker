@@ -50,3 +50,21 @@ ul label {
   margin-top: 0.5em;
   margin-right: 1em;
 }
+
+#login_form {
+  position: relative;
+  float: left;
+  width: 52%;
+  padding-right: 2em;
+}
+
+#login_form legend {
+  margin: 0 3%;
+  font-weight: bold;
+}
+
+#site_description {
+  float: right;
+  position: relative;
+  width: 40%;
+}
