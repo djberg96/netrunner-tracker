@@ -33,8 +33,8 @@
     <% when 'hb', 'weyland', 'jinteki', 'nbn', 'anarch', 'criminal', 'shaper' %>
       <% faction = @corps.first.faction if @corps %>
       <% faction = @runners.first.faction if @runners %>
-      <h3>Games as <%= faction %></h3>
-      <p>Here you can see a list of games as <%= faction %>.</p>
+      <h3><%= faction %></h3>
+      <p>Summary of <%= @user.userid %>'s games as <%= faction %>:</p>
     <% when 'show' %>
       <% if @game.unfinished? %>
         <h3>No Winner (unfinished)</h3>
