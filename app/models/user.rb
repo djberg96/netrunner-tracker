@@ -159,11 +159,11 @@ class User < ActiveRecord::Base
 
   def wins_as_runner
     games_as_runner.where(%Q{
-      flatlined != 't' and (
+      flatlined != ? and (
         runner_score > corporation_score or
-        draw_death = 't'
+        draw_death = ?
       )
-    })
+    }, true, true)
   end
 
   def wins_as_anarch
@@ -221,16 +221,16 @@ class User < ActiveRecord::Base
   end
 
   def losses_as_runner
-    games_as_runner.where(%Q{flatlined = 't' or runner_score < corporation_score})
+    games_as_runner.where(%Q{flatlined = ? or runner_score < corporation_score}, true)
   end
 
   def wins_as_corporation
     games_as_corporation.where(%Q{
-      draw_death != 't' and (
+      draw_death != ? and (
         corporation_score > runner_score or
-        flatlined = 't'
+        flatlined = ?
       )
-    })
+    }, true, true)
   end
 
   def wins_as_haas_bioroid
@@ -306,7 +306,7 @@ class User < ActiveRecord::Base
   end
 
   def losses_as_corporation
-    games_as_corporation.where(%Q{draw_death = 't' or corporation_score < runner_score})
+    games_as_corporation.where(%Q{draw_death = ? or corporation_score < runner_score}, true)
   end
 
   def total_wins_as_runner
