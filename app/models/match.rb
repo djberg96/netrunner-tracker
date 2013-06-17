@@ -88,6 +88,11 @@ class Match < ActiveRecord::Base
 
   ## Handy Methods
 
+  # TODO: Make this work with a delegate?
+  def league
+    games.first.league
+  end
+
   def players
     games.first.players
   end
