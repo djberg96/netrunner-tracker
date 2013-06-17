@@ -4,6 +4,7 @@ class League < ActiveRecord::Base
   attr_accessible :comments, :name, :created_by
 
   has_many :games
+  has_many :matches, :through => :games, :uniq => true
   has_many :runner_users, :through => :games, :order => "lower(userid)"
   has_many :corporation_users, :through => :games, :order => "lower(userid)"
 
