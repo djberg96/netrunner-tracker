@@ -34,16 +34,6 @@ ActiveRecord::Schema.define(:version => 20130606052406) do
     t.integer  "max_influence", :default => 15
   end
 
-  create_table "decks", :force => true do |t|
-    t.integer  "user_id"
-    t.string   "name"
-    t.text     "cards"
-    t.integer  "corporation_id"
-    t.integer  "runner_id"
-    t.datetime "created_at",     :null => false
-    t.datetime "updated_at",     :null => false
-  end
-
   create_table "games", :force => true do |t|
     t.integer  "league_id"
     t.integer  "runner_user_id"
@@ -52,10 +42,10 @@ ActiveRecord::Schema.define(:version => 20130606052406) do
     t.integer  "corporation_id"
     t.integer  "runner_score"
     t.integer  "corporation_score"
-    t.date     "date"
+    t.date     "date",                :default => '2013-06-20'
     t.text     "comment"
-    t.datetime "created_at",                             :null => false
-    t.datetime "updated_at",                             :null => false
+    t.datetime "created_at",                                    :null => false
+    t.datetime "updated_at",                                    :null => false
     t.boolean  "flatlined",           :default => false
     t.boolean  "draw_death",          :default => false
     t.boolean  "unfinished",          :default => false

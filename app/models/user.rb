@@ -63,7 +63,11 @@ class User < ActiveRecord::Base
   end
 
   def overall_average_score
-    (games_as_runner.average(:runner_score).to_f + games_as_corporation.average(:corporation_score).to_f) / 2
+    if games.count > 0
+      (games_as_runner.sum(:runner_score).to_f + games_as_corporation.sum(:corporation_score).to_f) / games.count
+    else
+      0
+    end
   end
 
   def games_as_haas_bioroid
