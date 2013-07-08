@@ -20,7 +20,7 @@
       <table class="table">
         <tr>
           <td><%= game1.label :runner %></td>
-          <td><%= game1.collection_select(:runner_user_id, @users, :id, :userid) %></td>
+          <td><%= game1.collection_select(:runner_user_id, @users, :id, :userid, {:selected => current_user.id}) %></td>
           <td><%= game1.label :runner, "Faction" %></td>
           <td><%= game1.collection_select(:runner_id, @runners, :id, :faction_and_name) %></td>
           <td><%= game1.label :runner_score, "AP", :title => runner_agenda_tooltip %></td>
@@ -55,7 +55,7 @@
           <td><%= game1.check_box :flatlined %></td>
         <tr>
           <td><%= game1.label :corporation, "Corp" %></td>
-          <td><%= game1.collection_select(:corporation_user_id, @users, :id, :userid) %></td>
+          <td><%= game1.collection_select(:corporation_user_id, @users, :id, :userid, {:selected => current_user.id}) %></td>
           <td><%= game1.label :corporation, "Faction" %></td>
           <td><%= game1.collection_select(:corporation_id, @corporations, :id, :short_faction_and_slogan) %></td>
           <td><%= game1.label :corporation_score, "AP", :title => corp_agenda_tooltip %></td>
