@@ -12,7 +12,7 @@
   </div>
         
 <div class="group navform wat-cf">
-  <% unless @user.maximum_leagues_created? %>
+  <% unless @current.maximum_leagues_created? %>
     <button class="button" type="submit">
       <%= image_tag("web-app-theme/icons/tick.png", :alt => "#{t("web-app-theme.save", :default => "Save")}") %> <%= t("web-app-theme.save", :default => "Save") %>
     </button>
