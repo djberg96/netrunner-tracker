@@ -29,10 +29,35 @@
 
   <tr>
     <div class="group">
-      <td></td>
-      <td></td>
+      <td><%= f.label :subtype, :class => :label %></td>
+      <td><%= f.text_field :subtype, :class => :text_field %></td>
       <td><%= f.label :agenda_points, :class => :label %></td>
       <td><%= f.select :agenda_points, 1..3, :include_blank => true, :default => nil %></td>
+    </div>
+  </tr>
+
+  <tr>
+    <div class="group">
+      <td><%= f.label :strength, :class => :label %></td>
+      <td><%= f.select :strength, (0..9).to_a << 'X', :include_blank => true, :default => nil %></td>
+      <td><%= f.label :subroutines, :class => :label %></td>
+      <td><%= f.select :num_subs, (1..4).to_a << 'X', :include_blank => true, :default => nil %></td>
+    </div>
+  </tr>
+
+  <tr>
+    <div class="group">
+      <td><%= f.label :tag, :class => :label %></td>
+      <td><%= f.select :tag, [true, false], :include_blank => true, :default => nil %></td>
+      <td><%= f.label :advance, :class => :label %></td>
+      <td><%= f.select :advance, [true, false], :include_blank => true, :default => nil %></td>
+    </div>
+  </tr>
+
+  <tr>
+    <div class="group">
+      <td><%= f.label :text, :class => :label %></td>
+      <td colspan=4><%= f.text_area :text, :class => :text_area, :rows => 5 %></td>
     </div>
   </tr>
 </table>

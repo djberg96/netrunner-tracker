@@ -11,17 +11,23 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130606052406) do
+ActiveRecord::Schema.define(:version => 20130724160403) do
 
   create_table "cards", :force => true do |t|
     t.string   "title"
     t.string   "kind"
     t.string   "faction"
-    t.datetime "created_at",                   :null => false
-    t.datetime "updated_at",                   :null => false
+    t.datetime "created_at",                       :null => false
+    t.datetime "updated_at",                       :null => false
     t.integer  "influence",     :default => 0
     t.integer  "agenda_points", :default => 0
     t.integer  "cost",          :default => 0
+    t.string   "strength",      :default => "0"
+    t.string   "num_subs",      :default => "1"
+    t.boolean  "advance",       :default => false
+    t.boolean  "tag",           :default => false
+    t.string   "subtype"
+    t.text     "text"
   end
 
   create_table "corporations", :force => true do |t|
@@ -42,7 +48,7 @@ ActiveRecord::Schema.define(:version => 20130606052406) do
     t.integer  "corporation_id"
     t.integer  "runner_score"
     t.integer  "corporation_score"
-    t.date     "date",                :default => '2013-06-20'
+    t.date     "date",                :default => '2013-07-24'
     t.text     "comment"
     t.datetime "created_at",                                    :null => false
     t.datetime "updated_at",                                    :null => false
