@@ -48,7 +48,7 @@ ActiveRecord::Schema.define(:version => 20130724160403) do
     t.integer  "corporation_id"
     t.integer  "runner_score"
     t.integer  "corporation_score"
-    t.date     "date",                :default => '2013-07-24'
+    t.date     "date",                :default => '2013-08-05'
     t.text     "comment"
     t.datetime "created_at",                                    :null => false
     t.datetime "updated_at",                                    :null => false

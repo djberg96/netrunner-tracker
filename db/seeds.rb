@@ -11,9 +11,9 @@ users = User.create([
 ])
 
 leagues = League.create([
-  {:name => 'Dark Matter', :comments => 'Dark Matter Games',    :created_by => User.first.id},
-  {:name => 'OCTGN',       :comments => 'Online meetup group',  :created_by => User.first.id},
-  {:name => 'Test',        :comments => 'Test group',           :created_by => User.last.id}
+  {:name => 'Dark Matter', :comments => 'Dark Matter Games',    :created_by => User.first},
+  {:name => 'OCTGN',       :comments => 'Online meetup group',  :created_by => User.first},
+  {:name => 'Test',        :comments => 'Test group',           :created_by => User.last}
 ])
 
 runners = Runner.create([

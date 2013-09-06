@@ -31,10 +31,10 @@ class LeaguesController < ApplicationController
   # GET /leagues/new
   # GET /leagues/new.json
   def new
-    @league = League.new
-    @user   = User.find(session[:user_id])
+    @league  = League.new
+    @current = User.find(session[:user_id])
 
-    if @user.leagues_created.count >= 3
+    if @current.leagues_created.count >= 3
       flash.now[:warning] = "You have already created your maximum alloted number of leagues"
     end
 
@@ -66,7 +66,8 @@ class LeaguesController < ApplicationController
   # POST /leagues.json
   def create
     @league = League.new(params[:league])
-    @league.created_by = User.find(session[:user_id])
+    @current = User.find(session[:user_id])
+    @league.created_by = @current
 
     respond_to do |format|
       if @league.save
