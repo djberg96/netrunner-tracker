@@ -25,6 +25,9 @@ heimdal:
   kind: Ice
   influence: 2
   cost: 8
+  strength: 6
+  subtype: Bioroid - AP
+  text: The Runner can spend [C] to break any subroutines on Heimdal 1.0.
  
 ichi:
   title: Ichi 1.0
