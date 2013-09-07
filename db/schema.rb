@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130724160403) do
+ActiveRecord::Schema.define(:version => 20130906224947) do
 
   create_table "cards", :force => true do |t|
     t.string   "title"
@@ -48,7 +48,7 @@ ActiveRecord::Schema.define(:version => 20130724160403) do
     t.integer  "corporation_id"
     t.integer  "runner_score"
     t.integer  "corporation_score"
-    t.date     "date",                :default => '2013-08-05'
+    t.date     "date",                :default => '2013-07-24'
     t.text     "comment"
     t.datetime "created_at",                                    :null => false
     t.datetime "updated_at",                                    :null => false
@@ -81,6 +81,7 @@ ActiveRecord::Schema.define(:version => 20130724160403) do
     t.integer  "player2_prestige_points", :default => 0
     t.integer  "round",                   :default => 1
     t.text     "comment"
+    t.integer  "league_id"
   end
 
   create_table "runners", :force => true do |t|
