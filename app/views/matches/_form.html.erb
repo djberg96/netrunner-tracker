@@ -1,17 +1,22 @@
   <table class="table">
-    <% if Tournament.count > 0 %>
-      <tr>
-        <td><%= f.label :tournament_id, "Tournament (optional)", :class => :label %></td>
+    <tr>
+      <% if League.count > 0 %>
+        <td><%= f.label :league_id, "League", :class => :label %></td>
+        <td><%= f.collection_select(:league_id, League.order(:name), :id, :name, :include_blank => true) %></td>
+      <% end %>
+
+      <% if Tournament.count > 0 %>
+        <td><%= f.label :tournament_id, "Tournament", :class => :label %></td>
         <td><%= f.collection_select(:tournament_id, Tournament.order(:name), :id, :name, :include_blank => true) %></td>
         <td><%= f.label :round, :class => :label %></td>
         <td><%= f.select :round, 1..8 %></td>
-      </tr>
-    <% end %>
+      <% end %>
+    </tr>
     <tr>
-      <td><%= f.label :name, t("activerecord.attributes.match.name", :default => "Match Name (optional)"), :class => :label %></td>
+      <td><%= f.label :name, :class => :label %></td>
       <td><%= f.text_field :name, :class => 'text_field' %></td>
-      <td><%= f.label :date, t("activerecord.attributes.match.date", :default => "Date"), :class => :label %></td>
-      <td><%= f.date_select :date, :class => 'date_select' %></td>
+      <td><%= f.label :date, :class => :label %></td>
+      <td colspan=3><%= f.date_select :date, :class => 'date_select' %></td>
     </tr>
   </table>
 

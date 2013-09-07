@@ -70,6 +70,9 @@ class MatchesController < ApplicationController
     @game1.date = @match.date
     @game2.date = @match.date
 
+    @game1.league_id = params[:match][:league_id]
+    @game2.league_id = params[:match][:league_id]
+
     @match.games = [@game1, @game2]
 
     # Add this here to make it look nicer on error.

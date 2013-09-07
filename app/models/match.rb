@@ -1,9 +1,10 @@
 class Match < ActiveRecord::Base
-  attr_accessible :date, :game_id, :name, :tournament_id, :round, :comment
+  attr_accessible :date, :game_id, :name, :tournament_id, :league_id, :round, :comment
 
   has_many :games, :dependent => :destroy
 
   belongs_to :tournament
+  belongs_to :league
 
   accepts_nested_attributes_for :games
   validates_associated :games
@@ -87,11 +88,6 @@ class Match < ActiveRecord::Base
   end
 
   ## Handy Methods
-
-  # TODO: Make this work with a delegate?
-  def league
-    games.first.league
-  end
 
   def players
     games.first.players

@@ -12,18 +12,21 @@
   <div class="content">
     <div class="inner">
       <table class="table">      
-        <tr>
-          <% if @match.tournament %>
-          <td class="clickable" onclick="window.location.href = '<%= tournaments_path(@tournament) %>'">
-             Tournament: <%= @match.tournament.name %>
-          <% else %>
-          <td>
-             Tournament: N/A
-          <% end %>
-          </td>
-          <td>Round: <%= @match.round %></td>
-          <td>Match Name: <%= @match.name %></b></td>
-        </tr>
+        <% if @match.tournament || @match.league %>
+          <tr>
+            <% if @match.tournament %>
+              <td class="clickable" onclick="window.location.href = '<%= tournaments_path(@tournament) %>'">
+                Tournament: <%= @match.tournament.name %>, Round <%= @match.round %>
+              </td>
+            <% end %>
+            <% if @match.league %>
+              <td>League: <%= @match.league.name %></td>
+              <% unless @match.name.blank? %>
+                <td>Name: <%= @match.name %></td>
+              <% end %>
+            <% end %>
+          </tr>
+        <% end %>
         <tr>
           <td class="clickable" onclick="window.location.href = '<%= user_path(@match.player1) %>'">
             Player 1: <%= @match.player1.userid %>
