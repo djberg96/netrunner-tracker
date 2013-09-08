@@ -9,7 +9,7 @@
         <td><%= f.label :tournament_id, "Tournament", :class => :label %></td>
         <td><%= f.collection_select(:tournament_id, Tournament.order(:name), :id, :name, :include_blank => true) %></td>
         <td><%= f.label :round, :class => :label %></td>
-        <td><%= f.select :round, 1..8 %></td>
+        <td><%= f.select :round, 1..8, :include_blank => true, :selected => nil %></td>
       <% end %>
     </tr>
     <tr>
