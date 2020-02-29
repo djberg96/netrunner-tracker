@@ -1,3 +1,9 @@
+== THIS PROJECT IS DEFUNCT
+
+My days of playing netrunner are pretty much over, and the website is now offline. It was fun while it lasted.
+
+This project is now in archive mode.
+
 == Netrunner Tracker
 
 http://netrunner-tracker.herokuapp.com
